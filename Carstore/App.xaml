@@ -2,8 +2,93 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Carstore"
-             StartupUri="MainWindow.xaml">
+             xmlns:vm="clr-namespace:Carstore.ViewModel"
+             StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Color x:Key="MainBackground">#454545</Color>
+        <Color x:Key="MainForeground">#ffffff</Color>
+
+        <SolidColorBrush x:Key="UserControlBackground" Color="{StaticResource MainBackground}"/>
+        <SolidColorBrush x:Key="UserControlForeground" Color="{StaticResource MainForeground}"/>
+
+        <Style x:Key="UserControlStyle" TargetType="UserControl">
+            <Setter Property="Background" Value="{StaticResource UserControlBackground}"/>
+            <Setter Property="Foreground" Value="{StaticResource UserControlForeground}"/>
+        </Style>
+
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2"/>
+                            <ScrollViewer Name="PART_ContentHost" VerticalScrollBarVisibility="Disabled"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+
+        <Style x:Key="RoundedCheckBoxStyle" TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border Padding="5" Background="White" CornerRadius="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="0 0 5 0">
+                                    <Border Name="circleBorder" Width="14" Height="14" BorderBrush="Black" BorderThickness="1" CornerRadius="7"/>
+                                    <Ellipse Name="highlightCircle" Width="8" Height="8" Fill="Black"/>
+                                </Grid>
+                                <ContentPresenter Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="highlightCircle" Property="Fill" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="highlightCircle" Property="Fill" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.75"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <vm:StringConverter x:Key="StringConverter"/>
+        <vm:EmailConverter x:Key="EmailConverter"/>
+        <vm:PhoneConverter x:Key="PhoneConverter"/>
+
     </Application.Resources>
 </Application>

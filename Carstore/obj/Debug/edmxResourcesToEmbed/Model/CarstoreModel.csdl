@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarstoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsElectrical" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="Width" Type="Int32" Nullable="false" />
+    <Property Name="Height" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="Power" Type="Int32" Nullable="false" />
+    <Property Name="TankSize" Type="Int32" Nullable="false" />
+    <Property Name="Seats" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CarModel" Relationship="Self.FK__Car__ModelId__73BA3083" FromRole="Car" ToRole="CarModel" />
+    <NavigationProperty Name="CarType" Relationship="Self.FK__Car__TypeId__44FF419A" FromRole="Car" ToRole="CarType" />
+    <NavigationProperty Name="CarPhoto" Relationship="Self.FK__CarPhoto__CarId__160F4887" FromRole="Car" ToRole="CarPhoto" />
+    <NavigationProperty Name="CarPurpose" Relationship="Self.FK__CarPurpos__CarId__1EA48E88" FromRole="Car" ToRole="CarPurpose" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK__Notificat__CarId__59FA5E80" FromRole="Car" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="CarMark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CarModel" Relationship="Self.FK__CarModel__MarkId__75A278F5" FromRole="CarMark" ToRole="CarModel" />
+  </EntityType>
+  <EntityType Name="CarModel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MarkId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__Car__ModelId__73BA3083" FromRole="CarModel" ToRole="Car" />
+    <NavigationProperty Name="CarMark" Relationship="Self.FK__CarModel__MarkId__75A278F5" FromRole="CarModel" ToRole="CarMark" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="CarModel" ToRole="Detail" />
+  </EntityType>
+  <EntityType Name="CarPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="PhotoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__CarPhoto__CarId__160F4887" FromRole="CarPhoto" ToRole="Car" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK__CarPhoto__PhotoI__17036CC0" FromRole="CarPhoto" ToRole="Photo" />
+  </EntityType>
+  <EntityType Name="CarPurpose">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__CarPurpos__CarId__1EA48E88" FromRole="CarPurpose" ToRole="Car" />
+    <NavigationProperty Name="User" Relationship="Self.FK__CarPurpos__UserI__1DB06A4F" FromRole="CarPurpose" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CarType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__Car__TypeId__44FF419A" FromRole="CarType" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="PhotoId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CarModel" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="Detail" ToRole="CarModel" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Detail" ToRole="Photo" />
+    <NavigationProperty Name="DetailType" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="Detail" ToRole="DetailType" />
+    <NavigationProperty Name="DetailPurpose" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="Detail" ToRole="DetailPurpose" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Detail" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="DetailPurpose">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DetailId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="DetailPurpose" ToRole="Detail" />
+    <NavigationProperty Name="User" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="DetailPurpose" ToRole="User" />
+  </EntityType>
+  <EntityType Name="DetailType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="DetailType" ToRole="Detail" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFromId" Type="Int32" Nullable="false" />
+    <Property Name="UserToId" Type="Int32" Nullable="false" />
+    <Property Name="CarId" Type="Int32" />
+    <Property Name="DetailId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK__Notificat__CarId__59FA5E80" FromRole="Notification" ToRole="Car" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Notification" ToRole="Detail" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="Notification" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="Notification" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="CarPhoto" Relationship="Self.FK__CarPhoto__PhotoI__17036CC0" FromRole="Photo" ToRole="CarPhoto" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Photo" ToRole="Detail" />
+    <NavigationProperty Name="User" Relationship="Self.FK__User__AvatarId__3B75D760" FromRole="Photo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="AvatarId" Type="Int32" />
+    <NavigationProperty Name="CarPurpose" Relationship="Self.FK__CarPurpos__UserI__1DB06A4F" FromRole="User" ToRole="CarPurpose" />
+    <NavigationProperty Name="DetailPurpose" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="User" ToRole="DetailPurpose" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="User" ToRole="Notification" />
+    <NavigationProperty Name="Notification1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="User" ToRole="Notification" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK__User__AvatarId__3B75D760" FromRole="User" ToRole="Photo" />
+    <NavigationProperty Name="UserType" Relationship="Self.FK__User__TypeId__3A81B327" FromRole="User" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__User__TypeId__3A81B327" FromRole="UserType" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Car__ModelId__73BA3083">
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__TypeId__44FF419A">
+    <End Role="CarType" Type="Self.CarType" Multiplicity="1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarPhoto__CarId__160F4887">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="CarPhoto" Type="Self.CarPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarPhoto">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarPurpos__CarId__1EA48E88">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="CarPurpose" Type="Self.CarPurpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarPurpose">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__CarId__59FA5E80">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarModel__MarkId__75A278F5">
+    <End Role="CarMark" Type="Self.CarMark" Multiplicity="1" />
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarMark">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarModel">
+        <PropertyRef Name="MarkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detail__ModelId__04E4BC85">
+    <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
+    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail">
+        <PropertyRef Name="ModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarPhoto__PhotoI__17036CC0">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+    <End Role="CarPhoto" Type="Self.CarPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarPhoto">
+        <PropertyRef Name="PhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarPurpos__UserI__1DB06A4F">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="CarPurpose" Type="Self.CarPurpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarPurpose">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detail__PhotoId__03F0984C">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail">
+        <PropertyRef Name="PhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Detail__TypeId__02FC7413">
+    <End Role="DetailType" Type="Self.DetailType" Multiplicity="1" />
+    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetailType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Detail">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailPur__Detai__19DFD96B">
+    <End Role="Detail" Type="Self.Detail" Multiplicity="1" />
+    <End Role="DetailPurpose" Type="Self.DetailPurpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetailPurpose">
+        <PropertyRef Name="DetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Detai__06CD04F7">
+    <End Role="Detail" Type="Self.Detail" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Detail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="DetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailPur__UserI__1AD3FDA4">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DetailPurpose" Type="Self.DetailPurpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DetailPurpose">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__UserF__5812160E">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="UserFromId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__UserT__59063A47">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="UserToId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__AvatarId__3B75D760">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="AvatarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__TypeId__3A81B327">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarstoreDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="CarMark" EntityType="Self.CarMark" />
+    <EntitySet Name="CarModel" EntityType="Self.CarModel" />
+    <EntitySet Name="CarPhoto" EntityType="Self.CarPhoto" />
+    <EntitySet Name="CarPurpose" EntityType="Self.CarPurpose" />
+    <EntitySet Name="CarType" EntityType="Self.CarType" />
+    <EntitySet Name="Detail" EntityType="Self.Detail" />
+    <EntitySet Name="DetailPurpose" EntityType="Self.DetailPurpose" />
+    <EntitySet Name="DetailType" EntityType="Self.DetailType" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" />
+    <AssociationSet Name="FK__Car__ModelId__73BA3083" Association="Self.FK__Car__ModelId__73BA3083">
+      <End Role="CarModel" EntitySet="CarModel" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__TypeId__44FF419A" Association="Self.FK__Car__TypeId__44FF419A">
+      <End Role="CarType" EntitySet="CarType" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarPhoto__CarId__160F4887" Association="Self.FK__CarPhoto__CarId__160F4887">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="CarPhoto" EntitySet="CarPhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarPurpos__CarId__1EA48E88" Association="Self.FK__CarPurpos__CarId__1EA48E88">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="CarPurpose" EntitySet="CarPurpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__CarId__59FA5E80" Association="Self.FK__Notificat__CarId__59FA5E80">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarModel__MarkId__75A278F5" Association="Self.FK__CarModel__MarkId__75A278F5">
+      <End Role="CarMark" EntitySet="CarMark" />
+      <End Role="CarModel" EntitySet="CarModel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detail__ModelId__04E4BC85" Association="Self.FK__Detail__ModelId__04E4BC85">
+      <End Role="CarModel" EntitySet="CarModel" />
+      <End Role="Detail" EntitySet="Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarPhoto__PhotoI__17036CC0" Association="Self.FK__CarPhoto__PhotoI__17036CC0">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="CarPhoto" EntitySet="CarPhoto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarPurpos__UserI__1DB06A4F" Association="Self.FK__CarPurpos__UserI__1DB06A4F">
+      <End Role="User" EntitySet="User" />
+      <End Role="CarPurpose" EntitySet="CarPurpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detail__PhotoId__03F0984C" Association="Self.FK__Detail__PhotoId__03F0984C">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="Detail" EntitySet="Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Detail__TypeId__02FC7413" Association="Self.FK__Detail__TypeId__02FC7413">
+      <End Role="DetailType" EntitySet="DetailType" />
+      <End Role="Detail" EntitySet="Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailPur__Detai__19DFD96B" Association="Self.FK__DetailPur__Detai__19DFD96B">
+      <End Role="Detail" EntitySet="Detail" />
+      <End Role="DetailPurpose" EntitySet="DetailPurpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Detai__06CD04F7" Association="Self.FK__Notificat__Detai__06CD04F7">
+      <End Role="Detail" EntitySet="Detail" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailPur__UserI__1AD3FDA4" Association="Self.FK__DetailPur__UserI__1AD3FDA4">
+      <End Role="User" EntitySet="User" />
+      <End Role="DetailPurpose" EntitySet="DetailPurpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__UserF__5812160E" Association="Self.FK__Notificat__UserF__5812160E">
+      <End Role="User" EntitySet="User" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__UserT__59063A47" Association="Self.FK__Notificat__UserT__59063A47">
+      <End Role="User" EntitySet="User" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__AvatarId__3B75D760" Association="Self.FK__User__AvatarId__3B75D760">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__TypeId__3A81B327" Association="Self.FK__User__TypeId__3A81B327">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

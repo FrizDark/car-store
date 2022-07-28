@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -64,6 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\EmailConverter.cs" />
+    <Compile Include="ViewModel\PhoneConverter.cs" />
+    <Compile Include="View\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,10 +84,72 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Car.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarMark.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarModel.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarPhoto.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarPurpose.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarstoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarstoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarstoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarstoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarstoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CarType.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Detail.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DetailPurpose.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DetailType.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Notification.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Photo.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserType.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\StringConverter.cs" />
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\RegisterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -95,6 +169,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\CarstoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarstoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\CarstoreModel.edmx.diagram">
+      <DependentUpon>CarstoreModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,9 +188,18 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
+    <Content Include="Model\CarstoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarstoreModel.edmx</DependentUpon>
+      <LastGenOutput>CarstoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\CarstoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarstoreModel.edmx</DependentUpon>
+      <LastGenOutput>CarstoreModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
