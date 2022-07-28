@@ -65,6 +65,7 @@ CREATE TABLE [dbo].[Car] (
 );
 
 CREATE TABLE [dbo].[CarPhoto] (
+    [Id]   INT             IDENTITY (1, 1) NOT NULL,
     [CarId]   INT NOT NULL,
     [PhotoId] INT NOT NULL,
     FOREIGN KEY ([CarId]) REFERENCES [dbo].[Car] ([Id]),
@@ -72,6 +73,7 @@ CREATE TABLE [dbo].[CarPhoto] (
 );
 
 CREATE TABLE [dbo].[CarPurpose] (
+    [Id]   INT             IDENTITY (1, 1) NOT NULL,
     [UserId] INT NOT NULL,
     [CarId]  INT NOT NULL,
     FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id]),
@@ -99,6 +101,7 @@ CREATE TABLE [dbo].[Detail] (
 );
 
 CREATE TABLE [dbo].[DetailPurpose] (
+    [Id]   INT             IDENTITY (1, 1) NOT NULL,
     [UserId]   INT NOT NULL,
     [DetailId] INT NOT NULL,
     FOREIGN KEY ([DetailId]) REFERENCES [dbo].[Detail] ([Id]),
