@@ -28,3 +28,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\RegisterView.g.c
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\RegisterView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AppView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AppView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\ProfileView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\ProfileView.baml

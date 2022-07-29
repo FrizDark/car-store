@@ -65,7 +65,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -74,26 +74,35 @@
 
         <Border Grid.ColumnSpan="2" Grid.Row="0" Background="#606060" Margin="5" CornerRadius="10"/>
 
-        <TabControl Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource RoundedTabControl}" Margin="5" Padding="5" Background="#FF232323">
-            <TabItem Header="Cars">
-                <TextBlock>Cars tab</TextBlock>
-            </TabItem>
-            <TabItem Header="Details">
-                <TextBlock>Details tab</TextBlock>
-            </TabItem>
-        </TabControl>
+        <Grid Grid.ColumnSpan="2" Grid.RowSpan="2" Name="PageField">
+            
+            <TabControl Name="StoreTabs" Style="{StaticResource RoundedTabControl}" Margin="5" Padding="5" Background="#232323">
+                <TabItem Header="Cars">
+                    <TextBlock>Cars tab</TextBlock>
+                </TabItem>
+                <TabItem Header="Details">
+                    <TextBlock>Details tab</TextBlock>
+                </TabItem>
+            </TabControl>
+            
+        </Grid>
 
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0">
 
+            <Button Name="HomeButton" Width="30" Height="30" Margin="5"
+                        Click="HomeButton_Click"
+                        Style="{DynamicResource CircleButton}">
+                <Image Source="../Images/Home.png" Width="20" Height="20" Stretch="Fill"/>
+            </Button>
             <Button Name="SettingsButton" Width="30" Height="30" Margin="5"
                         Click="SettingsButton_Click"
                         Style="{DynamicResource CircleButton}">
-                <Image Source="../Images/Gear.png" Width="20" Height="20"/>
+                <Image Source="../Images/Gear.png" Width="20" Height="20" Stretch="Fill"/>
             </Button>
             <Button Name="ProfileButton" Width="30" Height="30" Margin="5"
                         Click="ProfileButton_Click"
                         Style="{DynamicResource CircleButton}">
-                
+                <Image Name="ProfileAvatar" Source="../Images/Profile.png" Width="20" Height="20" Stretch="Fill"/>
             </Button>
 
         </StackPanel>

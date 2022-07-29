@@ -22,9 +22,17 @@ namespace Carstore.View
     /// </summary>
     public partial class AppView : UserControl
     {
-        public AppView()
+
+        private ProfileView _profileView;
+        private TabControl _tabControl;
+        private RoutedEventHandler _logoutClick;
+
+
+        public AppView(RoutedEventHandler logoutClick)
         {
             InitializeComponent();
+            _tabControl = StoreTabs;
+            _logoutClick = logoutClick;
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -32,13 +40,18 @@ namespace Carstore.View
             MessageBox.Show("Settings");
         }
 
-        private async void ProfileButton_Click(object sender, RoutedEventArgs e)
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            using (CarstoreDBEntities db = new CarstoreDBEntities())
-            {
-                User user = await db.User.FindAsync(MainWindow.SelectedUserId);
-                MessageBox.Show($"Profile: {user.Firstname} {user.Lastname}, Id: {user.Id}");
-            }
+            _profileView = new ProfileView();
+            _profileView.LogoutButton.Click += _logoutClick;
+            PageField.Children.Clear();
+            PageField.Children.Add(_profileView);
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageField.Children.Clear();
+            PageField.Children.Add(_tabControl);
         }
 
     }

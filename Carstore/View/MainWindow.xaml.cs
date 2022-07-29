@@ -50,13 +50,25 @@ namespace Carstore
             catch { }
             EncryptAppSettings();
 
-            _appView = new AppView();
+            _appView = new AppView(AppLogoutClick);
             if (SelectedUserId > 0)
             {
                 MainGrid.Children.Add(_appView);
                 return;
             }
 
+            MainGrid.Children.Add(_loginView);
+        }
+
+        private void AppLogoutClick(object sender, RoutedEventArgs e)
+        {
+            SelectedUserId = 0;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
+            config.AppSettings.Settings.Remove("UserId");
+            config.Save(ConfigurationSaveMode.Minimal);
+            EncryptAppSettings();
+
+            MainGrid.Children.Clear();
             MainGrid.Children.Add(_loginView);
         }
 
@@ -80,8 +92,8 @@ namespace Carstore
                 phone = $"({phone.Substring(0, 3)}){phone.Substring(3, 3)}-{phone.Substring(6, 2)}-{phone.Substring(8, 2)}";
                 bool isUsedEmail = false;
                 bool isUsedPhone = false;
-                await Task.Run(() => isUsedEmail = db.User.Where(user => user.Email == email).First() != null);
-                await Task.Run(() => isUsedPhone = db.User.Where(user => user.Phone == phone).First() != null);
+                await Task.Run(() => isUsedEmail = db.User.First(user => user.Email == email) != null);
+                await Task.Run(() => isUsedPhone = db.User.First(user => user.Phone == phone) != null);
                 if (isUsedEmail && isUsedPhone)
                 {
                     _registerView.MessageBlock.Text = "Email and phone are used";
@@ -102,7 +114,7 @@ namespace Carstore
                     Firstname = _registerView.FirstnameBox.Text,
                     Lastname = _registerView.LastnameBox.Text,
                     Email = _registerView.EmailBox.Text,
-                    Phone = _registerView.PhoneBox.Text,
+                    Phone = phone,
                     Password = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(_registerView.PasswordBox.Password)),
                     TypeId = db.UserType.First(type => type.Name == "User").Id
                 });
@@ -124,7 +136,7 @@ namespace Carstore
             {
                 User user = null;
                 string email = _loginView.EmailBox.Text;
-                await Task.Run(() => user = db.User.Where(usr => usr.Email == email).First());
+                await Task.Run(() => user = db.User.First(usr => usr.Email == email));
                 byte[] hash = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(_loginView.PasswordBox.Password));
 
                 if (user != null)
@@ -152,6 +164,7 @@ namespace Carstore
                         }
 
                         MainGrid.Children.Clear();
+                        _appView = new AppView(AppLogoutClick);
                         MainGrid.Children.Add(_appView);
                         return;
                     }
