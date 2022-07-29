@@ -30,6 +30,7 @@ namespace Carstore
 
         LoginView _loginView;
         RegisterView _registerView;
+        AppView _appView;
 
         public MainWindow()
         {
@@ -49,8 +50,10 @@ namespace Carstore
             catch { }
             EncryptAppSettings();
 
+            _appView = new AppView();
             if (SelectedUserId > 0)
             {
+                MainGrid.Children.Add(_appView);
                 return;
             }
 
@@ -77,8 +80,8 @@ namespace Carstore
                 phone = $"({phone.Substring(0, 3)}){phone.Substring(3, 3)}-{phone.Substring(6, 2)}-{phone.Substring(8, 2)}";
                 bool isUsedEmail = false;
                 bool isUsedPhone = false;
-                await Task.Run(() => isUsedEmail = db.User.ToList().Find(user => user.Email == email) != null);
-                await Task.Run(() => isUsedPhone = db.User.ToList().Find(user => user.Phone == phone) != null);
+                await Task.Run(() => isUsedEmail = db.User.Where(user => user.Email == email).First() != null);
+                await Task.Run(() => isUsedPhone = db.User.Where(user => user.Phone == phone).First() != null);
                 if (isUsedEmail && isUsedPhone)
                 {
                     _registerView.MessageBlock.Text = "Email and phone are used";
@@ -121,7 +124,7 @@ namespace Carstore
             {
                 User user = null;
                 string email = _loginView.EmailBox.Text;
-                await Task.Run(() => user = db.User.ToList().Find(usr => usr.Email == email));
+                await Task.Run(() => user = db.User.Where(usr => usr.Email == email).First());
                 byte[] hash = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(_loginView.PasswordBox.Password));
 
                 if (user != null)
@@ -149,6 +152,7 @@ namespace Carstore
                         }
 
                         MainGrid.Children.Clear();
+                        MainGrid.Children.Add(_appView);
                         return;
                     }
                 }
