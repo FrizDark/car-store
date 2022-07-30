@@ -25,8 +25,8 @@ namespace Carstore.View
 
         private ProfileView _profileView;
         private TabControl _tabControl;
+        private AdminUserEditToolView _adminUserEditToolView;
         private RoutedEventHandler _logoutClick;
-
 
         public AppView(RoutedEventHandler logoutClick)
         {
@@ -35,7 +35,11 @@ namespace Carstore.View
             _logoutClick = logoutClick;
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                
+                User user = db.User.Find(MainWindow.SelectedUserId);
+                if (user.Photo != null)
+                {
+                    ProfileAvatar.ImageSource = ByteImage.GetImage(user.Photo.Data);
+                }
             }
         }
 
@@ -46,10 +50,28 @@ namespace Carstore.View
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            _profileView = new ProfileView();
+            _profileView = new ProfileView(() =>
+            {
+                using (CarstoreDBEntities db = new CarstoreDBEntities())
+                {
+                    User user = db.User.Find(MainWindow.SelectedUserId);
+                    if (user.Photo != null)
+                    {
+                        ProfileAvatar.ImageSource = ByteImage.GetImage(user.Photo.Data);
+                    }
+                }
+            });
             _profileView.LogoutButton.Click += _logoutClick;
+            _profileView.EditUsersButton.Click += EditUsersButton_Click;
             PageField.Children.Clear();
             PageField.Children.Add(_profileView);
+        }
+
+        private void EditUsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            _adminUserEditToolView = new AdminUserEditToolView();
+            PageField.Children.Clear();
+            PageField.Children.Add(_adminUserEditToolView);
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
@@ -57,6 +79,8 @@ namespace Carstore.View
             PageField.Children.Clear();
             PageField.Children.Add(_tabControl);
         }
+
+        
 
     }
 }

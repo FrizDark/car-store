@@ -95,8 +95,8 @@ namespace Carstore
                 phone = $"({phone.Substring(0, 3)}){phone.Substring(3, 3)}-{phone.Substring(6, 2)}-{phone.Substring(8, 2)}";
                 bool isUsedEmail = false;
                 bool isUsedPhone = false;
-                await Task.Run(() => isUsedEmail = db.User.First(user => user.Email == email) != null);
-                await Task.Run(() => isUsedPhone = db.User.First(user => user.Phone == phone) != null);
+                await Task.Run(() => isUsedEmail = db.User.FirstOrDefault(user => user.Email == email) != null);
+                await Task.Run(() => isUsedPhone = db.User.FirstOrDefault(user => user.Phone == phone) != null);
                 if (isUsedEmail && isUsedPhone)
                 {
                     _registerView.MessageBlock.Text = "Email and phone are used";

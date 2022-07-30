@@ -30,10 +30,18 @@ namespace Carstore.View
     {
 
         private string _profilePhotoPath = null;
+        private Action _updateProfilePhoto = () => { };
+
         public ProfileView()
         {
             InitializeComponent();
             LoadUserData();
+        }
+        public ProfileView(Action updateProfilePhoto)
+        {
+            InitializeComponent();
+            LoadUserData();
+            _updateProfilePhoto = updateProfilePhoto;
         }
 
         private void LoadUserData()
@@ -65,11 +73,6 @@ namespace Carstore.View
                         break;
                 }
             }
-        }
-
-        private void EditUsersButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Edit users");
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -122,6 +125,23 @@ namespace Carstore.View
             {
                 User user = null;
                 await Task.Run(new Action(() => user = db.User.First(usr => usr.Id == MainWindow.SelectedUserId)));
+                string phone = PhoneBox.Text;
+
+                User emailUser = db.User.Where(u => u.Email == EmailBox.Text).FirstOrDefault();
+                User phoneUser = db.User.Where(u => u.Phone == phone).FirstOrDefault();
+                if (emailUser != null && emailUser != user || phoneUser != null && phoneUser != user)
+                {
+                    MessageBox.Show("Email and phone are used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                } else if (emailUser != null && emailUser != user)
+                {
+                    MessageBox.Show("Email is used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                } else if (emailUser != null && phoneUser != user)
+                {
+                    MessageBox.Show("Phone is used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 if (_profilePhotoPath != null)
                 {
@@ -137,11 +157,12 @@ namespace Carstore.View
                 user.Firstname = FirstnameBox.Text;
                 user.Lastname = LastnameBox.Text;
                 user.Email = EmailBox.Text;
-                string phone = PhoneBox.Text;
                 user.Phone = $"({phone.Substring(0, 3)}){phone.Substring(3, 3)}-{phone.Substring(6, 2)}-{phone.Substring(8, 2)}";
                 db.SaveChanges();
             }
 
+            _profilePhotoPath = null;
+            _updateProfilePhoto();
             LoadUserData();
         }
 

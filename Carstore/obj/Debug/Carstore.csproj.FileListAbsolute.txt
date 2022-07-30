@@ -30,3 +30,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AppView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AppView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\ProfileView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\ProfileView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AdminUserEditToolView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AdminUserEditToolView.baml

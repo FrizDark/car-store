@@ -69,8 +69,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ByteImage.cs" />
+    <Compile Include="Model\UserRoleModel.cs" />
     <Compile Include="ViewModel\EmailConverter.cs" />
     <Compile Include="ViewModel\PhoneConverter.cs" />
+    <Compile Include="View\AdminUserEditToolView.xaml.cs">
+      <DependentUpon>AdminUserEditToolView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
@@ -80,6 +84,10 @@
     <Compile Include="View\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AdminUserEditToolView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AppView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

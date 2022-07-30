@@ -163,7 +163,7 @@
             <Grid Name="AdminButtonsBlock">
                 <Button Name="EditUsersButton" 
                 Width="150" Height="30" Visibility="Hidden"
-                Click="EditUsersButton_Click">
+                x:FieldModifier="public">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
                             <Setter Property="Background" Value="LightYellow"/>
