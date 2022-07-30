@@ -43,7 +43,7 @@ namespace Carstore.View
                 User user = db.User.First(usr => usr.Id == MainWindow.SelectedUserId);
                 if (user.Photo != null)
                 {
-                    ProfilePhoto.Source = LoadImage(user.Photo.Data);
+                    ProfilePhoto.Source = ByteImage.GetImage(user.Photo.Data);
                 } else
                 {
                     ProfilePhoto.Source = null;
@@ -131,7 +131,7 @@ namespace Carstore.View
                     }
                     user.Photo = new Photo
                     {
-                        Data = CreateCopy(_profilePhotoPath)
+                        Data = ByteImage.GetBytes(_profilePhotoPath)
                     };
                 }
                 user.Firstname = FirstnameBox.Text;
@@ -153,48 +153,8 @@ namespace Carstore.View
             if (f.ShowDialog() == true)
             {
                 _profilePhotoPath = f.FileName;
-                ProfilePhoto.Source = LoadImage(CreateCopy(_profilePhotoPath));
+                ProfilePhoto.Source = ByteImage.GetImage(ByteImage.GetBytes(_profilePhotoPath));
             }
-        }
-
-        private static BitmapImage LoadImage(byte[] imageData)
-        {
-            if (imageData == null || imageData.Length == 0) return null;
-            var image = new BitmapImage();
-            using (var mem = new MemoryStream(imageData))
-            {
-                mem.Position = 0;
-                image.BeginInit();
-                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.UriSource = null;
-                image.StreamSource = mem;
-                image.EndInit();
-            }
-            image.Freeze();
-            return image;
-        }
-        private byte[] CreateCopy(string fileName)
-        {
-            System.Drawing.Image img = System.Drawing.Image.FromFile(fileName);
-            int maxWidth = 400, maxHeight = 400;
-            double ratioX = (double)maxWidth / img.Width;
-            double ratioY = (double)maxHeight / img.Height;
-            double ratio = Math.Min(ratioX, ratioY);
-
-            int newWidth = (int)(img.Width * ratio);
-            int newHeight = (int)(img.Height * ratio);
-
-            System.Drawing.Image mi = new Bitmap(newWidth, newHeight);// рисунок в памяти
-            Graphics g = Graphics.FromImage(mi);
-            g.DrawImage(img, 0, 0, newWidth, newHeight);
-            MemoryStream ms = new MemoryStream();// поток для ввода|вывода байт из памяти
-            mi.Save(ms, ImageFormat.Jpeg);
-            ms.Flush();// выносим в поток все данные из буфера
-            ms.Seek(0, SeekOrigin.Begin);
-            BinaryReader br = new BinaryReader(ms);
-            byte[] buf = br.ReadBytes((int)ms.Length);
-            return buf;
         }
 
         private void ClearProfilePhotoButton_Click(object sender, RoutedEventArgs e)

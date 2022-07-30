@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ByteImage.cs" />
     <Compile Include="ViewModel\EmailConverter.cs" />
     <Compile Include="ViewModel\PhoneConverter.cs" />
     <Compile Include="View\AppView.xaml.cs">

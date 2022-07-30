@@ -33,6 +33,10 @@ namespace Carstore.View
             InitializeComponent();
             _tabControl = StoreTabs;
             _logoutClick = logoutClick;
+            using (CarstoreDBEntities db = new CarstoreDBEntities())
+            {
+                
+            }
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)

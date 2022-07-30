@@ -51,10 +51,13 @@ namespace Carstore
             EncryptAppSettings();
 
             _appView = new AppView(AppLogoutClick);
-            if (SelectedUserId > 0)
+            using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                MainGrid.Children.Add(_appView);
-                return;
+                if (SelectedUserId > 0 && db.User.Find(SelectedUserId) != null)
+                {
+                    MainGrid.Children.Add(_appView);
+                    return;
+                }
             }
 
             MainGrid.Children.Add(_loginView);
