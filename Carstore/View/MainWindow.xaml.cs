@@ -45,16 +45,20 @@ namespace Carstore
             Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
             try
             {
-                SelectedUserId = Convert.ToInt32(config.AppSettings.Settings["UserId"].Value);
+                string value = config.AppSettings.Settings["UserId"]?.Value;
+                if (value != null) SelectedUserId = int.Parse(value);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             EncryptAppSettings();
 
-            _appView = new AppView(AppLogoutClick);
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
                 if (SelectedUserId > 0 && db.User.Find(SelectedUserId) != null)
                 {
+                    _appView = new AppView(AppLogoutClick);
                     MainGrid.Children.Add(_appView);
                     return;
                 }

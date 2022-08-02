@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -69,7 +72,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ByteImage.cs" />
+    <Compile Include="Model\CarTableModel.cs" />
     <Compile Include="Model\UserRoleModel.cs" />
+    <Compile Include="ViewModel\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModel\EmailConverter.cs" />
     <Compile Include="ViewModel\PhoneConverter.cs" />
     <Compile Include="View\AdminUserEditToolView.xaml.cs">
@@ -77,6 +82,12 @@
     </Compile>
     <Compile Include="View\AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CarsDataGridView.xaml.cs">
+      <DependentUpon>CarsDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
@@ -89,6 +100,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AppView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CarsDataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +181,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +238,7 @@
     </Resource>
     <Resource Include="Images\Profile.png" />
     <Resource Include="Images\Home.png" />
+    <Resource Include="Icon.ico" />
     <Content Include="Model\CarstoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>

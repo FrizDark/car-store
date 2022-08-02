@@ -77,9 +77,9 @@
 
         <Grid Grid.ColumnSpan="2" Grid.RowSpan="2" Name="PageField">
             
-            <TabControl Name="StoreTabs" Style="{StaticResource RoundedTabControl}" Margin="5" Padding="5" Background="#232323">
+            <TabControl Name="StoreTabs" Style="{StaticResource RoundedTabControl}" Margin="5" Background="#232323">
                 <TabItem Header="Cars">
-                    <TextBlock>Cars tab</TextBlock>
+                    <local:CarsDataGridView/>
                 </TabItem>
                 <TabItem Header="Details">
                     <TextBlock>Details tab</TextBlock>
