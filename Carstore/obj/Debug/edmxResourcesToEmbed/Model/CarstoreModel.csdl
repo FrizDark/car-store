@@ -10,7 +10,7 @@
     <Property Name="Price" Type="Int32" Nullable="false" />
     <Property Name="Color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IsElectrical" Type="Boolean" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Length" Type="Int32" Nullable="false" />
     <Property Name="Width" Type="Int32" Nullable="false" />
     <Property Name="Height" Type="Int32" Nullable="false" />
@@ -62,6 +62,7 @@
     <Property Name="CarId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Car" Relationship="Self.FK__CarPurpos__CarId__1EA48E88" FromRole="CarPurpose" ToRole="Car" />
     <NavigationProperty Name="User" Relationship="Self.FK__CarPurpos__UserI__1DB06A4F" FromRole="CarPurpose" ToRole="User" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="CarType">
     <Key>
@@ -81,7 +82,7 @@
     <Property Name="ModelId" Type="Int32" Nullable="false" />
     <Property Name="PhotoId" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="CarModel" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="Detail" ToRole="CarModel" />
     <NavigationProperty Name="Photo" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Detail" ToRole="Photo" />
     <NavigationProperty Name="DetailType" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="Detail" ToRole="DetailType" />
@@ -97,6 +98,7 @@
     <Property Name="DetailId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Detail" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="DetailPurpose" ToRole="Detail" />
     <NavigationProperty Name="User" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="DetailPurpose" ToRole="User" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="DetailType">
     <Key>
@@ -115,11 +117,12 @@
     <Property Name="UserToId" Type="Int32" Nullable="false" />
     <Property Name="CarId" Type="Int32" />
     <Property Name="DetailId" Type="Int32" />
-    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Car" Relationship="Self.FK__Notificat__CarId__59FA5E80" FromRole="Notification" ToRole="Car" />
     <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Notification" ToRole="Detail" />
     <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="Notification" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="Notification" ToRole="User" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Photo">
     <Key>

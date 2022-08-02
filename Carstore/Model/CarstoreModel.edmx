@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CarstoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CarstoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Car">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,7 +15,7 @@
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Color" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="IsElectrical" Type="bit" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Length" Type="int" Nullable="false" />
           <Property Name="Width" Type="int" Nullable="false" />
           <Property Name="Height" Type="int" Nullable="false" />
@@ -54,6 +54,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="CarType">
           <Key>
@@ -72,7 +73,7 @@
           <Property Name="ModelId" Type="int" Nullable="false" />
           <Property Name="PhotoId" Type="int" Nullable="false" />
           <Property Name="Price" Type="int" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="DetailPurpose">
           <Key>
@@ -81,6 +82,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="DetailId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="DetailType">
           <Key>
@@ -98,7 +100,8 @@
           <Property Name="UserToId" Type="int" Nullable="false" />
           <Property Name="CarId" Type="int" />
           <Property Name="DetailId" Type="int" />
-          <Property Name="Description" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Photo">
           <Key>
@@ -430,8 +433,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarstoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -445,7 +447,7 @@
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsElectrical" Type="Boolean" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Length" Type="Int32" Nullable="false" />
           <Property Name="Width" Type="Int32" Nullable="false" />
           <Property Name="Height" Type="Int32" Nullable="false" />
@@ -497,6 +499,7 @@
           <Property Name="CarId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Car" Relationship="Self.FK__CarPurpos__CarId__1EA48E88" FromRole="CarPurpose" ToRole="Car" />
           <NavigationProperty Name="User" Relationship="Self.FK__CarPurpos__UserI__1DB06A4F" FromRole="CarPurpose" ToRole="User" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="CarType">
           <Key>
@@ -516,7 +519,7 @@
           <Property Name="ModelId" Type="Int32" Nullable="false" />
           <Property Name="PhotoId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CarModel" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="Detail" ToRole="CarModel" />
           <NavigationProperty Name="Photo" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Detail" ToRole="Photo" />
           <NavigationProperty Name="DetailType" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="Detail" ToRole="DetailType" />
@@ -532,6 +535,7 @@
           <Property Name="DetailId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Detail" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="DetailPurpose" ToRole="Detail" />
           <NavigationProperty Name="User" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="DetailPurpose" ToRole="User" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="DetailType">
           <Key>
@@ -550,11 +554,12 @@
           <Property Name="UserToId" Type="Int32" Nullable="false" />
           <Property Name="CarId" Type="Int32" />
           <Property Name="DetailId" Type="Int32" />
-          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Car" Relationship="Self.FK__Notificat__CarId__59FA5E80" FromRole="Notification" ToRole="Car" />
           <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Notification" ToRole="Detail" />
           <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="Notification" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="Notification" ToRole="User" />
+          <Property Name="IsRead" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Photo">
           <Key>
@@ -951,6 +956,7 @@
           <EntitySetMapping Name="CarPurpose">
             <EntityTypeMapping TypeName="CarstoreDBModel.CarPurpose">
               <MappingFragment StoreEntitySet="CarPurpose">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CarId" ColumnName="CarId" />
@@ -981,6 +987,7 @@
           <EntitySetMapping Name="DetailPurpose">
             <EntityTypeMapping TypeName="CarstoreDBModel.DetailPurpose">
               <MappingFragment StoreEntitySet="DetailPurpose">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="DetailId" ColumnName="DetailId" />
@@ -998,6 +1005,7 @@
           <EntitySetMapping Name="Notification">
             <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
               <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
                 <ScalarProperty Name="UserToId" ColumnName="UserToId" />

@@ -30,16 +30,21 @@ namespace Carstore.View
         private List<CarMark> _marks;
         private List<CarModel> _models;
         private List<CarType> _types;
-        private List<Car> _cars;
+        private List<CarPurpose> _purposes;
+
+        private Grid _dgGrid;
+        private CarInfoView _infoView;
 
         public CarsDataGridView()
         {
             InitializeComponent();
 
+            _dgGrid = DGGrid;
+
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _cars = db.Car.ToList();
-                dg.ItemsSource = _cars
+                _purposes = db.CarPurpose.ToList();
+                dg.ItemsSource = _purposes
                     .Select(c => new CarTableModel(c))
                     .ToList();
                 _marks = db.CarMark.OrderBy(m => m.Name).ToList();
@@ -71,8 +76,8 @@ namespace Carstore.View
             TypeBox.ItemsSource = _types.ToList();
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _cars = db.Car.ToList();
-                dg.ItemsSource = _cars
+                _purposes = db.CarPurpose.ToList();
+                dg.ItemsSource = _purposes
                     .Select(c => new CarTableModel(c))
                     .ToList();
                 _marks = db.CarMark.OrderBy(m => m.Name).ToList();
@@ -140,27 +145,34 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                List<Car> filteredCars = db.Car.Include("CarModel").Include("CarModel.CarMark").Include("CarPhoto").Include("CarPhoto.Photo").ToList();
+                List<CarPurpose> filteredPurposes = db.CarPurpose
+                    .Include("Car")
+                    .Include("Car.CarModel")
+                    .Include("Car.CarModel.CarMark")
+                    .Include("Car.CarPhoto")
+                    .Include("Car.CarPhoto.Photo")
+                    .Include("User")
+                    .ToList();
                 if (MarkBox.SelectedItem is CarMark mark && mark != null)
                 {
-                    filteredCars = filteredCars.Where(c => c.CarModel.MarkId == mark.Id).ToList();
+                    filteredPurposes = filteredPurposes.Where(c => c.Car.CarModel.MarkId == mark.Id).ToList();
                 }
                 if (ModelBox.SelectedItem is CarModel model && model != null)
                 {
-                    filteredCars = filteredCars.Where(c => c.ModelId == model.Id).ToList();
+                    filteredPurposes = filteredPurposes.Where(c => c.Car.ModelId == model.Id).ToList();
                 }
                 if (TypeBox.SelectedItem is CarType type && type != null)
                 {
-                    filteredCars = filteredCars.Where(c => c.TypeId == type.Id).ToList();
+                    filteredPurposes = filteredPurposes.Where(c => c.Car.TypeId == type.Id).ToList();
                 }
                 int minPrice = PriceMinBox.Value;
                 int maxPrice = PriceMaxBox.Value;
                 int minPower = PowerMinBox.Value;
                 int maxPower = PowerMaxBox.Value;
-                filteredCars = filteredCars.Where(
-                    c => c.Price >= minPrice && c.Price <= maxPrice && c.Power >= minPower && c.Power <= maxPower
+                filteredPurposes = filteredPurposes.Where(
+                    c => c.Car.Price >= minPrice && c.Car.Price <= maxPrice && c.Car.Power >= minPower && c.Car.Power <= maxPower
                     ).ToList();
-                dg.ItemsSource = filteredCars
+                dg.ItemsSource = filteredPurposes
                         .Select(c => new CarTableModel(c))
                         .ToList();
             }
@@ -168,7 +180,19 @@ namespace Carstore.View
 
         private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (dg.SelectedItem is CarTableModel purpose && purpose != null)
+            {
+                _infoView = new CarInfoView(_purposes.First(p => p.Id == purpose.Id), BackButton_Click);
+                CarsGrid.Children.Clear();
+                CarsGrid.Children.Add(_infoView);
+            }
+        }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            CarsGrid.Children.Clear();
+            CarsGrid.Children.Add(_dgGrid);
+            ResetButton_Click(sender, e);
         }
 
     }

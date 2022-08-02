@@ -11,12 +11,16 @@
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <Color x:Key="MainBackground">#454545</Color>
         <Color x:Key="MainForeground">#ffffff</Color>
+        <Color x:Key="DarkGrayColor">#363636</Color>
+        <Color x:Key="GrayColor">#626262</Color>
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- Brushes -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <SolidColorBrush x:Key="UserControlBackground" Color="{StaticResource MainBackground}"/>
         <SolidColorBrush x:Key="UserControlForeground" Color="{StaticResource MainForeground}"/>
+        <SolidColorBrush x:Key="DarkGray" Color="{StaticResource DarkGrayColor}"/>
+        <SolidColorBrush x:Key="Gray" Color="{StaticResource GrayColor}"/>
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- Controls -->
@@ -30,11 +34,38 @@
         <!-- Buttons -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Border" 
+                                CornerRadius="3"
+                                BorderThickness="0"
+                                Padding="3"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RoundedButtonStyle5" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="3" />
+                    <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Style.Resources>
         </Style>
@@ -43,19 +74,19 @@
         <!-- TextBoxes -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Foreground" Value="White"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="3" />
                 </Style>
             </Style.Resources>
         </Style>
-        
+
         <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            
+            <Setter Property="Background" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Foreground" Value="White"/>
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="PasswordBox">
@@ -69,6 +100,17 @@
 
         </Style>
 
+        <Style x:Key="RoundedRichTextBox" TargetType="RichTextBox">
+            <Setter Property="Background" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- CheckBoxes -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
@@ -76,21 +118,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="CheckBox">
-                        <Border Padding="5" Background="White" CornerRadius="5">
+                        <Border Padding="5" Background="{StaticResource DarkGray}" CornerRadius="5">
                             <StackPanel Orientation="Horizontal">
                                 <Grid Margin="0 0 5 0">
-                                    <Border Name="circleBorder" Width="14" Height="14" BorderBrush="Black" BorderThickness="1" CornerRadius="7"/>
-                                    <Ellipse Name="highlightCircle" Width="8" Height="8" Fill="Black"/>
+                                    <Border Name="circleBorder" Width="14" Height="14" BorderBrush="White" BorderThickness="1" CornerRadius="7"/>
+                                    <Ellipse Name="highlightCircle" Width="8" Height="8" Fill="White"/>
                                 </Grid>
                                 <ContentPresenter Name="content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="highlightCircle" Property="Fill" Value="Black"/>
+                                <Setter TargetName="highlightCircle" Property="Fill" Value="White"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="highlightCircle" Property="Fill" Value="White"/>
+                                <Setter TargetName="highlightCircle" Property="Fill" Value="{StaticResource DarkGray}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Opacity" Value="0.75"/>
@@ -113,23 +155,21 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="20" />
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Border" Background="White" CornerRadius="3" Grid.ColumnSpan="2"/>
+                <Border x:Name="Border" Background="{StaticResource DarkGray}" CornerRadius="3" Grid.ColumnSpan="2"/>
                 <Path x:Name="Arrow"
                       Grid.Column="1"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      Data="M 0 0 L 4 4 L 8 0 Z" >
-                    <Path.Fill>
-                        <SolidColorBrush Color="Black"/>
-                    </Path.Fill>
+                      Data="M 0 0 L 4 4 L 8 0 Z"
+                      Fill="White">
                 </Path>
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="Border" Property="Background" Value="DarkGray"/>
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="Border" Property="Background" Value="LightGray"/>
+                    <Setter TargetName="Border" Property="Background" Value="Gray"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -147,6 +187,7 @@
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
@@ -184,7 +225,7 @@
                                       MinWidth="{TemplateBinding Width}"
                                       MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                     <Border x:Name="DropDownBorder"
-                                            Background="White"
+                                            Background="{StaticResource DarkGray}"
                                             CornerRadius="3"/>
                                     <ScrollViewer Margin="4 6"
                                                   SnapsToDevicePixels="True">
@@ -224,6 +265,7 @@
                 <Style TargetType="ComboBoxItem">
                     <Setter Property="SnapsToDevicePixels" Value="True"/>
                     <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Foreground" Value="White"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="ComboBoxItem">
@@ -236,7 +278,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="LightGray"/>
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -260,13 +302,13 @@
                                 Margin="1"
                                 CornerRadius="2"
                                 BorderThickness="1"
-                                Background="White">
+                                Background="{StaticResource Gray}">
                             <Path x:Name="Arrow"
                               HorizontalAlignment="Center"
                               VerticalAlignment="Center"
                               Data="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" >
                                 <Path.Fill>
-                                    <SolidColorBrush Color="Black"/>
+                                    <SolidColorBrush Color="White"/>
                                 </Path.Fill>
                             </Path>
                         </Border>
@@ -299,14 +341,14 @@
                     <ControlTemplate TargetType="Thumb">
                         <Border x:Name="Border" 
                                 CornerRadius="2"
-                                Background="LightGray"
+                                Background="DarkGray"
                                 BorderThickness="1"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="DarkGray"/>
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
                             </Trigger>
                             <Trigger Property="IsDragging" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DarkGray}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -323,7 +365,7 @@
                 </Grid.RowDefinitions>
                 <Border Grid.RowSpan="3"
                         CornerRadius="2"
-                        Background="White"/>
+                        Background="{StaticResource Gray}"/>
                 <RepeatButton Grid.Row="0"
                               Style="{StaticResource ScrollBarLineButton}"
                               Height="18"
@@ -362,7 +404,7 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.ColumnSpan="3"
                         CornerRadius="2"
-                        Background="White"/>
+                        Background="{StaticResource Gray}"/>
                 <RepeatButton Grid.Column="0"
                               Style="{StaticResource ScrollBarLineButton}"
                               Width="18"
@@ -413,8 +455,9 @@
         <!-- DataGrids -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <Style x:Key="RoundedDataGridStyle" TargetType="DataGrid">
-            <Setter Property="Background" Value="#363636"/>
+            <Setter Property="Background" Value="{StaticResource DarkGray}"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7" />
@@ -427,8 +470,9 @@
                 <Style TargetType="DataGridCell">
                     <Setter Property="Margin" Value="2"/>
                     <Setter Property="Padding" Value="5 3"/>
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="0"/>
                     <Style.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="3"/>
@@ -436,7 +480,7 @@
                     </Style.Resources>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="DarkGray"/>
+                            <Setter Property="Background" Value="{StaticResource Gray}"/>
                         </Trigger>
                     </Style.Triggers>
                 </Style>

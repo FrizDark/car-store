@@ -89,7 +89,7 @@
             <CheckBox Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"
                       Style="{StaticResource RoundedCheckBoxStyle}"
                       Name="SavePasswordBox" x:FieldModifier="public">
-                <TextBlock>Save password</TextBlock>
+                <TextBlock Foreground="White">Save password</TextBlock>
             </CheckBox>
 
             <Button Grid.Column="0" Grid.Row="4" Margin="10"

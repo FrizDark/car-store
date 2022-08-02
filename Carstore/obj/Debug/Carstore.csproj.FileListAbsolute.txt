@@ -36,3 +36,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.csproj.CoreC
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.csproj.CopyComplete
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.exe
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.pdb
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\CarInfoView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\CarInfoView.baml

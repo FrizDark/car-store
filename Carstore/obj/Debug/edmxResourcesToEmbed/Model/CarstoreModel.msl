@@ -50,6 +50,7 @@
     <EntitySetMapping Name="CarPurpose">
       <EntityTypeMapping TypeName="CarstoreDBModel.CarPurpose">
         <MappingFragment StoreEntitySet="CarPurpose">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />
@@ -80,6 +81,7 @@
     <EntitySetMapping Name="DetailPurpose">
       <EntityTypeMapping TypeName="CarstoreDBModel.DetailPurpose">
         <MappingFragment StoreEntitySet="DetailPurpose">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="DetailId" ColumnName="DetailId" />
@@ -97,6 +99,7 @@
     <EntitySetMapping Name="Notification">
       <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
         <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
           <ScalarProperty Name="UserToId" ColumnName="UserToId" />

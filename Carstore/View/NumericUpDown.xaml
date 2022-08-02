@@ -11,24 +11,62 @@
 
         <Style x:Key="UpButton" TargetType="RepeatButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="BorderThickness" Value="1 0 0 0.5"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="0 5 0 0"/>
-                </Style>
-            </Style.Resources>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Background" Value="{StaticResource Gray}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border x:Name="Border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="0 5 0 0"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="DownButton" TargetType="RepeatButton">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="BorderThickness" Value="1 0.5 0 0"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="0 0 5 0"/>
-                </Style>
-            </Style.Resources>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Background" Value="{StaticResource Gray}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border x:Name="Border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="0 0 5 0"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         
     </UserControl.Resources>
@@ -40,12 +78,13 @@
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.ColumnSpan="2" Background="White" CornerRadius="5"/>
+        <Border Grid.ColumnSpan="2" Background="{StaticResource DarkGray}" CornerRadius="5"/>
 
         <TextBox Name="Field"
                  Grid.Column="0"
                  VerticalAlignment="Center"
                  Margin="5"
+                 Foreground="White"
                  Background="Transparent"
                  BorderThickness="0"
                  Text="0"
@@ -60,11 +99,11 @@
 
             <RepeatButton Name="UpButton" Grid.Row="0" Style="{StaticResource UpButton}"
                     Click="UpButton_Click">
-                <Path Data="M 0 4 L 8 4 L 4 0 Z" Fill="Black"/>
+                <Path Data="M 0 4 L 8 4 L 4 0 Z" Fill="White"/>
             </RepeatButton>
             <RepeatButton Name="DownButton" Grid.Row="1" Style="{StaticResource DownButton}"
                     Click="DownButton_Click">
-                <Path Data="M 0 0 L 4 4 L 8 0 Z" Fill="Black"/>
+                <Path Data="M 0 0 L 4 4 L 8 0 Z" Fill="White"/>
             </RepeatButton>
             
         </Grid>

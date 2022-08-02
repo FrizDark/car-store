@@ -79,7 +79,7 @@
             
             <TabControl Name="StoreTabs" Style="{StaticResource RoundedTabControl}" Margin="5" Background="#232323">
                 <TabItem Header="Cars">
-                    <local:CarsDataGridView/>
+                    <local:CarsDataGridView x:Name="CarsListView"/>
                 </TabItem>
                 <TabItem Header="Details">
                     <TextBlock>Details tab</TextBlock>

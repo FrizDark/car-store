@@ -17,6 +17,7 @@ namespace Carstore.Model
         public int Id { get; set; }
         public int UserId { get; set; }
         public int DetailId { get; set; }
+        public System.DateTime CreationDate { get; set; }
     
         public virtual Detail Detail { get; set; }
         public virtual User User { get; set; }

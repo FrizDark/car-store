@@ -59,7 +59,8 @@
 
         <DataGrid Grid.Row="2" Name="dg" Margin="5" Padding="5"
                   CanUserAddRows="False" 
-                  CanUserDeleteRows="False" 
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
                   SelectionMode="Single"
                   SelectionUnit="FullRow"
                   AutoGenerateColumns="False" 

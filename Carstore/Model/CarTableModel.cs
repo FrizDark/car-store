@@ -16,6 +16,7 @@ namespace Carstore.Model
         public string Color { get; set; }
         public int Price { get; set; }
         public int Power { get; set; }
+        public string Seller { get; set; }
 
         public CarTableModel()
         {
@@ -26,9 +27,10 @@ namespace Carstore.Model
             Color = "";
             Price = 0;
             Power = 0;
+            Seller = "";
         }
 
-        public CarTableModel(int id, byte[] photo, string mark, string model, string color, int price, int power)
+        public CarTableModel(int id, byte[] photo, string mark, string model, string color, int price, int power, string seller)
         {
             Id = id;
             Photo = photo;
@@ -37,17 +39,19 @@ namespace Carstore.Model
             Color = color;
             Price = price;
             Power = power;
+            Seller = seller;
         }
 
-        public CarTableModel(Car car)
+        public CarTableModel(CarPurpose purpose)
         {
-            Id = car.Id;
-            Photo = car.CarPhoto.First().Photo.Data;
-            Mark = car.CarModel.CarMark.Name;
-            Model = car.CarModel.Name;
-            Color = car.Color;
-            Price = car.Price;
-            Power = car.Power;
+            Id = purpose.Id;
+            Photo = purpose.Car.CarPhoto.First().Photo.Data;
+            Mark = purpose.Car.CarModel.CarMark.Name;
+            Model = purpose.Car.CarModel.Name;
+            Color = purpose.Car.Color;
+            Price = purpose.Car.Price;
+            Power = purpose.Car.Power;
+            Seller = $"{purpose.User.Firstname} {purpose.User.Lastname}";
         }
     }
 }
