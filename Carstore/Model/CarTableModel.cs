@@ -53,5 +53,6 @@ namespace Carstore.Model
             Power = purpose.Car.Power;
             Seller = $"{purpose.User.Firstname} {purpose.User.Lastname}";
         }
+
     }
 }

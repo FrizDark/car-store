@@ -41,7 +41,6 @@
     <Property Name="MarkId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Car" Relationship="Self.FK__Car__ModelId__73BA3083" FromRole="CarModel" ToRole="Car" />
     <NavigationProperty Name="CarMark" Relationship="Self.FK__CarModel__MarkId__75A278F5" FromRole="CarModel" ToRole="CarMark" />
-    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="CarModel" ToRole="Detail" />
   </EntityType>
   <EntityType Name="CarPhoto">
     <Key>
@@ -60,9 +59,9 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="Car" Relationship="Self.FK__CarPurpos__CarId__1EA48E88" FromRole="CarPurpose" ToRole="Car" />
     <NavigationProperty Name="User" Relationship="Self.FK__CarPurpos__UserI__1DB06A4F" FromRole="CarPurpose" ToRole="User" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="CarType">
     <Key>
@@ -77,17 +76,16 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TypeId" Type="Int32" Nullable="false" />
-    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PhotoId" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="CarModel" Relationship="Self.FK__Detail__ModelId__04E4BC85" FromRole="Detail" ToRole="CarModel" />
-    <NavigationProperty Name="Photo" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Detail" ToRole="Photo" />
-    <NavigationProperty Name="DetailType" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="Detail" ToRole="DetailType" />
-    <NavigationProperty Name="DetailPurpose" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="Detail" ToRole="DetailPurpose" />
-    <NavigationProperty Name="Notification" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Detail" ToRole="Notification" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK__Detail__PhotoId__40058253" FromRole="Detail" ToRole="Photo" />
+    <NavigationProperty Name="DetailType" Relationship="Self.FK__Detail__TypeId__3F115E1A" FromRole="Detail" ToRole="DetailType" />
+    <NavigationProperty Name="DetailPurpose" Relationship="Self.FK__DetailPur__Detai__3D2915A8" FromRole="Detail" ToRole="DetailPurpose" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK__Notificat__Detai__3E1D39E1" FromRole="Detail" ToRole="Notification" />
   </EntityType>
   <EntityType Name="DetailPurpose">
     <Key>
@@ -96,9 +94,9 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="DetailId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Detail" Relationship="Self.FK__DetailPur__Detai__19DFD96B" FromRole="DetailPurpose" ToRole="Detail" />
-    <NavigationProperty Name="User" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="DetailPurpose" ToRole="User" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__DetailPur__Detai__3D2915A8" FromRole="DetailPurpose" ToRole="Detail" />
+    <NavigationProperty Name="User" Relationship="Self.FK__DetailPur__UserI__1AD3FDA4" FromRole="DetailPurpose" ToRole="User" />
   </EntityType>
   <EntityType Name="DetailType">
     <Key>
@@ -106,7 +104,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__TypeId__02FC7413" FromRole="DetailType" ToRole="Detail" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__TypeId__3F115E1A" FromRole="DetailType" ToRole="Detail" />
   </EntityType>
   <EntityType Name="Notification">
     <Key>
@@ -118,11 +116,11 @@
     <Property Name="CarId" Type="Int32" />
     <Property Name="DetailId" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Car" Relationship="Self.FK__Notificat__CarId__59FA5E80" FromRole="Notification" ToRole="Car" />
-    <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__06CD04F7" FromRole="Notification" ToRole="Detail" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__3E1D39E1" FromRole="Notification" ToRole="Detail" />
     <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="Notification" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="Notification" ToRole="User" />
-    <Property Name="IsRead" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Photo">
     <Key>
@@ -131,7 +129,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <NavigationProperty Name="CarPhoto" Relationship="Self.FK__CarPhoto__PhotoI__17036CC0" FromRole="Photo" ToRole="CarPhoto" />
-    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__PhotoId__03F0984C" FromRole="Photo" ToRole="Detail" />
+    <NavigationProperty Name="Detail" Relationship="Self.FK__Detail__PhotoId__40058253" FromRole="Photo" ToRole="Detail" />
     <NavigationProperty Name="User" Relationship="Self.FK__User__AvatarId__3B75D760" FromRole="Photo" ToRole="User" />
   </EntityType>
   <EntityType Name="User">
@@ -233,18 +231,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Detail__ModelId__04E4BC85">
-    <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
-    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CarModel">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Detail">
-        <PropertyRef Name="ModelId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__CarPhoto__PhotoI__17036CC0">
     <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
     <End Role="CarPhoto" Type="Self.CarPhoto" Multiplicity="*" />
@@ -269,7 +255,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Detail__PhotoId__03F0984C">
+  <Association Name="FK__Detail__PhotoId__40058253">
     <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -281,7 +267,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Detail__TypeId__02FC7413">
+  <Association Name="FK__Detail__TypeId__3F115E1A">
     <End Role="DetailType" Type="Self.DetailType" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -293,7 +279,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetailPur__Detai__19DFD96B">
+  <Association Name="FK__DetailPur__Detai__3D2915A8">
     <End Role="Detail" Type="Self.Detail" Multiplicity="1" />
     <End Role="DetailPurpose" Type="Self.DetailPurpose" Multiplicity="*" />
     <ReferentialConstraint>
@@ -305,7 +291,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Notificat__Detai__06CD04F7">
+  <Association Name="FK__Notificat__Detai__3E1D39E1">
     <End Role="Detail" Type="Self.Detail" Multiplicity="0..1" />
     <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
     <ReferentialConstraint>
@@ -415,10 +401,6 @@
       <End Role="CarMark" EntitySet="CarMark" />
       <End Role="CarModel" EntitySet="CarModel" />
     </AssociationSet>
-    <AssociationSet Name="FK__Detail__ModelId__04E4BC85" Association="Self.FK__Detail__ModelId__04E4BC85">
-      <End Role="CarModel" EntitySet="CarModel" />
-      <End Role="Detail" EntitySet="Detail" />
-    </AssociationSet>
     <AssociationSet Name="FK__CarPhoto__PhotoI__17036CC0" Association="Self.FK__CarPhoto__PhotoI__17036CC0">
       <End Role="Photo" EntitySet="Photo" />
       <End Role="CarPhoto" EntitySet="CarPhoto" />
@@ -427,19 +409,19 @@
       <End Role="User" EntitySet="User" />
       <End Role="CarPurpose" EntitySet="CarPurpose" />
     </AssociationSet>
-    <AssociationSet Name="FK__Detail__PhotoId__03F0984C" Association="Self.FK__Detail__PhotoId__03F0984C">
+    <AssociationSet Name="FK__Detail__PhotoId__40058253" Association="Self.FK__Detail__PhotoId__40058253">
       <End Role="Photo" EntitySet="Photo" />
       <End Role="Detail" EntitySet="Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK__Detail__TypeId__02FC7413" Association="Self.FK__Detail__TypeId__02FC7413">
+    <AssociationSet Name="FK__Detail__TypeId__3F115E1A" Association="Self.FK__Detail__TypeId__3F115E1A">
       <End Role="DetailType" EntitySet="DetailType" />
       <End Role="Detail" EntitySet="Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetailPur__Detai__19DFD96B" Association="Self.FK__DetailPur__Detai__19DFD96B">
+    <AssociationSet Name="FK__DetailPur__Detai__3D2915A8" Association="Self.FK__DetailPur__Detai__3D2915A8">
       <End Role="Detail" EntitySet="Detail" />
       <End Role="DetailPurpose" EntitySet="DetailPurpose" />
     </AssociationSet>
-    <AssociationSet Name="FK__Notificat__Detai__06CD04F7" Association="Self.FK__Notificat__Detai__06CD04F7">
+    <AssociationSet Name="FK__Notificat__Detai__3E1D39E1" Association="Self.FK__Notificat__Detai__3E1D39E1">
       <End Role="Detail" EntitySet="Detail" />
       <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>

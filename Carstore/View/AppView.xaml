@@ -82,7 +82,7 @@
                     <local:CarsDataGridView x:Name="CarsListView"/>
                 </TabItem>
                 <TabItem Header="Details">
-                    <TextBlock>Details tab</TextBlock>
+                    <local:DetailsDataGridView x:Name="DetailsListView"/>
                 </TabItem>
             </TabControl>
             

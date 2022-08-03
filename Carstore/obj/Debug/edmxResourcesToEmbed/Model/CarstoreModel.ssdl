@@ -63,12 +63,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="TypeId" Type="int" Nullable="false" />
-    <Property Name="ModelId" Type="int" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="PhotoId" Type="int" Nullable="false" />
     <Property Name="Price" Type="int" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DetailPurpose">
     <Key>
@@ -209,19 +209,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Detail__ModelId__04E4BC85">
-    <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
-    <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CarModel">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Detail">
-        <PropertyRef Name="ModelId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Detail__PhotoId__03F0984C">
+  <Association Name="FK__Detail__PhotoId__40058253">
     <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -233,7 +221,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Detail__TypeId__02FC7413">
+  <Association Name="FK__Detail__TypeId__3F115E1A">
     <End Role="DetailType" Type="Self.DetailType" Multiplicity="1" />
     <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
     <ReferentialConstraint>
@@ -245,7 +233,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetailPur__Detai__19DFD96B">
+  <Association Name="FK__DetailPur__Detai__3D2915A8">
     <End Role="Detail" Type="Self.Detail" Multiplicity="1" />
     <End Role="DetailPurpose" Type="Self.DetailPurpose" Multiplicity="*" />
     <ReferentialConstraint>
@@ -281,7 +269,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Notificat__Detai__06CD04F7">
+  <Association Name="FK__Notificat__Detai__3E1D39E1">
     <End Role="Detail" Type="Self.Detail" Multiplicity="0..1" />
     <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
     <ReferentialConstraint>
@@ -383,19 +371,15 @@
       <End Role="User" EntitySet="User" />
       <End Role="CarPurpose" EntitySet="CarPurpose" />
     </AssociationSet>
-    <AssociationSet Name="FK__Detail__ModelId__04E4BC85" Association="Self.FK__Detail__ModelId__04E4BC85">
-      <End Role="CarModel" EntitySet="CarModel" />
-      <End Role="Detail" EntitySet="Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Detail__PhotoId__03F0984C" Association="Self.FK__Detail__PhotoId__03F0984C">
+    <AssociationSet Name="FK__Detail__PhotoId__40058253" Association="Self.FK__Detail__PhotoId__40058253">
       <End Role="Photo" EntitySet="Photo" />
       <End Role="Detail" EntitySet="Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK__Detail__TypeId__02FC7413" Association="Self.FK__Detail__TypeId__02FC7413">
+    <AssociationSet Name="FK__Detail__TypeId__3F115E1A" Association="Self.FK__Detail__TypeId__3F115E1A">
       <End Role="DetailType" EntitySet="DetailType" />
       <End Role="Detail" EntitySet="Detail" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetailPur__Detai__19DFD96B" Association="Self.FK__DetailPur__Detai__19DFD96B">
+    <AssociationSet Name="FK__DetailPur__Detai__3D2915A8" Association="Self.FK__DetailPur__Detai__3D2915A8">
       <End Role="Detail" EntitySet="Detail" />
       <End Role="DetailPurpose" EntitySet="DetailPurpose" />
     </AssociationSet>
@@ -407,7 +391,7 @@
       <End Role="Car" EntitySet="Car" />
       <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>
-    <AssociationSet Name="FK__Notificat__Detai__06CD04F7" Association="Self.FK__Notificat__Detai__06CD04F7">
+    <AssociationSet Name="FK__Notificat__Detai__3E1D39E1" Association="Self.FK__Notificat__Detai__3E1D39E1">
       <End Role="Detail" EntitySet="Detail" />
       <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>

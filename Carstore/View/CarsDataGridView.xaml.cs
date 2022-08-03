@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Carstore.Model;
-using Carstore.View;
 
 namespace Carstore.View
 {
@@ -72,8 +71,6 @@ namespace Carstore.View
             ModelBox.IsEnabled = false;
             _models = null;
             TypeBox.SelectedIndex = -1;
-            MarkBox.ItemsSource = _marks.ToList();
-            TypeBox.ItemsSource = _types.ToList();
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
                 _purposes = db.CarPurpose.ToList();
@@ -87,6 +84,8 @@ namespace Carstore.View
                 PowerMinBox.Minimum = PowerMinBox.Value = db.Car.Min(c => c.Power);
                 PowerMaxBox.Maximum = PowerMaxBox.Value = db.Car.Max(c => c.Power);
             }
+            MarkBox.ItemsSource = _marks.ToList();
+            TypeBox.ItemsSource = _types.ToList();
         }
 
         private void MarkBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

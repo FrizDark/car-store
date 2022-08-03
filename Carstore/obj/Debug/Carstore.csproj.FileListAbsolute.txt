@@ -38,3 +38,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.exe
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.pdb
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\CarInfoView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\CarInfoView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailsDataGridView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailsDataGridView.baml

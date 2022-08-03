@@ -18,7 +18,6 @@ namespace Carstore.Model
         public CarModel()
         {
             this.Car = new HashSet<Car>();
-            this.Detail = new HashSet<Detail>();
         }
     
         public int Id { get; set; }
@@ -28,7 +27,5 @@ namespace Carstore.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }
         public virtual CarMark CarMark { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detail> Detail { get; set; }
     }
 }

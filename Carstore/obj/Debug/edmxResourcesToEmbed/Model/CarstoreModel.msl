@@ -50,10 +50,10 @@
     <EntitySetMapping Name="CarPurpose">
       <EntityTypeMapping TypeName="CarstoreDBModel.CarPurpose">
         <MappingFragment StoreEntitySet="CarPurpose">
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,7 +71,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-          <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
           <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -81,10 +81,10 @@
     <EntitySetMapping Name="DetailPurpose">
       <EntityTypeMapping TypeName="CarstoreDBModel.DetailPurpose">
         <MappingFragment StoreEntitySet="DetailPurpose">
-          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="DetailId" ColumnName="DetailId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -99,13 +99,13 @@
     <EntitySetMapping Name="Notification">
       <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
         <MappingFragment StoreEntitySet="Notification">
-          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
           <ScalarProperty Name="UserToId" ColumnName="UserToId" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />
           <ScalarProperty Name="DetailId" ColumnName="DetailId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -73,60 +73,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ByteImage.cs" />
-    <Compile Include="Model\CarTableModel.cs" />
-    <Compile Include="Model\UserRoleModel.cs" />
-    <Compile Include="ViewModel\BoolToVisibilityConverter.cs" />
-    <Compile Include="ViewModel\EmailConverter.cs" />
-    <Compile Include="ViewModel\PhoneConverter.cs" />
-    <Compile Include="View\AdminUserEditToolView.xaml.cs">
-      <DependentUpon>AdminUserEditToolView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AppView.xaml.cs">
-      <DependentUpon>AppView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CarInfoView.xaml.cs">
-      <DependentUpon>CarInfoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CarsDataGridView.xaml.cs">
-      <DependentUpon>CarsDataGridView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\NumericUpDown.xaml.cs">
-      <DependentUpon>NumericUpDown.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ProfileView.xaml.cs">
-      <DependentUpon>ProfileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegisterView.xaml.cs">
-      <DependentUpon>RegisterView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View\AdminUserEditToolView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\AppView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CarInfoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CarsDataGridView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LoginView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Model\Car.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
@@ -157,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\CarTableModel.cs" />
     <Compile Include="Model\CarType.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
@@ -166,6 +113,7 @@
     <Compile Include="Model\DetailPurpose.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DetailTableModel.cs" />
     <Compile Include="Model\DetailType.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
@@ -178,8 +126,68 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UserRoleModel.cs" />
     <Compile Include="Model\UserType.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BoolToVisibilityConverter.cs" />
+    <Compile Include="ViewModel\EmailConverter.cs" />
+    <Compile Include="ViewModel\PhoneConverter.cs" />
+    <Compile Include="View\AdminUserEditToolView.xaml.cs">
+      <DependentUpon>AdminUserEditToolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AppView.xaml.cs">
+      <DependentUpon>AppView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CarInfoView.xaml.cs">
+      <DependentUpon>CarInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CarsDataGridView.xaml.cs">
+      <DependentUpon>CarsDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailsDataGridView.xaml.cs">
+      <DependentUpon>DetailsDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AdminUserEditToolView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AppView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CarInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CarsDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DetailsDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\StringConverter.cs" />
     <Compile Include="View\LoginView.xaml.cs">
@@ -239,14 +247,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\Gear.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Profile.png" />
-    <Resource Include="Images\Home.png" />
-    <Resource Include="Icon.ico" />
     <Content Include="Model\CarstoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
@@ -257,6 +258,14 @@
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
       <LastGenOutput>CarstoreModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profile.png" />
+    <Resource Include="Images\Home.png" />
+    <Resource Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
