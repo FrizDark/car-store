@@ -31,7 +31,7 @@
                        Margin="5 0 0 0">
                 Name:
                 </TextBlock>
-                <TextBox Name="NameBox" Width="200" Height="25" Margin="5"
+                <TextBox Name="NameBox" Width="200" Height="25" Margin="5" Padding="3"
                          Style="{StaticResource RoundedTextBoxStyle}"/>
 
                 <TextBlock VerticalAlignment="Center"

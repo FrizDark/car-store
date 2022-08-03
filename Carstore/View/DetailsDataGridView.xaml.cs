@@ -115,6 +115,9 @@ namespace Carstore.View
                     .Include("Detail.DetailType")
                     .Include("User")
                     .ToList();
+                filteredPurposes = filteredPurposes.Where(
+                    d => string.IsNullOrWhiteSpace(NameBox.Text) || d.Detail.Name.Contains(NameBox.Text))
+                    .ToList();
                 if (BrandBox.SelectedItem is string brand && brand != null)
                 {
                     filteredPurposes = filteredPurposes.Where(d => d.Detail.Brand == brand).ToList();

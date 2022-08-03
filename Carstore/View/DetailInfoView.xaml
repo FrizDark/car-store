@@ -20,7 +20,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -87,39 +87,26 @@
             </TextBlock>
         </Border>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <Border VerticalAlignment="Center"
+        <Border Grid.Column="1" Grid.Row="1"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     CornerRadius="5"
-                    Height="30"
+                    Height="45"
                     Margin="5"
                     Background="{StaticResource Gray}">
-                <TextBlock VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontWeight="Bold"
-                           Margin="5">
-                    <Run>Price:</Run>
-                    <Run Name="PriceBlock">0</Run>
-                    <Run>₴</Run>
-                </TextBlock>
-            </Border>
-            <Border VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    CornerRadius="5"
-                    Height="30"
-                    Margin="5"
-                    Background="{StaticResource Gray}">
-                <TextBlock VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontWeight="Bold"
-                           Margin="5">
-                <Run>Name: </Run>
-                <Run Name="NameBlock">0</Run>
-                </TextBlock>
-            </Border>
-        </StackPanel>
+            <RichTextBox Background="Transparent"
+                         Foreground="White"
+                         Margin="5"
+                         BorderThickness="0"
+                         IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run FontWeight="Bold">Name:</Run>
+                        <Run Name="NameBlock">0</Run>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Border>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
             <Border VerticalAlignment="Center"
@@ -155,6 +142,22 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}">
+                <TextBlock VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Margin="5">
+                    <Run>Price:</Run>
+                    <Run Name="PriceBlock">0</Run>
+                    <Run>₴</Run>
+                </TextBlock>
+            </Border>
             <Border Grid.Column="1" Grid.Row="3" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"

@@ -166,7 +166,7 @@
                 x:FieldModifier="public">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
-                            <Setter Property="Background" Value="LightYellow"/>
+                            <Setter Property="Background" Value="DarkBlue"/>
                             <Style.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="7" />
@@ -174,7 +174,7 @@
                             </Style.Resources>
                         </Style>
                     </Button.Style>
-                    <TextBlock>Edit users</TextBlock>
+                    <TextBlock Foreground="White">Edit users</TextBlock>
                 </Button>
             </Grid>
             <StackPanel Visibility="Hidden" Name="PasswordFieldsBlock" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
