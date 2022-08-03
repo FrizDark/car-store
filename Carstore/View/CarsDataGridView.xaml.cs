@@ -20,9 +20,7 @@ namespace Carstore.View
     /// Interaction logic for CarsDataGridView.xaml
     /// </summary>
     public partial class CarsDataGridView : UserControl
-    {
-
-        private string _markSearch = "";
+    {private string _markSearch = "";
         private string _modelSearch = "";
         private string _typeSearch = "";
 
@@ -34,11 +32,14 @@ namespace Carstore.View
         private Grid _dgGrid;
         private CarInfoView _infoView;
 
-        public CarsDataGridView()
+        private Action _updateNotifications;
+
+        public CarsDataGridView(Action updateNotifications)
         {
             InitializeComponent();
 
             _dgGrid = DGGrid;
+            _updateNotifications = updateNotifications;
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
@@ -152,6 +153,10 @@ namespace Carstore.View
                     .Include("Car.CarPhoto.Photo")
                     .Include("User")
                     .ToList();
+                if (ShowMineBox.IsChecked == true)
+                {
+                    filteredPurposes = filteredPurposes.Where(c => c.UserId == MainWindow.SelectedUserId).ToList();
+                }
                 if (MarkBox.SelectedItem is CarMark mark && mark != null)
                 {
                     filteredPurposes = filteredPurposes.Where(c => c.Car.CarModel.MarkId == mark.Id).ToList();
@@ -191,6 +196,7 @@ namespace Carstore.View
         {
             CarsGrid.Children.Clear();
             CarsGrid.Children.Add(_dgGrid);
+            _updateNotifications();
             ResetButton_Click(sender, e);
         }
 

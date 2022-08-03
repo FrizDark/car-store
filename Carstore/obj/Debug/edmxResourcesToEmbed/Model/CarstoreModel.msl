@@ -99,6 +99,7 @@
     <EntitySetMapping Name="Notification">
       <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
         <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
           <ScalarProperty Name="UserToId" ColumnName="UserToId" />

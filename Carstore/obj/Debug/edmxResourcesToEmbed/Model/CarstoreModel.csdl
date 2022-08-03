@@ -121,6 +121,7 @@
     <NavigationProperty Name="Detail" Relationship="Self.FK__Notificat__Detai__3E1D39E1" FromRole="Notification" ToRole="Detail" />
     <NavigationProperty Name="User" Relationship="Self.FK__Notificat__UserF__5812160E" FromRole="Notification" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK__Notificat__UserT__59063A47" FromRole="Notification" ToRole="User" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="Photo">
     <Key>

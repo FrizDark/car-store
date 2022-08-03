@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,11 +27,15 @@ namespace Carstore.View
         private ProfileView _profileView;
         private TabControl _tabControl;
         private AdminUserEditToolView _adminUserEditToolView;
+        private NotificationsView _notificationsView;
         private RoutedEventHandler _logoutClick;
+        private Task _updateNotifications;
 
         public AppView(RoutedEventHandler logoutClick)
         {
             InitializeComponent();
+            CarsTab.Content = new CarsDataGridView(UpdateNotifications);
+            DetailsTab.Content = new DetailsDataGridView(UpdateNotifications);
             _tabControl = StoreTabs;
             _logoutClick = logoutClick;
             using (CarstoreDBEntities db = new CarstoreDBEntities())
@@ -41,6 +46,11 @@ namespace Carstore.View
                     ProfileAvatar.ImageSource = ByteImage.GetImage(user.Photo.Data);
                 }
             }
+            _updateNotifications = Task.Run(() =>
+            {
+                UpdateNotifications();
+                Thread.Sleep(60000);
+            });
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -80,7 +90,26 @@ namespace Carstore.View
             PageField.Children.Add(_tabControl);
         }
 
-        
+        private void NotificationButton_Click(object sender, RoutedEventArgs e)
+        {
+            _notificationsView = new NotificationsView(UpdateNotifications);
+            PageField.Children.Clear();
+            PageField.Children.Add(_notificationsView);
+        }
+
+        private void UpdateNotifications()
+        {
+            using (CarstoreDBEntities db = new CarstoreDBEntities())
+            {
+                int num = db.Notification.Count(
+                    n => n.UserToId == MainWindow.SelectedUserId && !n.IsRead);
+                Dispatcher.Invoke(() =>
+                {
+                    NotificationsNumberBox.Text = num.ToString();
+                    NotificationsBlock.Visibility = num > 0 ? Visibility.Visible : Visibility.Collapsed;
+                });
+            }
+        }
 
     }
 }

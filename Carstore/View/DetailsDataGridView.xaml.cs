@@ -32,11 +32,14 @@ namespace Carstore.View
         private Grid _dgGrid;
         private DetailInfoView _infoView;
 
-        public DetailsDataGridView()
+        private Action _updateNotifications;
+
+        public DetailsDataGridView(Action updateNotifications)
         {
             InitializeComponent();
 
             _dgGrid = DGGrid;
+            _updateNotifications = updateNotifications;
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
@@ -115,6 +118,10 @@ namespace Carstore.View
                     .Include("Detail.DetailType")
                     .Include("User")
                     .ToList();
+                if (ShowMineBox.IsChecked == true)
+                {
+                    filteredPurposes = filteredPurposes.Where(d => d.UserId == MainWindow.SelectedUserId).ToList();
+                }
                 filteredPurposes = filteredPurposes.Where(
                     d => string.IsNullOrWhiteSpace(NameBox.Text) || d.Detail.Name.Contains(NameBox.Text))
                     .ToList();
@@ -151,6 +158,7 @@ namespace Carstore.View
         {
             DetailsGrid.Children.Clear();
             DetailsGrid.Children.Add(_dgGrid);
+            _updateNotifications();
             ResetButton_Click(sender, e);
         }
 

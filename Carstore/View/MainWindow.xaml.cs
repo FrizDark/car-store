@@ -143,7 +143,7 @@ namespace Carstore
             {
                 User user = null;
                 string email = _loginView.EmailBox.Text;
-                await Task.Run(() => user = db.User.First(usr => usr.Email == email));
+                await Task.Run(() => user = db.User.FirstOrDefault(usr => usr.Email == email));
                 byte[] hash = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(_loginView.PasswordBox.Password));
 
                 if (user != null)

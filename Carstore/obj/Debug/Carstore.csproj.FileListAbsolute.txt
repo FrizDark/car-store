@@ -42,3 +42,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailsDataGridV
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailsDataGridView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailInfoView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailInfoView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\NotificationsView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\NotificationsView.baml

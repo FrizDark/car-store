@@ -120,6 +120,7 @@
     <Compile Include="Model\Notification.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\NotificationTableModel.cs" />
     <Compile Include="Model\Photo.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
@@ -150,6 +151,9 @@
     </Compile>
     <Compile Include="View\DetailsDataGridView.xaml.cs">
       <DependentUpon>DetailsDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotificationsView.xaml.cs">
+      <DependentUpon>NotificationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NumericUpDown.xaml.cs">
       <DependentUpon>NumericUpDown.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\NotificationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +263,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Notification.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Model\CarstoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>

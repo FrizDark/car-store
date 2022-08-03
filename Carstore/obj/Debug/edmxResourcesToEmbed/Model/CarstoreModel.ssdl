@@ -97,6 +97,7 @@
     <Property Name="DetailId" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="300" />
     <Property Name="IsRead" Type="bit" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Photo">
     <Key>

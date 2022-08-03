@@ -105,6 +105,14 @@
                     <TextBlock>Search</TextBlock>
                 </Button>
 
+                <CheckBox Width="100" Height="25"
+                          Margin="5"
+                          Name="ShowMineBox"
+                          Foreground="White"
+                          Style="{StaticResource RoundedCheckBoxStyle}">
+                    Show mine
+                </CheckBox>
+
                 <TextBlock VerticalAlignment="Center"
                        Foreground="White"
                        Margin="5 0 0 0">

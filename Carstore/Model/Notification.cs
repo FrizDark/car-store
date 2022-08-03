@@ -21,6 +21,7 @@ namespace Carstore.Model
         public Nullable<int> DetailId { get; set; }
         public string Description { get; set; }
         public bool IsRead { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Detail Detail { get; set; }

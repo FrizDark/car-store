@@ -56,6 +56,10 @@ namespace Carstore.View
                 SellerName.Text = $"{_purpose.User.Firstname} {_purpose.User.Lastname}";
 
                 User user = db.User.Find(MainWindow.SelectedUserId);
+                if (user == _purpose.User)
+                {
+                    ContactButton.Visibility = Visibility.Collapsed;
+                }
                 if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _purpose.User)
                 {
                     DeleteButton.Visibility = Visibility.Visible;
@@ -73,7 +77,8 @@ namespace Carstore.View
                 {
                     UserFromId = db.User.Find(MainWindow.SelectedUserId).Id,
                     UserToId = _purpose.User.Id,
-                    DetailId = _purpose.Detail.Id
+                    DetailId = _purpose.Detail.Id,
+                    Date = DateTime.Now
                 });
                 db.SaveChanges();
             }
