@@ -13,20 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Carstore.Model;
-using Carstore.View;
 
 namespace Carstore.View
 {
     /// <summary>
-    /// Interaction logic for CarInfoView.xaml
+    /// Interaction logic for DetailInfoView.xaml
     /// </summary>
-    public partial class CarInfoView : UserControl
+    public partial class DetailInfoView : UserControl
     {
 
-        CarPurpose _purpose;
+        DetailPurpose _purpose;
         RoutedEventHandler _backAction;
 
-        public CarInfoView(CarPurpose purpose, RoutedEventHandler backAction)
+        public DetailInfoView(DetailPurpose purpose, RoutedEventHandler backAction)
         {
             InitializeComponent();
 
@@ -35,29 +34,26 @@ namespace Carstore.View
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purpose = db.CarPurpose.Find(purpose.Id);
+                _purpose = db.DetailPurpose.Find(purpose.Id);
                 if (purpose == null) _backAction(null, null);
-                CarInformationBlock.Text = $"{_purpose.Car.CarModel.CarMark.Name} {_purpose.Car.CarModel.Name}";
-                GalleryList.ItemsSource = _purpose.Car.CarPhoto.Select(p => p.Photo);
-                PriceBlock.Text = _purpose.Car.Price.ToString();
-                LengthBlock.Text = _purpose.Car.Length.ToString();
-                WidthBlock.Text = _purpose.Car.Width.ToString();
-                HeightBlock.Text = _purpose.Car.Height.ToString();
-                PowerBlock.Text = _purpose.Car.Power.ToString();
-                WeightBlock.Text = _purpose.Car.Weight.ToString();
-                TankSizeName.Text = _purpose.Car.IsElectrical ? "Battery" : "Tank";
-                TankSizeBlock.Text = _purpose.Car.TankSize.ToString();
-                TankSizeUnits.Text = _purpose.Car.IsElectrical ? "kW" : "l";
-                SeatsBlock.Text = _purpose.Car.Seats.ToString();
-                ColorBlock.Text = _purpose.Car.Color;
-                TypeBlock.Text = _purpose.Car.CarType.Name;
+                PhotoBlock.Source = ByteImage.GetImage(_purpose.Detail.Photo.Data);
+                PriceBlock.Text = _purpose.Detail.Price.ToString();
+                NameBlock.Text = _purpose.Detail.Name;
+                BrandBlock.Text = _purpose.Detail.Brand.ToString();
+                TypeBlock.Text = _purpose.Detail.DetailType.Name;
+                if (_purpose.Detail.Description != null)
+                {
+                    DescriptionBlock.Text = _purpose.Detail.Description;
+                } else
+                {
+                    DescRichBox.Visibility = Visibility.Hidden;
+                }
                 if (_purpose.User.Photo != null)
                 {
                     SellerPhoto.ImageSource = ByteImage.GetImage(_purpose.User.Photo.Data);
                     SellerPhotoField.Visibility = Visibility.Visible;
                 }
                 SellerName.Text = $"{_purpose.User.Firstname} {_purpose.User.Lastname}";
-                DescriptionBlock.Text = _purpose.Car.Description;
 
                 User user = db.User.Find(MainWindow.SelectedUserId);
                 if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _purpose.User)
@@ -77,7 +73,7 @@ namespace Carstore.View
                 {
                     UserFromId = db.User.Find(MainWindow.SelectedUserId).Id,
                     UserToId = _purpose.User.Id,
-                    CarId = _purpose.Car.Id
+                    DetailId = _purpose.Detail.Id
                 });
                 db.SaveChanges();
             }
@@ -88,7 +84,7 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                db.CarPurpose.Remove(db.CarPurpose.Find(_purpose.Id));
+                db.DetailPurpose.Remove(db.DetailPurpose.Find(_purpose.Id));
                 db.SaveChanges();
             }
             _backAction(sender, e);

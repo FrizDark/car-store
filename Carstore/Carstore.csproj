@@ -145,6 +145,9 @@
     <Compile Include="View\CarsDataGridView.xaml.cs">
       <DependentUpon>CarsDataGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DetailInfoView.xaml.cs">
+      <DependentUpon>DetailInfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailsDataGridView.xaml.cs">
       <DependentUpon>DetailsDataGridView.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CarsDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DetailInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

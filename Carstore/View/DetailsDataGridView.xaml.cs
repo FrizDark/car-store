@@ -30,11 +30,13 @@ namespace Carstore.View
         private List<DetailPurpose> _purposes;
 
         private Grid _dgGrid;
-        //private DetailInfoView _infoView;
+        private DetailInfoView _infoView;
 
         public DetailsDataGridView()
         {
             InitializeComponent();
+
+            _dgGrid = DGGrid;
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
@@ -136,10 +138,9 @@ namespace Carstore.View
         {
             if (dg.SelectedItem is DetailTableModel purpose && purpose != null)
             {
-                Console.WriteLine($"{purpose.Name} selected");
-                //_infoView = new DetailsInfoView(_purposes.First(p => p.Id == purpose.Id), BackButton_Click);
-                //DetailsGrid.Children.Clear();
-                //DetailsGrid.Children.Add(_infoView);
+                _infoView = new DetailInfoView(_purposes.First(p => p.Id == purpose.Id), BackButton_Click);
+                DetailsGrid.Children.Clear();
+                DetailsGrid.Children.Add(_infoView);
             }
         }
 
