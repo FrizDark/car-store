@@ -22,10 +22,10 @@ namespace Carstore.View
     public partial class DetailInfoView : UserControl
     {
 
-        DetailPurpose _purpose;
+        DetailProposition _proposition;
         RoutedEventHandler _backAction;
 
-        public DetailInfoView(DetailPurpose purpose, RoutedEventHandler backAction)
+        public DetailInfoView(DetailProposition proposition, RoutedEventHandler backAction)
         {
             InitializeComponent();
 
@@ -34,33 +34,33 @@ namespace Carstore.View
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purpose = db.DetailPurpose.Find(purpose.Id);
-                if (purpose == null) _backAction(null, null);
-                PhotoBlock.Source = ByteImage.GetImage(_purpose.Detail.Photo.Data);
-                PriceBlock.Text = _purpose.Detail.Price.ToString();
-                NameBlock.Text = _purpose.Detail.Name;
-                BrandBlock.Text = _purpose.Detail.Brand.ToString();
-                TypeBlock.Text = _purpose.Detail.DetailType.Name;
-                if (_purpose.Detail.Description != null)
+                _proposition = db.DetailProposition.Find(proposition.Id);
+                if (proposition == null) _backAction(null, null);
+                PhotoBlock.Source = ByteImage.GetImage(_proposition.Detail.Photo.Data);
+                PriceBlock.Text = _proposition.Detail.Price.ToString();
+                NameBlock.Text = _proposition.Detail.Name;
+                BrandBlock.Text = _proposition.Detail.Brand.ToString();
+                TypeBlock.Text = _proposition.Detail.DetailType.Name;
+                if (_proposition.Detail.Description != null)
                 {
-                    DescriptionBlock.Text = _purpose.Detail.Description;
+                    DescriptionBlock.Text = _proposition.Detail.Description;
                 } else
                 {
                     DescRichBox.Visibility = Visibility.Hidden;
                 }
-                if (_purpose.User.Photo != null)
+                if (_proposition.User.Photo != null)
                 {
-                    SellerPhoto.ImageSource = ByteImage.GetImage(_purpose.User.Photo.Data);
+                    SellerPhoto.ImageSource = ByteImage.GetImage(_proposition.User.Photo.Data);
                     SellerPhotoField.Visibility = Visibility.Visible;
                 }
-                SellerName.Text = $"{_purpose.User.Firstname} {_purpose.User.Lastname}";
+                SellerName.Text = $"{_proposition.User.Firstname} {_proposition.User.Lastname}";
 
                 User user = db.User.Find(MainWindow.SelectedUserId);
-                if (user == _purpose.User)
+                if (user == _proposition.User)
                 {
                     ContactButton.Visibility = Visibility.Collapsed;
                 }
-                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _purpose.User)
+                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _proposition.User)
                 {
                     DeleteButton.Visibility = Visibility.Visible;
                 }
@@ -76,8 +76,8 @@ namespace Carstore.View
                 db.Notification.Add(new Notification
                 {
                     UserFromId = db.User.Find(MainWindow.SelectedUserId).Id,
-                    UserToId = _purpose.User.Id,
-                    DetailId = _purpose.Detail.Id,
+                    UserToId = _proposition.User.Id,
+                    DetailId = _proposition.Detail.Id,
                     Date = DateTime.Now
                 });
                 db.SaveChanges();
@@ -89,7 +89,7 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                db.DetailPurpose.Remove(db.DetailPurpose.Find(_purpose.Id));
+                db.DetailProposition.Remove(db.DetailProposition.Find(_proposition.Id));
                 db.SaveChanges();
             }
             _backAction(sender, e);

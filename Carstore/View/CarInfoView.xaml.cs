@@ -23,10 +23,10 @@ namespace Carstore.View
     public partial class CarInfoView : UserControl
     {
 
-        CarPurpose _purpose;
+        CarProposition _proposition;
         RoutedEventHandler _backAction;
 
-        public CarInfoView(CarPurpose purpose, RoutedEventHandler backAction)
+        public CarInfoView(CarProposition proposition, RoutedEventHandler backAction)
         {
             InitializeComponent();
 
@@ -35,36 +35,36 @@ namespace Carstore.View
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purpose = db.CarPurpose.Find(purpose.Id);
-                if (purpose == null) _backAction(null, null);
-                CarInformationBlock.Text = $"{_purpose.Car.CarModel.CarMark.Name} {_purpose.Car.CarModel.Name}";
-                GalleryList.ItemsSource = _purpose.Car.CarPhoto.Select(p => p.Photo);
-                PriceBlock.Text = _purpose.Car.Price.ToString();
-                LengthBlock.Text = _purpose.Car.Length.ToString();
-                WidthBlock.Text = _purpose.Car.Width.ToString();
-                HeightBlock.Text = _purpose.Car.Height.ToString();
-                PowerBlock.Text = _purpose.Car.Power.ToString();
-                WeightBlock.Text = _purpose.Car.Weight.ToString();
-                TankSizeName.Text = _purpose.Car.IsElectrical ? "Battery" : "Tank";
-                TankSizeBlock.Text = _purpose.Car.TankSize.ToString();
-                TankSizeUnits.Text = _purpose.Car.IsElectrical ? "kW" : "l";
-                SeatsBlock.Text = _purpose.Car.Seats.ToString();
-                ColorBlock.Text = _purpose.Car.Color;
-                TypeBlock.Text = _purpose.Car.CarType.Name;
-                if (_purpose.User.Photo != null)
+                _proposition = db.CarProposition.Find(proposition.Id);
+                if (proposition == null) _backAction(null, null);
+                CarInformationBlock.Text = $"{_proposition.Car.CarModel.CarMark.Name} {_proposition.Car.CarModel.Name}";
+                GalleryList.ItemsSource = _proposition.Car.CarPhoto.Select(p => p.Photo);
+                PriceBlock.Text = _proposition.Car.Price.ToString();
+                LengthBlock.Text = _proposition.Car.Length.ToString();
+                WidthBlock.Text = _proposition.Car.Width.ToString();
+                HeightBlock.Text = _proposition.Car.Height.ToString();
+                PowerBlock.Text = _proposition.Car.Power.ToString();
+                WeightBlock.Text = _proposition.Car.Weight.ToString();
+                TankSizeName.Text = _proposition.Car.IsElectrical ? "Battery" : "Tank";
+                TankSizeBlock.Text = _proposition.Car.TankSize.ToString();
+                TankSizeUnits.Text = _proposition.Car.IsElectrical ? "kW" : "l";
+                SeatsBlock.Text = _proposition.Car.Seats.ToString();
+                ColorBlock.Text = _proposition.Car.Color;
+                TypeBlock.Text = _proposition.Car.CarType.Name;
+                if (_proposition.User.Photo != null)
                 {
-                    SellerPhoto.ImageSource = ByteImage.GetImage(_purpose.User.Photo.Data);
+                    SellerPhoto.ImageSource = ByteImage.GetImage(_proposition.User.Photo.Data);
                     SellerPhotoField.Visibility = Visibility.Visible;
                 }
-                SellerName.Text = $"{_purpose.User.Firstname} {_purpose.User.Lastname}";
-                DescriptionBlock.Text = _purpose.Car.Description;
+                SellerName.Text = $"{_proposition.User.Firstname} {_proposition.User.Lastname}";
+                DescriptionBlock.Text = _proposition.Car.Description;
 
                 User user = db.User.Find(MainWindow.SelectedUserId);
-                if (user == _purpose.User)
+                if (user == _proposition.User)
                 {
                     ContactButton.Visibility = Visibility.Collapsed;
                 }
-                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _purpose.User)
+                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _proposition.User)
                 {
                     DeleteButton.Visibility = Visibility.Visible;
                 }
@@ -80,8 +80,8 @@ namespace Carstore.View
                 db.Notification.Add(new Notification
                 {
                     UserFromId = db.User.Find(MainWindow.SelectedUserId).Id,
-                    UserToId = _purpose.User.Id,
-                    CarId = _purpose.Car.Id,
+                    UserToId = _proposition.User.Id,
+                    CarId = _proposition.Car.Id,
                     Date = DateTime.Now
                 });
                 db.SaveChanges();
@@ -93,7 +93,7 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                db.CarPurpose.Remove(db.CarPurpose.Find(_purpose.Id));
+                db.CarProposition.Remove(db.CarProposition.Find(_proposition.Id));
                 db.SaveChanges();
             }
             _backAction(sender, e);

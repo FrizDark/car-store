@@ -18,7 +18,7 @@ namespace Carstore.Model
         public Car()
         {
             this.CarPhoto = new HashSet<CarPhoto>();
-            this.CarPurpose = new HashSet<CarPurpose>();
+            this.CarProposition = new HashSet<CarProposition>();
             this.Notification = new HashSet<Notification>();
         }
     
@@ -42,7 +42,7 @@ namespace Carstore.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CarPhoto> CarPhoto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CarPurpose> CarPurpose { get; set; }
+        public virtual ICollection<CarProposition> CarProposition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notification> Notification { get; set; }
     }

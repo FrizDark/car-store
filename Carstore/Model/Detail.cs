@@ -17,7 +17,7 @@ namespace Carstore.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Detail()
         {
-            this.DetailPurpose = new HashSet<DetailPurpose>();
+            this.DetailProposition = new HashSet<DetailProposition>();
             this.Notification = new HashSet<Notification>();
         }
     
@@ -32,7 +32,7 @@ namespace Carstore.Model
         public virtual Photo Photo { get; set; }
         public virtual DetailType DetailType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailPurpose> DetailPurpose { get; set; }
+        public virtual ICollection<DetailProposition> DetailProposition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notification> Notification { get; set; }
     }

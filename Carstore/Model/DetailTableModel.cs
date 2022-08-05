@@ -39,15 +39,15 @@ namespace Carstore.Model
             Seller = seller;
         }
 
-        public DetailTableModel(DetailPurpose purpose)
+        public DetailTableModel(DetailProposition proposition)
         {
-            Id = purpose.Id;
-            Photo = purpose.Detail.Photo.Data;
-            Name = purpose.Detail.Name;
-            Brand = purpose.Detail.Brand;
-            Type = purpose.Detail.DetailType.Name;
-            Price = purpose.Detail.Price;
-            Seller = $"{purpose.User.Firstname} {purpose.User.Lastname}";
+            Id = proposition.Id;
+            Photo = proposition.Detail.Photo.Data;
+            Name = proposition.Detail.Name;
+            Brand = proposition.Detail.Brand;
+            Type = proposition.Detail.DetailType.Name;
+            Price = proposition.Detail.Price;
+            Seller = $"{proposition.User.Firstname} {proposition.User.Lastname}";
         }
 
     }

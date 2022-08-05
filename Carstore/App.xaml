@@ -500,6 +500,7 @@
         <vm:EmailConverter x:Key="EmailConverter"/>
         <vm:PhoneConverter x:Key="PhoneConverter"/>
         <vm:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <vm:EmptyEnumerableConverter x:Key="EmptyEnumerableConverter"/>
 
     </Application.Resources>
 </Application>

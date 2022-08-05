@@ -85,7 +85,7 @@
     <Compile Include="Model\CarPhoto.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarPurpose.cs">
+    <Compile Include="Model\CarProposition.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CarstoreModel.Context.cs">
@@ -110,7 +110,7 @@
     <Compile Include="Model\Detail.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DetailPurpose.cs">
+    <Compile Include="Model\DetailProposition.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DetailTableModel.cs" />
@@ -133,7 +133,11 @@
     </Compile>
     <Compile Include="ViewModel\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModel\EmailConverter.cs" />
+    <Compile Include="ViewModel\EmptyEnumerableConverter.cs" />
     <Compile Include="ViewModel\PhoneConverter.cs" />
+    <Compile Include="View\AddCarView.xaml.cs">
+      <DependentUpon>AddCarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminUserEditToolView.xaml.cs">
       <DependentUpon>AdminUserEditToolView.xaml</DependentUpon>
     </Compile>
@@ -164,6 +168,10 @@
     <Compile Include="View\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AddCarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminUserEditToolView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -266,6 +274,19 @@
     <Resource Include="Images\Notification.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profile.png" />
+    <Resource Include="Images\Home.png" />
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\CarstoreModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
@@ -276,14 +297,6 @@
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
       <LastGenOutput>CarstoreModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Gear.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Profile.png" />
-    <Resource Include="Images\Home.png" />
-    <Resource Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

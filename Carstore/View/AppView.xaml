@@ -87,6 +87,44 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0">
 
+            <StackPanel>
+                <Button Name="AddButton" Width="30" Height="30" Margin="5"
+                        Click="AddButton_Click"
+                        Style="{DynamicResource CircleButton}">
+                    <Image Source="../Images/Plus.png" Width="20" Height="20" Stretch="Fill"/>
+                </Button>
+                <Popup Name="AddPopup" Placement="Bottom" MaxWidth="100" AllowsTransparency="True"
+                       MouseLeave="AddPopup_MouseLeave">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.RowSpan="2" Background="Black" CornerRadius="10"/>
+
+                        <Button Grid.Row="0" 
+                                Name="AddCarButton"
+                                Height="25"
+                                Margin="5"
+                                Padding="2 5"
+                                Click="AddCarButton_Click"
+                                Style="{StaticResource RoundedButtonStyle5}">
+                            <TextBlock Foreground="White">Car</TextBlock>
+                        </Button>
+                        <Button Grid.Row="1" 
+                                Name="AddDetailButton"
+                                Height="25"
+                                Margin="5"
+                                Padding="2 5"
+                                Click="AddDetailButton_Click"
+                                Style="{StaticResource RoundedButtonStyle5}">
+                            <TextBlock Foreground="White">Detail</TextBlock>
+                        </Button>
+                    </Grid>
+                </Popup>
+            </StackPanel>
             <Grid>
                 <Button Name="NotuficationButton" Width="30" Height="30" Margin="5"
                         Click="NotificationButton_Click"

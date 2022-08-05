@@ -17,8 +17,8 @@ namespace Carstore.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.CarPurpose = new HashSet<CarPurpose>();
-            this.DetailPurpose = new HashSet<DetailPurpose>();
+            this.CarProposition = new HashSet<CarProposition>();
+            this.DetailProposition = new HashSet<DetailProposition>();
             this.Notification = new HashSet<Notification>();
             this.Notification1 = new HashSet<Notification>();
         }
@@ -33,9 +33,9 @@ namespace Carstore.Model
         public Nullable<int> AvatarId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CarPurpose> CarPurpose { get; set; }
+        public virtual ICollection<CarProposition> CarProposition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailPurpose> DetailPurpose { get; set; }
+        public virtual ICollection<DetailProposition> DetailProposition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notification> Notification { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

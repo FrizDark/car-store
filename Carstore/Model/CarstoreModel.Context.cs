@@ -29,10 +29,10 @@ namespace Carstore.Model
         public virtual DbSet<CarMark> CarMark { get; set; }
         public virtual DbSet<CarModel> CarModel { get; set; }
         public virtual DbSet<CarPhoto> CarPhoto { get; set; }
-        public virtual DbSet<CarPurpose> CarPurpose { get; set; }
+        public virtual DbSet<CarProposition> CarProposition { get; set; }
         public virtual DbSet<CarType> CarType { get; set; }
         public virtual DbSet<Detail> Detail { get; set; }
-        public virtual DbSet<DetailPurpose> DetailPurpose { get; set; }
+        public virtual DbSet<DetailProposition> DetailProposition { get; set; }
         public virtual DbSet<DetailType> DetailType { get; set; }
         public virtual DbSet<Notification> Notification { get; set; }
         public virtual DbSet<Photo> Photo { get; set; }

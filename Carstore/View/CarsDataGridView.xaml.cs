@@ -20,14 +20,16 @@ namespace Carstore.View
     /// Interaction logic for CarsDataGridView.xaml
     /// </summary>
     public partial class CarsDataGridView : UserControl
-    {private string _markSearch = "";
+    {
+        
+        private string _markSearch = "";
         private string _modelSearch = "";
         private string _typeSearch = "";
 
         private List<CarMark> _marks;
         private List<CarModel> _models;
         private List<CarType> _types;
-        private List<CarPurpose> _purposes;
+        private List<CarProposition> _propositions;
 
         private Grid _dgGrid;
         private CarInfoView _infoView;
@@ -41,21 +43,13 @@ namespace Carstore.View
             _dgGrid = DGGrid;
             _updateNotifications = updateNotifications;
 
-            using (CarstoreDBEntities db = new CarstoreDBEntities())
-            {
-                _purposes = db.CarPurpose.ToList();
-                dg.ItemsSource = _purposes
-                    .Select(c => new CarTableModel(c))
-                    .ToList();
-                _marks = db.CarMark.OrderBy(m => m.Name).ToList();
-                _types = db.CarType.OrderBy(t => t.Name).ToList();
-                PriceMinBox.Minimum = PriceMinBox.Value = db.Car.Min(c => c.Price);
-                PriceMaxBox.Maximum = PriceMaxBox.Value = db.Car.Max(c => c.Price);
-                PowerMinBox.Minimum = PowerMinBox.Value = db.Car.Min(c => c.Power);
-                PowerMaxBox.Maximum = PowerMaxBox.Value = db.Car.Max(c => c.Power);
-            }
-            MarkBox.ItemsSource = _marks.ToList();
-            TypeBox.ItemsSource = _types.ToList();
+            ResetButton_Click(null, null);
+
+        }
+
+        public void UpdateList()
+        {
+            ResetButton_Click(null, null);
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
@@ -74,8 +68,8 @@ namespace Carstore.View
             TypeBox.SelectedIndex = -1;
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purposes = db.CarPurpose.ToList();
-                dg.ItemsSource = _purposes
+                _propositions = db.CarProposition.ToList();
+                dg.ItemsSource = _propositions
                     .Select(c => new CarTableModel(c))
                     .ToList();
                 _marks = db.CarMark.OrderBy(m => m.Name).ToList();
@@ -145,7 +139,7 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                List<CarPurpose> filteredPurposes = db.CarPurpose
+                List<CarProposition> filteredPurposes = db.CarProposition
                     .Include("Car")
                     .Include("Car.CarModel")
                     .Include("Car.CarModel.CarMark")
@@ -186,7 +180,7 @@ namespace Carstore.View
         {
             if (dg.SelectedItem is CarTableModel purpose && purpose != null)
             {
-                _infoView = new CarInfoView(_purposes.First(p => p.Id == purpose.Id), BackButton_Click);
+                _infoView = new CarInfoView(_propositions.First(p => p.Id == purpose.Id), BackButton_Click);
                 CarsGrid.Children.Clear();
                 CarsGrid.Children.Add(_infoView);
             }

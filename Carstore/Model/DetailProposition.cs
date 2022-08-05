@@ -12,7 +12,7 @@ namespace Carstore.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DetailPurpose
+    public partial class DetailProposition
     {
         public int Id { get; set; }
         public int UserId { get; set; }

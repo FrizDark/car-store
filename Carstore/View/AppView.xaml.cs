@@ -29,7 +29,6 @@ namespace Carstore.View
         private AdminUserEditToolView _adminUserEditToolView;
         private NotificationsView _notificationsView;
         private RoutedEventHandler _logoutClick;
-        private Task _updateNotifications;
 
         public AppView(RoutedEventHandler logoutClick)
         {
@@ -46,7 +45,7 @@ namespace Carstore.View
                     ProfileAvatar.ImageSource = ByteImage.GetImage(user.Photo.Data);
                 }
             }
-            _updateNotifications = Task.Run(() =>
+            Task.Run(() =>
             {
                 UpdateNotifications();
                 Thread.Sleep(60000);
@@ -88,6 +87,7 @@ namespace Carstore.View
         {
             PageField.Children.Clear();
             PageField.Children.Add(_tabControl);
+            (CarsTab.Content as CarsDataGridView).UpdateList();
         }
 
         private void NotificationButton_Click(object sender, RoutedEventArgs e)
@@ -109,6 +109,31 @@ namespace Carstore.View
                     NotificationsBlock.Visibility = num > 0 ? Visibility.Visible : Visibility.Collapsed;
                 });
             }
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddPopup.IsOpen = !AddPopup.IsOpen;
+        }
+
+        private void AddPopup_MouseLeave(object sender, MouseEventArgs e)
+        {
+            AddPopup.IsOpen = false;
+        }
+
+        private void AddCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddPopup.IsOpen = false;
+            PageField.Children.Clear();
+            PageField.Children.Add(new AddCarView(() =>
+            {
+                HomeButton_Click(null, null);
+            }));
+        }
+
+        private void AddDetailButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddPopup.IsOpen = false;
         }
 
     }

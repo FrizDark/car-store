@@ -42,16 +42,16 @@ namespace Carstore.Model
             Seller = seller;
         }
 
-        public CarTableModel(CarPurpose purpose)
+        public CarTableModel(CarProposition proposition)
         {
-            Id = purpose.Id;
-            Photo = purpose.Car.CarPhoto.First().Photo.Data;
-            Mark = purpose.Car.CarModel.CarMark.Name;
-            Model = purpose.Car.CarModel.Name;
-            Color = purpose.Car.Color;
-            Price = purpose.Car.Price;
-            Power = purpose.Car.Power;
-            Seller = $"{purpose.User.Firstname} {purpose.User.Lastname}";
+            Id = proposition.Id;
+            Photo = proposition.Car.CarPhoto.First().Photo.Data;
+            Mark = proposition.Car.CarModel.CarMark.Name;
+            Model = proposition.Car.CarModel.Name;
+            Color = proposition.Car.Color;
+            Price = proposition.Car.Price;
+            Power = proposition.Car.Power;
+            Seller = $"{proposition.User.Firstname} {proposition.User.Lastname}";
         }
 
     }

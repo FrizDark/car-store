@@ -27,7 +27,7 @@ namespace Carstore.View
 
         private List<string> _brands;
         private List<DetailType> _types;
-        private List<DetailPurpose> _purposes;
+        private List<DetailProposition> _propositions;
 
         private Grid _dgGrid;
         private DetailInfoView _infoView;
@@ -43,8 +43,8 @@ namespace Carstore.View
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purposes = db.DetailPurpose.ToList();
-                dg.ItemsSource = _purposes
+                _propositions = db.DetailProposition.ToList();
+                dg.ItemsSource = _propositions
                     .Select(d => new DetailTableModel(d))
                     .ToList();
                 _brands = db.Detail.Select(d => d.Brand).Distinct().OrderBy(d => d).ToList();
@@ -67,8 +67,8 @@ namespace Carstore.View
             TypeBox.SelectedIndex = -1;
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                _purposes = db.DetailPurpose.ToList();
-                dg.ItemsSource = _purposes
+                _propositions = db.DetailProposition.ToList();
+                dg.ItemsSource = _propositions
                     .Select(d => new DetailTableModel(d))
                     .ToList();
                 _brands = db.Detail.Select(d => d.Brand).Distinct().OrderBy(d => d).ToList();
@@ -112,7 +112,7 @@ namespace Carstore.View
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                List<DetailPurpose> filteredPurposes = db.DetailPurpose
+                List<DetailProposition> filteredPurposes = db.DetailProposition
                     .Include("Detail")
                     .Include("Detail.Photo")
                     .Include("Detail.DetailType")
@@ -148,7 +148,7 @@ namespace Carstore.View
         {
             if (dg.SelectedItem is DetailTableModel purpose && purpose != null)
             {
-                _infoView = new DetailInfoView(_purposes.First(p => p.Id == purpose.Id), BackButton_Click);
+                _infoView = new DetailInfoView(_propositions.First(p => p.Id == purpose.Id), BackButton_Click);
                 DetailsGrid.Children.Clear();
                 DetailsGrid.Children.Add(_infoView);
             }

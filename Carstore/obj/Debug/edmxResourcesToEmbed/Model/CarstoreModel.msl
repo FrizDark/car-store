@@ -47,9 +47,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CarPurpose">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarPurpose">
-        <MappingFragment StoreEntitySet="CarPurpose">
+    <EntitySetMapping Name="CarProposition">
+      <EntityTypeMapping TypeName="CarstoreDBModel.CarProposition">
+        <MappingFragment StoreEntitySet="CarProposition">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />
@@ -78,9 +78,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DetailPurpose">
-      <EntityTypeMapping TypeName="CarstoreDBModel.DetailPurpose">
-        <MappingFragment StoreEntitySet="DetailPurpose">
+    <EntitySetMapping Name="DetailProposition">
+      <EntityTypeMapping TypeName="CarstoreDBModel.DetailProposition">
+        <MappingFragment StoreEntitySet="DetailProposition">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="DetailId" ColumnName="DetailId" />
@@ -99,7 +99,6 @@
     <EntitySetMapping Name="Notification">
       <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
         <MappingFragment StoreEntitySet="Notification">
-          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
           <ScalarProperty Name="UserToId" ColumnName="UserToId" />
@@ -107,6 +106,7 @@
           <ScalarProperty Name="DetailId" ColumnName="DetailId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -126,9 +126,11 @@
                     Background="Gray">
                     <StackPanel Orientation="Horizontal">
                         <local:NumericUpDown x:Name="PriceMinBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0"
-                                         Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
+                                             Width="100"
+                                             Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
                         <local:NumericUpDown x:Name="PriceMaxBox" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0 0 0"
-                                         Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
+                                             Width="100"
+                                             Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
                     </StackPanel>
                 </Border>
 
@@ -145,9 +147,11 @@
                     Background="Gray">
                     <StackPanel Orientation="Horizontal">
                         <local:NumericUpDown x:Name="PowerMinBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0"
-                                         Maximum="{Binding ElementName=PowerMaxBox, Path=Value}"/>
+                                             Width="100"
+                                             Maximum="{Binding ElementName=PowerMaxBox, Path=Value}"/>
                         <local:NumericUpDown x:Name="PowerMaxBox" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0 0 0"
-                                         Minimum="{Binding ElementName=PowerMinBox, Path=Value}"/>
+                                             Width="100"
+                                             Minimum="{Binding ElementName=PowerMinBox, Path=Value}"/>
                     </StackPanel>
                 </Border>
 
