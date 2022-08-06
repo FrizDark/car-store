@@ -46,3 +46,5 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\NotificationsVie
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\NotificationsView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AddCarView.g.cs
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AddCarView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AddDetailView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\AddDetailView.baml

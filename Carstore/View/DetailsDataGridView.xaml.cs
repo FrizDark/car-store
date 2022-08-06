@@ -56,6 +56,11 @@ namespace Carstore.View
             TypeBox.ItemsSource = _types.ToList();
         }
 
+        public void UpdateList()
+        {
+            ResetButton_Click(null, null);
+        }
+
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             _brandSearch = "";
@@ -129,7 +134,7 @@ namespace Carstore.View
                 {
                     filteredPurposes = filteredPurposes.Where(d => d.Detail.Brand == brand).ToList();
                 }
-                if (TypeBox.SelectedItem is CarType type && type != null)
+                if (TypeBox.SelectedItem is DetailType type && type != null)
                 {
                     filteredPurposes = filteredPurposes.Where(d => d.Detail.TypeId == type.Id).ToList();
                 }

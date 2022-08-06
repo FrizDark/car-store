@@ -88,6 +88,7 @@ namespace Carstore.View
             PageField.Children.Clear();
             PageField.Children.Add(_tabControl);
             (CarsTab.Content as CarsDataGridView).UpdateList();
+            (DetailsTab.Content as DetailsDataGridView).UpdateList();
         }
 
         private void NotificationButton_Click(object sender, RoutedEventArgs e)
@@ -134,6 +135,11 @@ namespace Carstore.View
         private void AddDetailButton_Click(object sender, RoutedEventArgs e)
         {
             AddPopup.IsOpen = false;
+            PageField.Children.Clear();
+            PageField.Children.Add(new AddDetailView(() =>
+            {
+                HomeButton_Click(null, null);
+            }));
         }
 
     }

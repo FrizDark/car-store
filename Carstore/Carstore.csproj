@@ -138,6 +138,9 @@
     <Compile Include="View\AddCarView.xaml.cs">
       <DependentUpon>AddCarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddDetailView.xaml.cs">
+      <DependentUpon>AddDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminUserEditToolView.xaml.cs">
       <DependentUpon>AdminUserEditToolView.xaml</DependentUpon>
     </Compile>
@@ -169,6 +172,10 @@
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddCarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

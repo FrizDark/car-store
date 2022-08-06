@@ -15,9 +15,9 @@ namespace Carstore.ViewModel
         {
             if (value is bool b)
             {
-                return b ? Visibility.Visible : Visibility.Hidden;
+                return b ? Visibility.Visible : Visibility.Collapsed;
             }
-            return Visibility.Hidden;
+            return Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

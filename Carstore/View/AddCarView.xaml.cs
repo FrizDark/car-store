@@ -109,35 +109,40 @@ namespace Carstore.View
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
 
-            Car car = new Car
-            {
-                CarType = (CarType)TypeBox.SelectedItem,
-                CarModel = (CarModel)ModelBox.SelectedItem,
-                Price = PriceBox.Value,
-                Color = ColorBox.Text,
-                IsElectrical = IsElectricalBox.IsChecked == true,
-                Description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text,
-                Length = LengthBox.Value,
-                Width = WidthBox.Value,
-                Height = HeightBox.Value,
-                Weight = WeightBox.Value,
-                Power = PowerBox.Value,
-                TankSize = TankSizeBox.Value,
-                Seats = SeatsBox.Value,
-                CarPhoto = _photos.Select(p => new CarPhoto { Photo = p }).ToList()
-            };
-
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
                 try
                 {
-                    CarProposition purpose = new CarProposition
+
+                    CarType type = db.CarType.Find(((CarType)TypeBox.SelectedItem).Id);
+                    CarModel model = db.CarModel.Find(((CarModel)ModelBox.SelectedItem).Id);
+                    if (type == null || model == null) return;
+
+                    Car car = new Car
+                    {
+                        CarType = type,
+                        CarModel = model,
+                        Price = PriceBox.Value,
+                        Color = ColorBox.Text,
+                        IsElectrical = IsElectricalBox.IsChecked == true,
+                        Description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text,
+                        Length = LengthBox.Value,
+                        Width = WidthBox.Value,
+                        Height = HeightBox.Value,
+                        Weight = WeightBox.Value,
+                        Power = PowerBox.Value,
+                        TankSize = TankSizeBox.Value,
+                        Seats = SeatsBox.Value,
+                        CarPhoto = _photos.Select(p => new CarPhoto { Photo = p }).ToList()
+                    };
+
+                    CarProposition proposition = new CarProposition
                     {
                         Car = car,
                         User = db.User.Find(MainWindow.SelectedUserId),
                         CreationDate = DateTime.Now
                     };
-                    db.CarProposition.Add(purpose);
+                    db.CarProposition.Add(proposition);
                     db.SaveChanges();
                 }
                 catch (Exception ex)
