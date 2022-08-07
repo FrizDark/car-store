@@ -16,6 +16,7 @@ using Carstore.View;
 using Carstore.Model;
 using System.Security.Cryptography;
 using System.Configuration;
+using Carstore.View.Login;
 
 namespace Carstore
 {
@@ -28,9 +29,9 @@ namespace Carstore
 
         public static int SelectedUserId { get; private set; } = 0;
 
-        LoginView _loginView;
-        RegisterView _registerView;
-        AppView _appView;
+        private LoginView _loginView;
+        private RegisterView _registerView;
+        private AppView _appView;
 
         public MainWindow()
         {
@@ -52,7 +53,8 @@ namespace Carstore
             {
                 Console.WriteLine(ex.Message);
             }
-            EncryptAppSettings();
+            EncryptConfigSection("appSettings");
+            EncryptConfigSection("connectionStrings");
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
@@ -71,9 +73,16 @@ namespace Carstore
         {
             SelectedUserId = 0;
             Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
-            config.AppSettings.Settings.Remove("UserId");
-            config.Save(ConfigurationSaveMode.Minimal);
-            EncryptAppSettings();
+            try
+            {
+                config.AppSettings.Settings.Remove("UserId");
+                config.Save(ConfigurationSaveMode.Minimal);
+                EncryptConfigSection("appSettings");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             MainGrid.Children.Clear();
             MainGrid.Children.Add(_loginView);
@@ -167,7 +176,7 @@ namespace Carstore
                             config.AppSettings.Settings.Remove("UserId");
                             config.AppSettings.Settings.Add("UserId", user.Id.ToString());
                             config.Save(ConfigurationSaveMode.Minimal);
-                            EncryptAppSettings();
+                            EncryptConfigSection("appSettings");
                         }
 
                         MainGrid.Children.Clear();
@@ -185,12 +194,12 @@ namespace Carstore
             Close();
         }
 
-        private void EncryptAppSettings()
+        private void EncryptConfigSection(string sectionName)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
-            AppSettingsSection appSettingsSection = (AppSettingsSection)config.GetSection("appSettings");
-            appSettingsSection.SectionInformation.ProtectSection("RsaProtectedConfigurationProvider");
-            appSettingsSection.SectionInformation.ForceSave = true;
+            ConfigurationSection section = config.GetSection(sectionName);
+            section.SectionInformation.ProtectSection("RsaProtectedConfigurationProvider");
+            section.SectionInformation.ForceSave = true;
             config.Save(ConfigurationSaveMode.Modified);
         }
 

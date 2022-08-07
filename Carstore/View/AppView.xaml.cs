@@ -15,6 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Carstore.Model;
 using Carstore.View;
+using Carstore.View.CarScreens;
+using Carstore.View.DetailScreens;
+using Carstore.View.Profile;
 
 namespace Carstore.View
 {

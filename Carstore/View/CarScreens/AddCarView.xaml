@@ -1,0 +1,569 @@
+﻿<UserControl x:Class="Carstore.View.CarScreens.AddCarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Carstore.View"
+             xmlns:components="clr-namespace:Carstore.View.Components"
+             Background="#232323"
+             mc:Ignorable="d" 
+             Margin="0 50 0 0"
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+
+        <Style x:Key="DeleteButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle5}">
+            <Setter Property="Background" Value="DarkRed"/>
+        </Style>
+
+        <Style x:Key="CreateButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle5}">
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding ElementName=DataGridBorder, Path=BorderBrush}" Value="LightGreen"/>
+                        <Condition Binding="{Binding ElementName=MarkBorder, Path=BorderBrush}" Value="LightGreen"/>
+                        <Condition Binding="{Binding ElementName=ModelBorder, Path=BorderBrush}" Value="LightGreen"/>
+                        <Condition Binding="{Binding ElementName=TypeBorder, Path=BorderBrush}" Value="LightGreen"/>
+                        <Condition Binding="{Binding ElementName=ColorBorder, Path=BorderBrush}" Value="LightGreen"/>
+                        <Condition Binding="{Binding ElementName=DescriptionBorder, Path=BorderBrush}" Value="LightGreen"/>
+                    </MultiDataTrigger.Conditions>
+                    <MultiDataTrigger.Setters>
+                        <Setter Property="IsEnabled" Value="True"/>
+                    </MultiDataTrigger.Setters>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}">
+                <TextBlock VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Margin="5">
+                Gallery
+                </TextBlock>
+            </Border>
+
+
+            <Button Style="{StaticResource RoundedButtonStyle5}"
+                    Name="AddPhotosButton"
+                    Height="30"
+                    Margin="5"
+                    Padding="5"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Click="AddPhotosButton_Click">
+                <TextBlock>Add photos</TextBlock>
+            </Button>
+
+        </Grid>
+
+        <Border Grid.Column="0" Grid.Row="1"
+                Grid.RowSpan="7"
+                Name="DataGridBorder"
+                Margin="4"
+                CornerRadius="7"
+                BorderThickness="2">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderBrush" Value="LightGreen"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=GalleryList, Path=ItemsSource, Converter={StaticResource EmptyEnumerableConverter}}" Value="True">
+                            <Setter Property="BorderBrush" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+        
+        <DataGrid Grid.Column="0" Grid.Row="1"
+                  Grid.RowSpan="7"
+                  Name="GalleryList" Margin="5" Padding="5"
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False" 
+                  CanUserResizeColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  AutoGenerateColumns="False"
+                  Style="{StaticResource RoundedDataGridStyle}"
+                  GridLinesVisibility="None"
+                  SelectionChanged="GalleryList_SelectionChanged"
+                  VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="260">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="2">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding Path=Data}"/>
+                                </Border.Background>
+                                <Image Source="{Binding Path=Data}" Visibility="Hidden"/>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Column="1" Grid.Row="0" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                CornerRadius="5"
+                Height="30"
+                Margin="5"
+                Background="{StaticResource Gray}">
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       Margin="5"
+                       Name="CarInformationBlock">
+                Car information
+            </TextBlock>
+        </Border>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1"
+                    Name="MarkBorder">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="LightGreen"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=MarkBox, Path=SelectedItem}" Value="{x:Null}">
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Mark:
+                    </TextBlock>
+                    <Grid>
+                        <ComboBox Name="MarkBox"
+                                  Width="200"
+                                  Height="25"
+                                  Margin="2 0"
+                                  SelectionChanged="MarkBox_SelectionChanged"
+                                  PreviewTextInput="MarkBox_PreviewTextInput"
+                                  Style="{StaticResource RoundedComboBoxStyle}"
+                                  DisplayMemberPath="Name" SelectedValuePath="Name"/>
+                        <Border Background="{StaticResource DarkGray}"
+                                CornerRadius="3"
+                                Margin="8 8 25 8"
+                                Visibility="{Binding ElementName=MarkBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock Name="MarkSearchBox"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       Background="Transparent"/>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1"
+                    Name="ModelBorder">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="LightGreen"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=ModelBox, Path=SelectedItem}" Value="{x:Null}">
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Model:
+                    </TextBlock>
+                    <Grid>
+                        <ComboBox Name="ModelBox"
+                                  Width="150"
+                                  Height="25"
+                                  Margin="2 0"
+                                  IsEnabled="False"
+                                  PreviewTextInput="ModelBox_PreviewTextInput"
+                                  Style="{StaticResource RoundedComboBoxStyle}"
+                                  DisplayMemberPath="Name" SelectedValuePath="Name"/>
+                        <Border Background="{StaticResource DarkGray}"
+                                CornerRadius="3"
+                                Margin="8 8 25 8"
+                                Visibility="{Binding ElementName=ModelBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock Name="ModelSearchBox"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       Background="Transparent"/>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1"
+                    Name="TypeBorder">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="LightGreen"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=TypeBox, Path=SelectedItem}" Value="{x:Null}">
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Type:
+                    </TextBlock>
+                    <Grid>
+                        <ComboBox Name="TypeBox"
+                                  Width="100"
+                                  Height="25"
+                                  Margin="2 0"
+                                  PreviewTextInput="TypeBox_PreviewTextInput"
+                                  Style="{StaticResource RoundedComboBoxStyle}"
+                                  DisplayMemberPath="Name" SelectedValuePath="Name"/>
+                        <Border Background="{StaticResource DarkGray}"
+                                CornerRadius="3"
+                                Margin="8 8 25 8"
+                                Visibility="{Binding ElementName=TypeBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock Name="TypeSearchBox"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       Background="Transparent"/>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Price:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="PriceBox"
+                                         Width="100"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="10000000"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1"
+                    Name="ColorBorder">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="LightGreen"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=ColorBox, Path=Text, Converter={StaticResource StringConverter}}" Value="False">
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Color:
+                    </TextBlock>
+                    <TextBox Name="ColorBox" 
+                             Width="100"
+                             Height="25"
+                             Margin="2 0"
+                             Padding="0 3"
+                             Style="{StaticResource RoundedTextBoxStyle}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Power:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="PowerBox"
+                                         Width="90"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="10000"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Weight:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="WeightBox"
+                                         Width="90"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="10000"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Seats:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="SeatsBox"
+                                         Width="90"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="10"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Length | Width | Height:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="LengthBox"
+                                         Width="100"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="100000"
+                                         Value="1"/>
+                    <components:NumericUpDown x:Name="WidthBox"
+                                         Width="100"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="100000"
+                                         Value="1"/>
+                    <components:NumericUpDown x:Name="HeightBox"
+                                         Width="100"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="100000"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
+            <CheckBox Name="IsElectricalBox"
+                      Height="30"
+                      Width="100"
+                      Margin="5"
+                      Checked="IsElectricalBox_Checked"
+                      Unchecked="IsElectricalBox_Unchecked"
+                      Style="{StaticResource RoundedCheckBoxStyle}">
+                <TextBlock Foreground="White">Is electrical</TextBlock>
+            </CheckBox>
+            <Border VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5"
+                    Height="30"
+                    Margin="5"
+                    Background="{StaticResource Gray}"
+                    BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="TankSizeBlock" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5">
+                    Tank size:
+                    </TextBlock>
+                    <components:NumericUpDown x:Name="TankSizeBox"
+                                         Width="100"
+                                         Height="25"
+                                         Margin="2 0"
+                                         Minimum="1"
+                                         Maximum="10"
+                                         Value="1"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.Row="5" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                CornerRadius="5"
+                Height="30"
+                Margin="5"
+                Background="{StaticResource Gray}">
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       Margin="5">
+                    Description:
+            </TextBlock>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="6"
+                Margin="4"
+                BorderThickness="2"
+                CornerRadius="5"
+                BorderBrush="LightGreen"
+                Name="DescriptionBorder"/>
+
+        <RichTextBox Grid.Column="1" Grid.Row="6"
+                     Margin="5"
+                     Padding="5"
+                     TextChanged="DescriptionBox_TextChanged"
+                     Style="{StaticResource RoundedRichTextBox}"
+                     Name="DescriptionBox"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="7"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <Button Style="{StaticResource DeleteButtonStyle}"
+                    Name="ResetButton"
+                    Height="30"
+                    Margin="5"
+                    Padding="5"
+                    VerticalAlignment="Center"
+                    Click="ResetButton_Click">
+                <TextBlock>Reset</TextBlock>
+            </Button>
+            <Button Name="CreateButton"
+                    Height="30"
+                    Margin="5"
+                    Padding="5"
+                    VerticalAlignment="Center"
+                    Click="CreateButton_Click">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource CreateButtonStyle}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </Style>
+                </Button.Style>
+                <TextBlock>Create a car</TextBlock>
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
