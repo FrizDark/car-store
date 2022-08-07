@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Carstore.View"
+             xmlns:p="clr-namespace:Carstore.Properties"
              xmlns:components="clr-namespace:Carstore.View.Components"
              Background="#232323"
              mc:Ignorable="d" 
@@ -22,19 +23,18 @@
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
 
-                <Button Name="ResetButton" Width="50" Height="25" Margin="5"
+                <Button Name="ResetButton" Width="75" Height="25" Margin="5"
                     Style="{StaticResource RoundedButtonStyle}"
                     Click="ResetButton_Click">
-                    <TextBlock>Reset</TextBlock>
+                    <TextBlock Text="{x:Static p:Resources.carsDataGridView_Reset}"/>
                 </Button>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Mark:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.carsDataGridView_Mark}"/>
                 <Grid>
-                    <ComboBox Name="MarkBox" Width="200" Height="25" Margin="5"
+                    <ComboBox Name="MarkBox" Width="175" Height="25" Margin="5"
                           Style="{StaticResource RoundedComboBoxStyle}"
                           IsTextSearchEnabled="True" 
                           PreviewTextInput="MarkBox_PreviewTextInput"
@@ -52,12 +52,11 @@
                 </Grid>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Model:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.carsDataGridView_Model}"/>
                 <Grid>
-                    <ComboBox Name="ModelBox" Width="200" Height="25" Margin="5"
+                    <ComboBox Name="ModelBox" Width="175" Height="25" Margin="5"
                       IsEnabled="False"
                       IsTextSearchEnabled="True"
                       PreviewTextInput="ModelBox_PreviewTextInput"
@@ -75,16 +74,21 @@
                 </Grid>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Type:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.carsDataGridView_Type}"/>
                 <Grid>
                     <ComboBox Name="TypeBox" Width="150" Height="25" Margin="5"
-                      IsTextSearchEnabled="True"
-                      PreviewTextInput="TypeBox_PreviewTextInput"
-                      Style="{StaticResource RoundedComboBoxStyle}"
-                      DisplayMemberPath="Name" SelectedValuePath="Name"/>
+                              IsTextSearchEnabled="True"
+                              PreviewTextInput="TypeBox_PreviewTextInput"
+                              Style="{StaticResource RoundedComboBoxStyle}"
+                              SelectedValuePath="Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name, Converter={StaticResource LocalizeConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Border Background="{StaticResource DarkGray}"
                         CornerRadius="3"
                         Margin="8 8 25 8"
@@ -100,25 +104,24 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
 
-                <Button Name="SearchButton" Width="50" Height="25" Margin="5"
+                <Button Name="SearchButton" Width="75" Height="25" Margin="5"
                     Style="{StaticResource RoundedButtonStyle}"
                     Click="SearchButton_Click">
-                    <TextBlock>Search</TextBlock>
+                    <TextBlock Text="{x:Static p:Resources.carsDataGridView_Search}"/>
                 </Button>
 
-                <CheckBox Width="100" Height="25"
+                <CheckBox Width="125" Height="25"
                           Margin="5"
                           Name="ShowMineBox"
                           Foreground="White"
                           Style="{StaticResource RoundedCheckBoxStyle}">
-                    Show mine
+                    <TextBlock Text="{x:Static p:Resources.carsDataGridView_ShowMine}"/>
                 </CheckBox>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Price:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.carsDataGridView_Price}"/>
                 <Border Height="30" 
                     Width="210"
                     Padding="2"
@@ -136,10 +139,9 @@
                 </Border>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Power:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.carsDataGridView_Power}"/>
                 <Border Height="30" 
                     Width="210"
                     Padding="2"
@@ -159,20 +161,20 @@
             </StackPanel>
 
             <DataGrid Grid.Row="3" Name="dg" Margin="5" Padding="5"
-                  CanUserAddRows="False" 
-                  CanUserDeleteRows="False" 
-                  IsReadOnly="True"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow"
-                  AutoGenerateColumns="False" 
-                  SelectionChanged="dg_SelectionChanged"
-                  Style="{StaticResource RoundedDataGridStyle}"
-                  GridLinesVisibility="None">
+                      CanUserAddRows="False" 
+                      CanUserDeleteRows="False" 
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      SelectionUnit="FullRow"
+                      AutoGenerateColumns="False" 
+                      SelectionChanged="dg_SelectionChanged"
+                      Style="{StaticResource RoundedDataGridStyle}"
+                      GridLinesVisibility="None">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Width="100">
                         <DataGridTemplateColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Photo</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_Photo}"/>
                             </Border>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
@@ -189,42 +191,42 @@
                     <DataGridTextColumn Binding="{Binding Path=Mark}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Mark</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_MarkHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Model}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Model</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_ModelHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Color}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Color</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_ColorHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Price}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Price</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_PriceHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Power}" Width="50">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Power</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_PowerHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Seller}" Width="150">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Seller</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_Seller}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>

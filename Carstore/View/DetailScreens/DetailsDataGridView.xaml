@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Carstore.View"
+             xmlns:p="clr-namespace:Carstore.Properties"
              xmlns:components="clr-namespace:Carstore.View.Components"
              Background="#232323"
              mc:Ignorable="d" 
@@ -21,27 +22,25 @@
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
 
-                <Button Name="ResetButton" Width="50" Height="25" Margin="5"
+                <Button Name="ResetButton" Width="75" Height="25" Margin="5"
                     Style="{StaticResource RoundedButtonStyle}"
                     Click="ResetButton_Click">
-                    <TextBlock>Reset</TextBlock>
+                    <TextBlock Text="{x:Static p:Resources.detailsDataGridView_Reset}"/>
                 </Button>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Name:
-                </TextBlock>
-                <TextBox Name="NameBox" Width="200" Height="25" Margin="5" Padding="3"
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.detailsDataGridView_Name}"/>
+                <TextBox Name="NameBox" Width="150" Height="25" Margin="5" Padding="3"
                          Style="{StaticResource RoundedTextBoxStyle}"/>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Brand:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.detailsDataGridView_Brand}"/>
                 <Grid>
-                    <ComboBox Name="BrandBox" Width="200" Height="25" Margin="5"
+                    <ComboBox Name="BrandBox" Width="150" Height="25" Margin="5"
                       IsTextSearchEnabled="True"
                       PreviewTextInput="BrandBox_PreviewTextInput"
                       Style="{StaticResource RoundedComboBoxStyle}"/>
@@ -57,16 +56,21 @@
                 </Grid>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Type:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.detailsDataGridView_Type}"/>
                 <Grid>
                     <ComboBox Name="TypeBox" Width="150" Height="25" Margin="5"
-                      IsTextSearchEnabled="True"
-                      PreviewTextInput="TypeBox_PreviewTextInput"
-                      Style="{StaticResource RoundedComboBoxStyle}"
-                      DisplayMemberPath="Name" SelectedValuePath="Name"/>
+                              IsTextSearchEnabled="True"
+                              PreviewTextInput="TypeBox_PreviewTextInput"
+                              Style="{StaticResource RoundedComboBoxStyle}"
+                              SelectedValuePath="Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name, Converter={StaticResource LocalizeConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Border Background="{StaticResource DarkGray}"
                         CornerRadius="3"
                         Margin="8 8 25 8"
@@ -82,25 +86,24 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
 
-                <Button Name="SearchButton" Width="50" Height="25" Margin="5"
+                <Button Name="SearchButton" Width="75" Height="25" Margin="5"
                     Style="{StaticResource RoundedButtonStyle}"
                     Click="SearchButton_Click">
-                    <TextBlock>Search</TextBlock>
+                    <TextBlock Text="{x:Static p:Resources.detailsDataGridView_Search}"/>
                 </Button>
 
-                <CheckBox Width="100" Height="25"
+                <CheckBox Width="125" Height="25"
                           Margin="5"
                           Name="ShowMineBox"
                           Foreground="White"
                           Style="{StaticResource RoundedCheckBoxStyle}">
-                    Show mine
+                    <TextBlock Text="{x:Static p:Resources.detailsDataGridView_ShowMine}"/>
                 </CheckBox>
 
                 <TextBlock VerticalAlignment="Center"
-                       Foreground="White"
-                       Margin="5 0 0 0">
-                Price:
-                </TextBlock>
+                           Foreground="White"
+                           Margin="5 0 0 0"
+                           Text="{x:Static p:Resources.detailsDataGridView_Price}"/>
                 <Border Height="30" 
                     Width="210"
                     Padding="2"
@@ -133,7 +136,7 @@
                     <DataGridTemplateColumn Width="100">
                         <DataGridTemplateColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Photo</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_Photo}"/>
                             </Border>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
@@ -150,7 +153,7 @@
                     <DataGridTemplateColumn Width="150">
                         <DataGridTemplateColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Name</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_NameHeader}"/>
                             </Border>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
@@ -173,14 +176,14 @@
                     <DataGridTextColumn Binding="{Binding Path=Brand}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Brand</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_BrandHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTemplateColumn Width="100">
                         <DataGridTemplateColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Type</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_TypeHeader}"/>
                             </Border>
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
@@ -193,7 +196,7 @@
                                              IsReadOnly="True">
                                     <FlowDocument>
                                         <Paragraph>
-                                            <Run Text="{Binding Type}"/>
+                                            <Run Text="{Binding Type, Converter={StaticResource LocalizeConverter}}"/>
                                         </Paragraph>
                                     </FlowDocument>
                                 </RichTextBox>
@@ -203,14 +206,14 @@
                     <DataGridTextColumn Binding="{Binding Path=Price}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Price</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_PriceHeader}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Path=Seller}" Width="150">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
-                                <TextBlock FontWeight="Bold">Seller</TextBlock>
+                                <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.detailsDataGridView_Seller}"/>
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>

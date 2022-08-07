@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Carstore.View"
+             xmlns:p="clr-namespace:Carstore.Properties"
              mc:Ignorable="d"
              Style="{StaticResource UserControlStyle}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -50,7 +51,7 @@
             </TextBlock>
 
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1">
-                <TextBlock Margin="5 10">Email: </TextBlock>
+                <TextBlock Margin="5 10" Text="{x:Static p:Resources.loginView_Email}"/>
                 <TextBox Name="EmailBox" 
                          Width="100"
                          Margin="0 10"
@@ -70,7 +71,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="2">
-                <TextBlock Margin="5 10">Password:</TextBlock>
+                <TextBlock Margin="5 10" Text="{x:Static p:Resources.loginView_Password}"/>
                 <PasswordBox Name="PasswordBox" 
                              Width="100"
                              Margin="0 10"
@@ -89,13 +90,13 @@
             <CheckBox Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"
                       Style="{StaticResource RoundedCheckBoxStyle}"
                       Name="SavePasswordBox" x:FieldModifier="public">
-                <TextBlock Foreground="White">Save password</TextBlock>
+                <TextBlock Foreground="White"  Text="{x:Static p:Resources.loginView_SavePassword}"/>
             </CheckBox>
 
             <Button Grid.Column="0" Grid.Row="4" Margin="10"
                     Style="{StaticResource RoundedButtonStyle}"
                     Name="ExitButton" x:FieldModifier="public">
-                <TextBlock Text="Exit"/>
+                <TextBlock  Text="{x:Static p:Resources.loginView_Exit}"/>
             </Button>
 
             <Button Grid.Column="1" Grid.Row="4" Margin="10"
@@ -105,13 +106,13 @@
                         <Setter Property="IsEnabled" Value="False"/>
                     </Style>
                 </Button.Style>
-                <TextBlock Text="Login"/>
+                <TextBlock  Text="{x:Static p:Resources.loginView_Login}"/>
             </Button>
 
             <Button Grid.ColumnSpan="2" Grid.Row="5" Margin="10"
                     Style="{StaticResource RoundedButtonStyle}"
                     Name="RegisterButton" x:FieldModifier="public">
-                <TextBlock Text="Register"/>
+                <TextBlock  Text="{x:Static p:Resources.loginView_Register}"/>
             </Button>
 
         </Grid>

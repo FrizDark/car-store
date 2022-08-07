@@ -44,11 +44,11 @@ namespace Carstore.Model
             UserTo = $"{notification.User1.Firstname} {notification.User1.Lastname}";
             if (notification.CarId != null)
             {
-                Description = $"{UserFrom} wants to buy {notification.Car.CarModel.CarMark.Name} {notification.Car.CarModel.Name}";
+                Description = $"{UserFrom} {Properties.Resources.notificationsView_wantsToBuy} {notification.Car.CarModel.CarMark.Name} {notification.Car.CarModel.Name}";
             }
             else if (notification.DetailId != null)
             {
-                Description = $"{UserFrom} wants to buy {notification.Detail.Name} by {notification.Detail.Brand}";
+                Description = $"{UserFrom} {Properties.Resources.notificationsView_wantsToBuy} {notification.Detail.Name} {Properties.Resources.notificationsView_by} {notification.Detail.Brand}";
             }
             else
             {

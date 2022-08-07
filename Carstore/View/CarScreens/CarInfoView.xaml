@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Carstore.View"
+             xmlns:p="clr-namespace:Carstore.Properties"
              Background="#232323"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -43,9 +44,8 @@
                            HorizontalAlignment="Center"
                            Foreground="White"
                            FontWeight="Bold"
-                           Margin="5">
-                Gallery
-                </TextBlock>
+                           Margin="5"
+                           Text="{x:Static p:Resources.carInfoView_Gallery}"/>
             </Border>
 
             <Button Style="{StaticResource RoundedButtonStyle5}"
@@ -56,7 +56,7 @@
                     Margin="5"
                     Padding="5"
                     VerticalAlignment="Center">
-                <TextBlock>Back</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.carInfoView_Back}"/>
             </Button>
 
         </Grid>
@@ -102,9 +102,8 @@
                        Foreground="White"
                        FontWeight="Bold"
                        Margin="5"
-                       Name="CarInformationBlock">
-                Car information
-            </TextBlock>
+                       Name="CarInformationBlock"
+                       Text="{x:Static p:Resources.carInfoView_CarInformation}"/>
         </Border>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
@@ -119,7 +118,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                    <Run>Price:</Run>
+                    <Run Text="{x:Static p:Resources.carInfoView_Price}"/>
                     <Run Name="PriceBlock">0</Run>
                     <Run>$</Run>
                 </TextBlock>
@@ -135,13 +134,19 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Length | Width | Height: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Length}"/>
+                <Run>|</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Width}"/>
+                <Run>|</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Height}"/>
                 <Run Name="LengthBlock">0</Run>
-                <Run>mm |</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_SizeUnits}"/>
+                <Run>|</Run>
                 <Run Name="WidthBlock">0</Run>
-                <Run>mm |</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_SizeUnits}"/>
+                <Run>|</Run>
                 <Run Name="HeightBlock">0</Run>
-                <Run>mm</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_SizeUnits}"/>
                 </TextBlock>
             </Border>
         </StackPanel>
@@ -158,9 +163,9 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Power: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Power}"/>
                 <Run Name="PowerBlock">0</Run>
-                <Run>hp</Run>
+                <Run Text="{x:Static p:Resources.carInfoView_PowerUnits}"/>
                 </TextBlock>
             </Border>
             <Border VerticalAlignment="Center"
@@ -174,9 +179,9 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                    <Run>Weight:</Run>
+                    <Run Text="{x:Static p:Resources.carInfoView_Weight}"/>
                     <Run Name="WeightBlock">0</Run>
-                    <Run>kg</Run>
+                    <Run Text="{x:Static p:Resources.carInfoView_WeightUnits}"/>
                 </TextBlock>
             </Border>
             <Border VerticalAlignment="Center"
@@ -190,9 +195,9 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run Name="TankSizeName">Tank size: </Run>
-                <Run Name="TankSizeBlock">0</Run>
-                <Run Name="TankSizeUnits">l</Run>
+                <Run Name="TankSizeName" Text="{x:Static p:Resources.carInfoView_TankSize}"/> 
+                <Run Name="TankSizeBlock">0</Run> 
+                <Run Name="TankSizeUnits" Text="{x:Static p:Resources.carInfoView_TankUnits}"/>
                 </TextBlock>
             </Border>
             <Border VerticalAlignment="Center"
@@ -206,7 +211,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Seats: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Seats}"/>
                 <Run Name="SeatsBlock">0</Run>
                 </TextBlock>
             </Border>
@@ -224,7 +229,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Color: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Color}"/>
                 <Run Name="ColorBlock">White</Run>
                 </TextBlock>
             </Border>
@@ -239,7 +244,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Type: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Type}"/>
                 <Run Name="TypeBlock">Sedan</Run>
                 </TextBlock>
             </Border>
@@ -255,7 +260,7 @@
                        Foreground="White"
                        FontWeight="Bold"
                        Margin="5">
-                <Run>Seller: </Run>
+                <Run Text="{x:Static p:Resources.carInfoView_Seller}"/>
                 <Ellipse Name="SellerPhotoField" Width="10" Height="10"
                          Visibility="Collapsed">
                     <Ellipse.Fill>
@@ -293,7 +298,7 @@
                     VerticalAlignment="Center"
                     Visibility="Hidden"
                     Click="DeleteButton_Click">
-                <TextBlock>Delete</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.carInfoView_Delete}"/>
             </Button>
             <Button Style="{StaticResource RoundedButtonStyle5}"
                     Name="ContactButton"
@@ -302,7 +307,7 @@
                     Padding="5"
                     VerticalAlignment="Center"
                     Click="ContactButton_Click">
-                <TextBlock>Contact a seller</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.carInfoView_ContactASeller}"/>
             </Button>
             
         </StackPanel>

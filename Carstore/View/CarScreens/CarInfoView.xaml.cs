@@ -45,12 +45,16 @@ namespace Carstore.View.CarScreens
                 HeightBlock.Text = _proposition.Car.Height.ToString();
                 PowerBlock.Text = _proposition.Car.Power.ToString();
                 WeightBlock.Text = _proposition.Car.Weight.ToString();
-                TankSizeName.Text = _proposition.Car.IsElectrical ? "Battery" : "Tank";
+                TankSizeName.Text = _proposition.Car.IsElectrical 
+                    ? Properties.Resources.carInfoView_BatteryCapacity
+                    : Properties.Resources.carInfoView_TankSize;
                 TankSizeBlock.Text = _proposition.Car.TankSize.ToString();
-                TankSizeUnits.Text = _proposition.Car.IsElectrical ? "kW" : "l";
+                TankSizeUnits.Text = _proposition.Car.IsElectrical 
+                    ? Properties.Resources.carInfoView_BatteryUnits
+                    : Properties.Resources.carInfoView_TankUnits;
                 SeatsBlock.Text = _proposition.Car.Seats.ToString();
                 ColorBlock.Text = _proposition.Car.Color;
-                TypeBlock.Text = _proposition.Car.CarType.Name;
+                TypeBlock.Text = Properties.Resources.ResourceManager.GetString(_proposition.Car.CarType.Name);
                 if (_proposition.User.Photo != null)
                 {
                     SellerPhoto.ImageSource = ByteImage.GetImage(_proposition.User.Photo.Data);
@@ -64,7 +68,7 @@ namespace Carstore.View.CarScreens
                 {
                     ContactButton.Visibility = Visibility.Collapsed;
                 }
-                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _proposition.User)
+                if (user.UserType.Name == "userType_Admin" || user.UserType.Name == "userType_Moderator" || user == _proposition.User)
                 {
                     DeleteButton.Visibility = Visibility.Visible;
                 }

@@ -63,12 +63,14 @@ namespace Carstore.View.Profile
 
                 switch (user.UserType.Name)
                 {
-                    case "User": break;
-                    case "Moderator":
-                        RoleBlock.Text = "Moderator";
+                    case "userType_User": break;
+                    case "userType_Moderator":
+                        RoleBlock.Foreground = System.Windows.Media.Brushes.White;
+                        RoleBlock.Text = Properties.Resources.userType_Moderator;
                         break;
-                    case "Admin":
-                        RoleBlock.Text = "Admin";
+                    case "userType_Admin":
+                        RoleBlock.Foreground = System.Windows.Media.Brushes.White;
+                        RoleBlock.Text = Properties.Resources.userType_Admin;
                         EditUsersButton.Visibility = Visibility.Visible;
                         break;
                 }
@@ -119,27 +121,31 @@ namespace Carstore.View.Profile
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            CancelButton_Click(sender, e);
 
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
                 User user = null;
                 await Task.Run(new Action(() => user = db.User.First(usr => usr.Id == MainWindow.SelectedUserId)));
-                string phone = PhoneBox.Text;
+                string phone = $"({PhoneBox.Text.Substring(0, 3)}){PhoneBox.Text.Substring(3, 3)}-{PhoneBox.Text.Substring(6, 2)}-{PhoneBox.Text.Substring(8, 2)}";
 
                 User emailUser = db.User.Where(u => u.Email == EmailBox.Text).FirstOrDefault();
                 User phoneUser = db.User.Where(u => u.Phone == phone).FirstOrDefault();
-                if (emailUser != null && emailUser != user || phoneUser != null && phoneUser != user)
+                if (emailUser != null && emailUser != user && phoneUser != null && phoneUser != user)
                 {
-                    MessageBox.Show("Email and phone are used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    RoleBlock.Foreground = System.Windows.Media.Brushes.Red;
+                    RoleBlock.Text = Properties.Resources.profileView_EmailAndPhoneAreUsed;
                     return;
-                } else if (emailUser != null && emailUser != user)
+                } 
+                else if (emailUser != null && emailUser != user)
                 {
-                    MessageBox.Show("Email is used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    RoleBlock.Foreground = System.Windows.Media.Brushes.Red;
+                    RoleBlock.Text = Properties.Resources.profileView_EmailIsUsed;
                     return;
-                } else if (emailUser != null && phoneUser != user)
+                } 
+                else if (phoneUser != null && phoneUser != user)
                 {
-                    MessageBox.Show("Phone is used", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    RoleBlock.Foreground = System.Windows.Media.Brushes.Red;
+                    RoleBlock.Text = Properties.Resources.profileView_PhoneIsUsed;
                     return;
                 }
 
@@ -157,10 +163,11 @@ namespace Carstore.View.Profile
                 user.Firstname = FirstnameBox.Text;
                 user.Lastname = LastnameBox.Text;
                 user.Email = EmailBox.Text;
-                user.Phone = $"({phone.Substring(0, 3)}){phone.Substring(3, 3)}-{phone.Substring(6, 2)}-{phone.Substring(8, 2)}";
+                user.Phone = phone;
                 db.SaveChanges();
             }
 
+            CancelButton_Click(sender, e);
             _profilePhotoPath = null;
             _updateProfilePhoto();
             LoadUserData();
@@ -196,7 +203,8 @@ namespace Carstore.View.Profile
                 {
                     if (hash[i] != user.Password[i])
                     {
-                        MessageBox.Show("Incorrect password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        RoleBlock.Foreground = System.Windows.Media.Brushes.Red;
+                        RoleBlock.Text = Properties.Resources.profileView_IncorrectPassword;
                         OldPasswordBox.Password = "";
                         NewPasswordBox.Password = "";
                         RepeatPasswordBox.Password = "";

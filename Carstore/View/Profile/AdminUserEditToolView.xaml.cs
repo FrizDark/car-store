@@ -32,7 +32,7 @@ namespace Carstore.View.Profile
         {
             InitializeComponent();
             _db = new CarstoreDBEntities();
-            if (_db.User.Find(MainWindow.SelectedUserId).UserType.Name != "Admin")
+            if (_db.User.Find(MainWindow.SelectedUserId).UserType.Name != "userType_Admin")
             {
                 MessageBox.Show("This is admin tool!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 _db.Dispose();
@@ -45,7 +45,7 @@ namespace Carstore.View.Profile
         private void ShowUsers()
         {
             var users = _db.User
-                .Where(u => u.UserType.Name != "Admin")
+                .Where(u => u.UserType.Name != "userType_Admin")
                 .Select(u => new
                 {
                     u.Id,
@@ -68,11 +68,11 @@ namespace Carstore.View.Profile
             {
                 switch (user.Role)
                 {
-                    case "User":
+                    case "userType_User":
                         UserButton.IsEnabled = false;
                         ModeratorButton.IsEnabled = true;
                         break;
-                    case "Moderator":
+                    case "userType_Moderator":
                         UserButton.IsEnabled = true;
                         ModeratorButton.IsEnabled = false;
                         break;
@@ -89,7 +89,7 @@ namespace Carstore.View.Profile
                 User user = _db.User.Find((dg.SelectedItem as UserRoleModel).Id);
                 if (user != null)
                 {
-                    user.TypeId = _db.UserType.FirstOrDefault(t => t.Name == "User").Id;
+                    user.TypeId = _db.UserType.FirstOrDefault(t => t.Name == "userType_User").Id;
                 }
                 _db.SaveChanges();
             }
@@ -100,13 +100,13 @@ namespace Carstore.View.Profile
         private void ModeratorButton_Click(object sender, RoutedEventArgs e)
         {
             SaveButton.IsEnabled = true;
-            UserButton.IsEnabled = true;
+            ModeratorButton.IsEnabled = false;
             try
             {
                 User user = _db.User.Find((dg.SelectedItem as UserRoleModel).Id);
                 if (user != null)
                 {
-                    user.TypeId = _db.UserType.FirstOrDefault(t => t.Name == "Moderator").Id;
+                    user.TypeId = _db.UserType.FirstOrDefault(t => t.Name == "userType_Moderator").Id;
                 }
                 _db.SaveChanges();
             }

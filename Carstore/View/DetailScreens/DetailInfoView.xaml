@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Carstore.View"
+             xmlns:p="clr-namespace:Carstore.Properties"
              Background="#232323"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -43,9 +44,8 @@
                            HorizontalAlignment="Center"
                            Foreground="White"
                            FontWeight="Bold"
-                           Margin="5">
-                Photo
-                </TextBlock>
+                           Margin="5"
+                           Text="{x:Static p:Resources.detailInfoView_Photo}"/>
             </Border>
 
             <Button Style="{StaticResource RoundedButtonStyle5}"
@@ -56,7 +56,7 @@
                     Margin="5"
                     Padding="5"
                     VerticalAlignment="Center">
-                <TextBlock>Back</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.detailInfoView_Back}"/>
             </Button>
 
         </Grid>
@@ -82,9 +82,8 @@
                        HorizontalAlignment="Center"
                        Foreground="White"
                        FontWeight="Bold"
-                       Margin="5">
-                Detail information
-            </TextBlock>
+                       Margin="5"
+                       Text="{x:Static p:Resources.detailInfoView_DetailInformation}"/>
         </Border>
 
         <Border Grid.Column="1" Grid.Row="1"
@@ -101,7 +100,7 @@
                          IsReadOnly="True">
                 <FlowDocument>
                     <Paragraph>
-                        <Run FontWeight="Bold">Name:</Run>
+                        <Run FontWeight="Bold" Text="{x:Static p:Resources.detailInfoView_Name}"/>
                         <Run Name="NameBlock">0</Run>
                     </Paragraph>
                 </FlowDocument>
@@ -120,7 +119,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                <Run>Brand: </Run>
+                <Run Text="{x:Static p:Resources.detailInfoView_Brand}"/>
                 <Run Name="BrandBlock">0</Run>
                 </TextBlock>
             </Border>
@@ -135,7 +134,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                    <Run>Type:</Run>
+                    <Run Text="{x:Static p:Resources.detailInfoView_Type}"/>
                     <Run Name="TypeBlock">0</Run>
                 </TextBlock>
             </Border>
@@ -153,7 +152,7 @@
                            Foreground="White"
                            FontWeight="Bold"
                            Margin="5">
-                    <Run>Price:</Run>
+                    <Run Text="{x:Static p:Resources.detailInfoView_Price}"/>
                     <Run Name="PriceBlock">0</Run>
                     <Run>₴</Run>
                 </TextBlock>
@@ -170,7 +169,7 @@
                        Foreground="White"
                        FontWeight="Bold"
                        Margin="5">
-                <Run>Seller: </Run>
+                <Run Text="{x:Static p:Resources.detailInfoView_Seller}"/>
                 <Ellipse Name="SellerPhotoField" Width="10" Height="10"
                          Visibility="Collapsed">
                     <Ellipse.Fill>
@@ -209,7 +208,7 @@
                     VerticalAlignment="Center"
                     Visibility="Hidden"
                     Click="DeleteButton_Click">
-                <TextBlock>Delete</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.detailInfoView_Delete}"/>
             </Button>
             <Button Style="{StaticResource RoundedButtonStyle5}"
                     Name="ContactButton"
@@ -218,7 +217,7 @@
                     Padding="5"
                     VerticalAlignment="Center"
                     Click="ContactButton_Click">
-                <TextBlock>Contact a seller</TextBlock>
+                <TextBlock Text="{x:Static p:Resources.detailInfoView_ContactASeller}"/>
             </Button>
 
         </StackPanel>

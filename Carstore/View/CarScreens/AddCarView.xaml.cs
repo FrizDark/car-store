@@ -101,7 +101,7 @@ namespace Carstore.View.CarScreens
             WidthBox.Value = WidthBox.Minimum;
             HeightBox.Value = HeightBox.Minimum;
             IsElectricalBox.IsChecked = false;
-            TankSizeBlock.Text = "Tank size:";
+            TankSizeBlock.Text = Properties.Resources.addCarView_TankSize;
             TankSizeBox.Value = TankSizeBox.Minimum;
             DescriptionBox.Document.Blocks.Clear();
         }
@@ -224,12 +224,12 @@ namespace Carstore.View.CarScreens
 
         private void IsElectricalBox_Checked(object sender, RoutedEventArgs e)
         {
-            TankSizeBlock.Text = "Battery capability:";
+            TankSizeBlock.Text = Properties.Resources.addCarView_BatteryCapacity;
         }
 
         private void IsElectricalBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            TankSizeBlock.Text = "Tank size:";
+            TankSizeBlock.Text = Properties.Resources.addCarView_TankSize;
         }
 
     }

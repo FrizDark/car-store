@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,555 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addCarView_AddPhotos" xml:space="preserve">
+    <value>Add photos</value>
+  </data>
+  <data name="addCarView_BatteryCapacity" xml:space="preserve">
+    <value>Battery capacity:</value>
+  </data>
+  <data name="addCarView_CarInformation" xml:space="preserve">
+    <value>Car information</value>
+  </data>
+  <data name="addCarView_Color" xml:space="preserve">
+    <value>Color:</value>
+  </data>
+  <data name="addCarView_CreateACar" xml:space="preserve">
+    <value>Create a car</value>
+  </data>
+  <data name="addCarView_Description" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="addCarView_Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="addCarView_Height" xml:space="preserve">
+    <value>Height:</value>
+  </data>
+  <data name="addCarView_IsElectrical" xml:space="preserve">
+    <value>Is electrical</value>
+  </data>
+  <data name="addCarView_Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="addCarView_Mark" xml:space="preserve">
+    <value>Mark:</value>
+  </data>
+  <data name="addCarView_Model" xml:space="preserve">
+    <value>Model:</value>
+  </data>
+  <data name="addCarView_Power" xml:space="preserve">
+    <value>Power:</value>
+  </data>
+  <data name="addCarView_Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="addCarView_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="addCarView_Seats" xml:space="preserve">
+    <value>Seats:</value>
+  </data>
+  <data name="addCarView_TankSize" xml:space="preserve">
+    <value>Tank size:</value>
+  </data>
+  <data name="addCarView_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="addCarView_Weight" xml:space="preserve">
+    <value>Weight:</value>
+  </data>
+  <data name="addCarView_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="addDetailView_AddAPhoto" xml:space="preserve">
+    <value>Add a photo</value>
+  </data>
+  <data name="addDetailView_Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="addDetailView_CreateADetail" xml:space="preserve">
+    <value>Create a detail</value>
+  </data>
+  <data name="addDetailView_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="addDetailView_DetailInformation" xml:space="preserve">
+    <value>Detail information</value>
+  </data>
+  <data name="addDetailView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="addDetailView_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="addDetailView_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="addDetailView_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="addDetailView_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="adminUserEditToolView_CancelChanges" xml:space="preserve">
+    <value>Cancel changes</value>
+  </data>
+  <data name="adminUserEditToolView_Moderator" xml:space="preserve">
+    <value>Moderator</value>
+  </data>
+  <data name="adminUserEditToolView_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="adminUserEditToolView_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="adminUserEditToolView_SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="adminUserEditToolView_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="appView_Car" xml:space="preserve">
+    <value>Car</value>
+  </data>
+  <data name="appView_Cars" xml:space="preserve">
+    <value>Cars</value>
+  </data>
+  <data name="appView_Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="appView_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="carInfoView_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="carInfoView_BatteryCapacity" xml:space="preserve">
+    <value>Battery capacity:</value>
+  </data>
+  <data name="carInfoView_BatteryUnits" xml:space="preserve">
+    <value>kWh</value>
+  </data>
+  <data name="carInfoView_CarInformation" xml:space="preserve">
+    <value>Car information</value>
+  </data>
+  <data name="carInfoView_Color" xml:space="preserve">
+    <value>Color:</value>
+  </data>
+  <data name="carInfoView_ContactASeller" xml:space="preserve">
+    <value>Contact a seller</value>
+  </data>
+  <data name="carInfoView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="carInfoView_Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="carInfoView_Height" xml:space="preserve">
+    <value>Height:</value>
+  </data>
+  <data name="carInfoView_Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="carInfoView_Power" xml:space="preserve">
+    <value>Power:</value>
+  </data>
+  <data name="carInfoView_PowerUnits" xml:space="preserve">
+    <value>hp</value>
+  </data>
+  <data name="carInfoView_Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="carInfoView_Seats" xml:space="preserve">
+    <value>Seats:</value>
+  </data>
+  <data name="carInfoView_Seller" xml:space="preserve">
+    <value>Seller:</value>
+  </data>
+  <data name="carInfoView_SizeUnits" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="carInfoView_TankSize" xml:space="preserve">
+    <value>Tank size:</value>
+  </data>
+  <data name="carInfoView_TankUnits" xml:space="preserve">
+    <value>l</value>
+  </data>
+  <data name="carInfoView_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="carInfoView_Weight" xml:space="preserve">
+    <value>Weight:</value>
+  </data>
+  <data name="carInfoView_WeightUnits" xml:space="preserve">
+    <value>kg</value>
+  </data>
+  <data name="carInfoView_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="carsDataGridView_ColorHeader" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="carsDataGridView_Mark" xml:space="preserve">
+    <value>Mark:</value>
+  </data>
+  <data name="carsDataGridView_MarkHeader" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="carsDataGridView_Model" xml:space="preserve">
+    <value>Model:</value>
+  </data>
+  <data name="carsDataGridView_ModelHeader" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="carsDataGridView_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="carsDataGridView_Power" xml:space="preserve">
+    <value>Power:</value>
+  </data>
+  <data name="carsDataGridView_PowerHeader" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="carsDataGridView_Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="carsDataGridView_PriceHeader" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="carsDataGridView_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="carsDataGridView_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="carsDataGridView_Seller" xml:space="preserve">
+    <value>Seller</value>
+  </data>
+  <data name="carsDataGridView_ShowMine" xml:space="preserve">
+    <value>Show mine</value>
+  </data>
+  <data name="carsDataGridView_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="carType_Compact" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="carType_Convertible" xml:space="preserve">
+    <value>Convertible</value>
+  </data>
+  <data name="carType_Coupe" xml:space="preserve">
+    <value>Coupe</value>
+  </data>
+  <data name="carType_Crossover" xml:space="preserve">
+    <value>Crossover</value>
+  </data>
+  <data name="carType_Hatchback" xml:space="preserve">
+    <value>Hatchback</value>
+  </data>
+  <data name="carType_Hypercar" xml:space="preserve">
+    <value>Hypercar</value>
+  </data>
+  <data name="carType_Minivan" xml:space="preserve">
+    <value>Minivan</value>
+  </data>
+  <data name="carType_MuscleCar" xml:space="preserve">
+    <value>Muscle car</value>
+  </data>
+  <data name="carType_Pickup" xml:space="preserve">
+    <value>Pickup</value>
+  </data>
+  <data name="carType_Roadster" xml:space="preserve">
+    <value>Roadster</value>
+  </data>
+  <data name="carType_Sedan" xml:space="preserve">
+    <value>Sedan</value>
+  </data>
+  <data name="carType_SportsCar" xml:space="preserve">
+    <value>Sports car</value>
+  </data>
+  <data name="carType_Supercar" xml:space="preserve">
+    <value>Supercar</value>
+  </data>
+  <data name="carType_SUV" xml:space="preserve">
+    <value>SUV</value>
+  </data>
+  <data name="carType_Van" xml:space="preserve">
+    <value>Van</value>
+  </data>
+  <data name="detailInfoView_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="detailInfoView_Brand" xml:space="preserve">
+    <value>Brand:</value>
+  </data>
+  <data name="detailInfoView_ContactASeller" xml:space="preserve">
+    <value>Contact a seller</value>
+  </data>
+  <data name="detailInfoView_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="detailInfoView_DetailInformation" xml:space="preserve">
+    <value>Detail information</value>
+  </data>
+  <data name="detailInfoView_Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="detailInfoView_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="detailInfoView_Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="detailInfoView_Seller" xml:space="preserve">
+    <value>Seller:</value>
+  </data>
+  <data name="detailInfoView_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="detailsDataGridView_Brand" xml:space="preserve">
+    <value>Brand:</value>
+  </data>
+  <data name="detailsDataGridView_BrandHeader" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="detailsDataGridView_Name" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="detailsDataGridView_NameHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="detailsDataGridView_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="detailsDataGridView_Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="detailsDataGridView_PriceHeader" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="detailsDataGridView_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="detailsDataGridView_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="detailsDataGridView_Seller" xml:space="preserve">
+    <value>Seller</value>
+  </data>
+  <data name="detailsDataGridView_ShowMine" xml:space="preserve">
+    <value>Show mine</value>
+  </data>
+  <data name="detailsDataGridView_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="detailsDataGridView_TypeHeader" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="detailType_BrakeSystem" xml:space="preserve">
+    <value>Brake system</value>
+  </data>
+  <data name="detailType_CarBody" xml:space="preserve">
+    <value>Car body</value>
+  </data>
+  <data name="detailType_CoolingAndHeating" xml:space="preserve">
+    <value>Cooling and heating</value>
+  </data>
+  <data name="detailType_ElectronicsAndIgnitionSystem" xml:space="preserve">
+    <value>Electronics and ignition system</value>
+  </data>
+  <data name="detailType_Engine" xml:space="preserve">
+    <value>Engine</value>
+  </data>
+  <data name="detailType_ExhaustSystem" xml:space="preserve">
+    <value>Exhaust system</value>
+  </data>
+  <data name="detailType_Filters" xml:space="preserve">
+    <value>Filters</value>
+  </data>
+  <data name="detailType_Lighting" xml:space="preserve">
+    <value>Lighting</value>
+  </data>
+  <data name="detailType_Steering" xml:space="preserve">
+    <value>Steering</value>
+  </data>
+  <data name="detailType_Suspension" xml:space="preserve">
+    <value>Suspension</value>
+  </data>
+  <data name="detailType_Transmission" xml:space="preserve">
+    <value>Transmission</value>
+  </data>
+  <data name="loginView_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="loginView_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="loginView_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="loginView_Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="loginView_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="loginView_SavePassword" xml:space="preserve">
+    <value>Save password</value>
+  </data>
+  <data name="loginView_WrongEmailOrPassword" xml:space="preserve">
+    <value>Wrong email or password</value>
+  </data>
+  <data name="notificationsView_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="notificationsView_by" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="notificationsView_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="notificationsView_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="notificationsView_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="notificationsView_FromMe" xml:space="preserve">
+    <value>From me</value>
+  </data>
+  <data name="notificationsView_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="notificationsView_Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="notificationsView_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="notificationsView_ToMe" xml:space="preserve">
+    <value>To me</value>
+  </data>
+  <data name="notificationsView_wantsToBuy" xml:space="preserve">
+    <value>wants to buy</value>
+  </data>
+  <data name="profileView_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="profileView_ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="profileView_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="profileView_EditProfile" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="profileView_EditUsers" xml:space="preserve">
+    <value>Edit users</value>
+  </data>
+  <data name="profileView_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="profileView_EmailAndPhoneAreUsed" xml:space="preserve">
+    <value>Email and phone are used</value>
+  </data>
+  <data name="profileView_EmailIsUsed" xml:space="preserve">
+    <value>Email is used</value>
+  </data>
+  <data name="profileView_Firstname" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="profileView_IncorrectPassword" xml:space="preserve">
+    <value>Incorrect password</value>
+  </data>
+  <data name="profileView_Lastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="profileView_LogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="profileView_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="profileView_OldPassword" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="profileView_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="profileView_PhoneIsUsed" xml:space="preserve">
+    <value>Phone is used</value>
+  </data>
+  <data name="profileView_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="profileView_RepeatNewPassword" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="profileView_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="profileView_Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="registerView_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="registerView_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="registerView_EmailAndPhoneAreUsed" xml:space="preserve">
+    <value>Email and phone are used</value>
+  </data>
+  <data name="registerView_EmailIsUsed" xml:space="preserve">
+    <value>Email is used</value>
+  </data>
+  <data name="registerView_Firstname" xml:space="preserve">
+    <value>Firstname:</value>
+  </data>
+  <data name="registerView_Lastname" xml:space="preserve">
+    <value>Lastname:</value>
+  </data>
+  <data name="registerView_Password" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="registerView_Phone" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="registerView_PhoneIsUsed" xml:space="preserve">
+    <value>Phone is used</value>
+  </data>
+  <data name="registerView_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="registerView_Repeat" xml:space="preserve">
+    <value>Repeat:</value>
+  </data>
+  <data name="settingsView_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="settingsView_Language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="settingsView_SaveAndRestart" xml:space="preserve">
+    <value>Save and restart</value>
+  </data>
+  <data name="settingsView_Ukrainian" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
+  <data name="userType_Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="userType_Moderator" xml:space="preserve">
+    <value>Moderator</value>
+  </data>
+  <data name="userType_User" xml:space="preserve">
+    <value>User</value>
+  </data>
 </root>

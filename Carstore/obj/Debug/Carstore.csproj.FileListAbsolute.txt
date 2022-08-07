@@ -48,3 +48,8 @@ C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\DetailScreens\De
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\Login\LoginView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\Profile\ProfileView.baml
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\Login\RegisterView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\SettingsView.g.cs
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\View\SettingsView.baml
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\bin\Debug\uk\Carstore.resources.dll
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\Carstore.Properties.Resources.uk.resources
+C:\Users\dmitr\Desktop\Project\Carstore\Carstore\obj\Debug\uk\Carstore.resources.dll

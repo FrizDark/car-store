@@ -522,6 +522,7 @@
         <c:PhoneConverter x:Key="PhoneConverter"/>
         <c:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <c:EmptyEnumerableConverter x:Key="EmptyEnumerableConverter"/>
+        <c:LocalizeConverter x:Key="LocalizeConverter"/>
 
     </Application.Resources>
 </Application>

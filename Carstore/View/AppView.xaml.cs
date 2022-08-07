@@ -57,7 +57,8 @@ namespace Carstore.View
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Settings");
+            PageField.Children.Clear();
+            PageField.Children.Add(new SettingsView());
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)

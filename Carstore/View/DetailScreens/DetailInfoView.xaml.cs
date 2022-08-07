@@ -40,7 +40,7 @@ namespace Carstore.View.DetailScreens
                 PriceBlock.Text = _proposition.Detail.Price.ToString();
                 NameBlock.Text = _proposition.Detail.Name;
                 BrandBlock.Text = _proposition.Detail.Brand.ToString();
-                TypeBlock.Text = _proposition.Detail.DetailType.Name;
+                TypeBlock.Text = Properties.Resources.ResourceManager.GetString(_proposition.Detail.DetailType.Name);
                 if (_proposition.Detail.Description != null)
                 {
                     DescriptionBlock.Text = _proposition.Detail.Description;
@@ -60,7 +60,7 @@ namespace Carstore.View.DetailScreens
                 {
                     ContactButton.Visibility = Visibility.Collapsed;
                 }
-                if (user.UserType.Name == "Admin" || user.UserType.Name == "Moderator" || user == _proposition.User)
+                if (user.UserType.Name == "userType_Admin" || user.UserType.Name == "userType_Moderator" || user == _proposition.User)
                 {
                     DeleteButton.Visibility = Visibility.Visible;
                 }

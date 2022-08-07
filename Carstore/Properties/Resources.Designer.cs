@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Carstore.Properties
-{
-
-
+namespace Carstore.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,1682 @@ namespace Carstore.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    public class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Carstore.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add photos.
+        /// </summary>
+        public static string addCarView_AddPhotos {
+            get {
+                return ResourceManager.GetString("addCarView_AddPhotos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery capacity:.
+        /// </summary>
+        public static string addCarView_BatteryCapacity {
+            get {
+                return ResourceManager.GetString("addCarView_BatteryCapacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car information.
+        /// </summary>
+        public static string addCarView_CarInformation {
+            get {
+                return ResourceManager.GetString("addCarView_CarInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color:.
+        /// </summary>
+        public static string addCarView_Color {
+            get {
+                return ResourceManager.GetString("addCarView_Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a car.
+        /// </summary>
+        public static string addCarView_CreateACar {
+            get {
+                return ResourceManager.GetString("addCarView_CreateACar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description:.
+        /// </summary>
+        public static string addCarView_Description {
+            get {
+                return ResourceManager.GetString("addCarView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery.
+        /// </summary>
+        public static string addCarView_Gallery {
+            get {
+                return ResourceManager.GetString("addCarView_Gallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height:.
+        /// </summary>
+        public static string addCarView_Height {
+            get {
+                return ResourceManager.GetString("addCarView_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is electrical.
+        /// </summary>
+        public static string addCarView_IsElectrical {
+            get {
+                return ResourceManager.GetString("addCarView_IsElectrical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length.
+        /// </summary>
+        public static string addCarView_Length {
+            get {
+                return ResourceManager.GetString("addCarView_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark:.
+        /// </summary>
+        public static string addCarView_Mark {
+            get {
+                return ResourceManager.GetString("addCarView_Mark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model:.
+        /// </summary>
+        public static string addCarView_Model {
+            get {
+                return ResourceManager.GetString("addCarView_Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power:.
+        /// </summary>
+        public static string addCarView_Power {
+            get {
+                return ResourceManager.GetString("addCarView_Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        public static string addCarView_Price {
+            get {
+                return ResourceManager.GetString("addCarView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string addCarView_Reset {
+            get {
+                return ResourceManager.GetString("addCarView_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seats:.
+        /// </summary>
+        public static string addCarView_Seats {
+            get {
+                return ResourceManager.GetString("addCarView_Seats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tank size:.
+        /// </summary>
+        public static string addCarView_TankSize {
+            get {
+                return ResourceManager.GetString("addCarView_TankSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string addCarView_Type {
+            get {
+                return ResourceManager.GetString("addCarView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight:.
+        /// </summary>
+        public static string addCarView_Weight {
+            get {
+                return ResourceManager.GetString("addCarView_Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width.
+        /// </summary>
+        public static string addCarView_Width {
+            get {
+                return ResourceManager.GetString("addCarView_Width", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a photo.
+        /// </summary>
+        public static string addDetailView_AddAPhoto {
+            get {
+                return ResourceManager.GetString("addDetailView_AddAPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand.
+        /// </summary>
+        public static string addDetailView_Brand {
+            get {
+                return ResourceManager.GetString("addDetailView_Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a detail.
+        /// </summary>
+        public static string addDetailView_CreateADetail {
+            get {
+                return ResourceManager.GetString("addDetailView_CreateADetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string addDetailView_Description {
+            get {
+                return ResourceManager.GetString("addDetailView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detail information.
+        /// </summary>
+        public static string addDetailView_DetailInformation {
+            get {
+                return ResourceManager.GetString("addDetailView_DetailInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string addDetailView_Name {
+            get {
+                return ResourceManager.GetString("addDetailView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string addDetailView_Photo {
+            get {
+                return ResourceManager.GetString("addDetailView_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string addDetailView_Price {
+            get {
+                return ResourceManager.GetString("addDetailView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string addDetailView_Reset {
+            get {
+                return ResourceManager.GetString("addDetailView_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string addDetailView_Type {
+            get {
+                return ResourceManager.GetString("addDetailView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel changes.
+        /// </summary>
+        public static string adminUserEditToolView_CancelChanges {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_CancelChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderator.
+        /// </summary>
+        public static string adminUserEditToolView_Moderator {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_Moderator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string adminUserEditToolView_Name {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string adminUserEditToolView_Role {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes.
+        /// </summary>
+        public static string adminUserEditToolView_SaveChanges {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_SaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string adminUserEditToolView_User {
+            get {
+                return ResourceManager.GetString("adminUserEditToolView_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car.
+        /// </summary>
+        public static string appView_Car {
+            get {
+                return ResourceManager.GetString("appView_Car", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cars.
+        /// </summary>
+        public static string appView_Cars {
+            get {
+                return ResourceManager.GetString("appView_Cars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detail.
+        /// </summary>
+        public static string appView_Detail {
+            get {
+                return ResourceManager.GetString("appView_Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string appView_Details {
+            get {
+                return ResourceManager.GetString("appView_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string carInfoView_Back {
+            get {
+                return ResourceManager.GetString("carInfoView_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery capacity:.
+        /// </summary>
+        public static string carInfoView_BatteryCapacity {
+            get {
+                return ResourceManager.GetString("carInfoView_BatteryCapacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kWh.
+        /// </summary>
+        public static string carInfoView_BatteryUnits {
+            get {
+                return ResourceManager.GetString("carInfoView_BatteryUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car information.
+        /// </summary>
+        public static string carInfoView_CarInformation {
+            get {
+                return ResourceManager.GetString("carInfoView_CarInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color:.
+        /// </summary>
+        public static string carInfoView_Color {
+            get {
+                return ResourceManager.GetString("carInfoView_Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact a seller.
+        /// </summary>
+        public static string carInfoView_ContactASeller {
+            get {
+                return ResourceManager.GetString("carInfoView_ContactASeller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string carInfoView_Delete {
+            get {
+                return ResourceManager.GetString("carInfoView_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery.
+        /// </summary>
+        public static string carInfoView_Gallery {
+            get {
+                return ResourceManager.GetString("carInfoView_Gallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height:.
+        /// </summary>
+        public static string carInfoView_Height {
+            get {
+                return ResourceManager.GetString("carInfoView_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length.
+        /// </summary>
+        public static string carInfoView_Length {
+            get {
+                return ResourceManager.GetString("carInfoView_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power:.
+        /// </summary>
+        public static string carInfoView_Power {
+            get {
+                return ResourceManager.GetString("carInfoView_Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hp.
+        /// </summary>
+        public static string carInfoView_PowerUnits {
+            get {
+                return ResourceManager.GetString("carInfoView_PowerUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        public static string carInfoView_Price {
+            get {
+                return ResourceManager.GetString("carInfoView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seats:.
+        /// </summary>
+        public static string carInfoView_Seats {
+            get {
+                return ResourceManager.GetString("carInfoView_Seats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller:.
+        /// </summary>
+        public static string carInfoView_Seller {
+            get {
+                return ResourceManager.GetString("carInfoView_Seller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mm.
+        /// </summary>
+        public static string carInfoView_SizeUnits {
+            get {
+                return ResourceManager.GetString("carInfoView_SizeUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tank size:.
+        /// </summary>
+        public static string carInfoView_TankSize {
+            get {
+                return ResourceManager.GetString("carInfoView_TankSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to l.
+        /// </summary>
+        public static string carInfoView_TankUnits {
+            get {
+                return ResourceManager.GetString("carInfoView_TankUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string carInfoView_Type {
+            get {
+                return ResourceManager.GetString("carInfoView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weight:.
+        /// </summary>
+        public static string carInfoView_Weight {
+            get {
+                return ResourceManager.GetString("carInfoView_Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kg.
+        /// </summary>
+        public static string carInfoView_WeightUnits {
+            get {
+                return ResourceManager.GetString("carInfoView_WeightUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width.
+        /// </summary>
+        public static string carInfoView_Width {
+            get {
+                return ResourceManager.GetString("carInfoView_Width", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        public static string carsDataGridView_ColorHeader {
+            get {
+                return ResourceManager.GetString("carsDataGridView_ColorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark:.
+        /// </summary>
+        public static string carsDataGridView_Mark {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Mark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mark.
+        /// </summary>
+        public static string carsDataGridView_MarkHeader {
+            get {
+                return ResourceManager.GetString("carsDataGridView_MarkHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model:.
+        /// </summary>
+        public static string carsDataGridView_Model {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string carsDataGridView_ModelHeader {
+            get {
+                return ResourceManager.GetString("carsDataGridView_ModelHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string carsDataGridView_Photo {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power:.
+        /// </summary>
+        public static string carsDataGridView_Power {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power.
+        /// </summary>
+        public static string carsDataGridView_PowerHeader {
+            get {
+                return ResourceManager.GetString("carsDataGridView_PowerHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        public static string carsDataGridView_Price {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string carsDataGridView_PriceHeader {
+            get {
+                return ResourceManager.GetString("carsDataGridView_PriceHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string carsDataGridView_Reset {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string carsDataGridView_Search {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller.
+        /// </summary>
+        public static string carsDataGridView_Seller {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Seller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show mine.
+        /// </summary>
+        public static string carsDataGridView_ShowMine {
+            get {
+                return ResourceManager.GetString("carsDataGridView_ShowMine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string carsDataGridView_Type {
+            get {
+                return ResourceManager.GetString("carsDataGridView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact.
+        /// </summary>
+        public static string carType_Compact {
+            get {
+                return ResourceManager.GetString("carType_Compact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convertible.
+        /// </summary>
+        public static string carType_Convertible {
+            get {
+                return ResourceManager.GetString("carType_Convertible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coupe.
+        /// </summary>
+        public static string carType_Coupe {
+            get {
+                return ResourceManager.GetString("carType_Coupe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crossover.
+        /// </summary>
+        public static string carType_Crossover {
+            get {
+                return ResourceManager.GetString("carType_Crossover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hatchback.
+        /// </summary>
+        public static string carType_Hatchback {
+            get {
+                return ResourceManager.GetString("carType_Hatchback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hypercar.
+        /// </summary>
+        public static string carType_Hypercar {
+            get {
+                return ResourceManager.GetString("carType_Hypercar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minivan.
+        /// </summary>
+        public static string carType_Minivan {
+            get {
+                return ResourceManager.GetString("carType_Minivan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Muscle car.
+        /// </summary>
+        public static string carType_MuscleCar {
+            get {
+                return ResourceManager.GetString("carType_MuscleCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pickup.
+        /// </summary>
+        public static string carType_Pickup {
+            get {
+                return ResourceManager.GetString("carType_Pickup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roadster.
+        /// </summary>
+        public static string carType_Roadster {
+            get {
+                return ResourceManager.GetString("carType_Roadster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sedan.
+        /// </summary>
+        public static string carType_Sedan {
+            get {
+                return ResourceManager.GetString("carType_Sedan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sports car.
+        /// </summary>
+        public static string carType_SportsCar {
+            get {
+                return ResourceManager.GetString("carType_SportsCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supercar.
+        /// </summary>
+        public static string carType_Supercar {
+            get {
+                return ResourceManager.GetString("carType_Supercar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUV.
+        /// </summary>
+        public static string carType_SUV {
+            get {
+                return ResourceManager.GetString("carType_SUV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Van.
+        /// </summary>
+        public static string carType_Van {
+            get {
+                return ResourceManager.GetString("carType_Van", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string detailInfoView_Back {
+            get {
+                return ResourceManager.GetString("detailInfoView_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand:.
+        /// </summary>
+        public static string detailInfoView_Brand {
+            get {
+                return ResourceManager.GetString("detailInfoView_Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact a seller.
+        /// </summary>
+        public static string detailInfoView_ContactASeller {
+            get {
+                return ResourceManager.GetString("detailInfoView_ContactASeller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string detailInfoView_Delete {
+            get {
+                return ResourceManager.GetString("detailInfoView_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detail information.
+        /// </summary>
+        public static string detailInfoView_DetailInformation {
+            get {
+                return ResourceManager.GetString("detailInfoView_DetailInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string detailInfoView_Name {
+            get {
+                return ResourceManager.GetString("detailInfoView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string detailInfoView_Photo {
+            get {
+                return ResourceManager.GetString("detailInfoView_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        public static string detailInfoView_Price {
+            get {
+                return ResourceManager.GetString("detailInfoView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller:.
+        /// </summary>
+        public static string detailInfoView_Seller {
+            get {
+                return ResourceManager.GetString("detailInfoView_Seller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string detailInfoView_Type {
+            get {
+                return ResourceManager.GetString("detailInfoView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand:.
+        /// </summary>
+        public static string detailsDataGridView_Brand {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand.
+        /// </summary>
+        public static string detailsDataGridView_BrandHeader {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_BrandHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string detailsDataGridView_Name {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string detailsDataGridView_NameHeader {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_NameHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string detailsDataGridView_Photo {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        public static string detailsDataGridView_Price {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string detailsDataGridView_PriceHeader {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_PriceHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string detailsDataGridView_Reset {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string detailsDataGridView_Search {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seller.
+        /// </summary>
+        public static string detailsDataGridView_Seller {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Seller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show mine.
+        /// </summary>
+        public static string detailsDataGridView_ShowMine {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_ShowMine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string detailsDataGridView_Type {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string detailsDataGridView_TypeHeader {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_TypeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brake system.
+        /// </summary>
+        public static string detailType_BrakeSystem {
+            get {
+                return ResourceManager.GetString("detailType_BrakeSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Car body.
+        /// </summary>
+        public static string detailType_CarBody {
+            get {
+                return ResourceManager.GetString("detailType_CarBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cooling and heating.
+        /// </summary>
+        public static string detailType_CoolingAndHeating {
+            get {
+                return ResourceManager.GetString("detailType_CoolingAndHeating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Electronics and ignition system.
+        /// </summary>
+        public static string detailType_ElectronicsAndIgnitionSystem {
+            get {
+                return ResourceManager.GetString("detailType_ElectronicsAndIgnitionSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engine.
+        /// </summary>
+        public static string detailType_Engine {
+            get {
+                return ResourceManager.GetString("detailType_Engine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exhaust system.
+        /// </summary>
+        public static string detailType_ExhaustSystem {
+            get {
+                return ResourceManager.GetString("detailType_ExhaustSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filters.
+        /// </summary>
+        public static string detailType_Filters {
+            get {
+                return ResourceManager.GetString("detailType_Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lighting.
+        /// </summary>
+        public static string detailType_Lighting {
+            get {
+                return ResourceManager.GetString("detailType_Lighting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steering.
+        /// </summary>
+        public static string detailType_Steering {
+            get {
+                return ResourceManager.GetString("detailType_Steering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspension.
+        /// </summary>
+        public static string detailType_Suspension {
+            get {
+                return ResourceManager.GetString("detailType_Suspension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transmission.
+        /// </summary>
+        public static string detailType_Transmission {
+            get {
+                return ResourceManager.GetString("detailType_Transmission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        public static string loginView_Email {
+            get {
+                return ResourceManager.GetString("loginView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string loginView_Exit {
+            get {
+                return ResourceManager.GetString("loginView_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string loginView_Login {
+            get {
+                return ResourceManager.GetString("loginView_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        public static string loginView_Password {
+            get {
+                return ResourceManager.GetString("loginView_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string loginView_Register {
+            get {
+                return ResourceManager.GetString("loginView_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save password.
+        /// </summary>
+        public static string loginView_SavePassword {
+            get {
+                return ResourceManager.GetString("loginView_SavePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong email or password.
+        /// </summary>
+        public static string loginView_WrongEmailOrPassword {
+            get {
+                return ResourceManager.GetString("loginView_WrongEmailOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string notificationsView_All {
+            get {
+                return ResourceManager.GetString("notificationsView_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to by.
+        /// </summary>
+        public static string notificationsView_by {
+            get {
+                return ResourceManager.GetString("notificationsView_by", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string notificationsView_Date {
+            get {
+                return ResourceManager.GetString("notificationsView_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string notificationsView_Description {
+            get {
+                return ResourceManager.GetString("notificationsView_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From.
+        /// </summary>
+        public static string notificationsView_From {
+            get {
+                return ResourceManager.GetString("notificationsView_From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From me.
+        /// </summary>
+        public static string notificationsView_FromMe {
+            get {
+                return ResourceManager.GetString("notificationsView_FromMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string notificationsView_New {
+            get {
+                return ResourceManager.GetString("notificationsView_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reload.
+        /// </summary>
+        public static string notificationsView_Reload {
+            get {
+                return ResourceManager.GetString("notificationsView_Reload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        public static string notificationsView_To {
+            get {
+                return ResourceManager.GetString("notificationsView_To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To me.
+        /// </summary>
+        public static string notificationsView_ToMe {
+            get {
+                return ResourceManager.GetString("notificationsView_ToMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wants to buy.
+        /// </summary>
+        public static string notificationsView_wantsToBuy {
+            get {
+                return ResourceManager.GetString("notificationsView_wantsToBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string profileView_Cancel {
+            get {
+                return ResourceManager.GetString("profileView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string profileView_ChangePassword {
+            get {
+                return ResourceManager.GetString("profileView_ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string profileView_Clear {
+            get {
+                return ResourceManager.GetString("profileView_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit profile.
+        /// </summary>
+        public static string profileView_EditProfile {
+            get {
+                return ResourceManager.GetString("profileView_EditProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit users.
+        /// </summary>
+        public static string profileView_EditUsers {
+            get {
+                return ResourceManager.GetString("profileView_EditUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string profileView_Email {
+            get {
+                return ResourceManager.GetString("profileView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email and phone are used.
+        /// </summary>
+        public static string profileView_EmailAndPhoneAreUsed {
+            get {
+                return ResourceManager.GetString("profileView_EmailAndPhoneAreUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is used.
+        /// </summary>
+        public static string profileView_EmailIsUsed {
+            get {
+                return ResourceManager.GetString("profileView_EmailIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firstname.
+        /// </summary>
+        public static string profileView_Firstname {
+            get {
+                return ResourceManager.GetString("profileView_Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect password.
+        /// </summary>
+        public static string profileView_IncorrectPassword {
+            get {
+                return ResourceManager.GetString("profileView_IncorrectPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lastname.
+        /// </summary>
+        public static string profileView_Lastname {
+            get {
+                return ResourceManager.GetString("profileView_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string profileView_LogOut {
+            get {
+                return ResourceManager.GetString("profileView_LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string profileView_NewPassword {
+            get {
+                return ResourceManager.GetString("profileView_NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password.
+        /// </summary>
+        public static string profileView_OldPassword {
+            get {
+                return ResourceManager.GetString("profileView_OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string profileView_Phone {
+            get {
+                return ResourceManager.GetString("profileView_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone is used.
+        /// </summary>
+        public static string profileView_PhoneIsUsed {
+            get {
+                return ResourceManager.GetString("profileView_PhoneIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string profileView_Photo {
+            get {
+                return ResourceManager.GetString("profileView_Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat new password.
+        /// </summary>
+        public static string profileView_RepeatNewPassword {
+            get {
+                return ResourceManager.GetString("profileView_RepeatNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string profileView_Save {
+            get {
+                return ResourceManager.GetString("profileView_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        public static string profileView_Select {
+            get {
+                return ResourceManager.GetString("profileView_Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string registerView_Back {
+            get {
+                return ResourceManager.GetString("registerView_Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        public static string registerView_Email {
+            get {
+                return ResourceManager.GetString("registerView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email and phone are used.
+        /// </summary>
+        public static string registerView_EmailAndPhoneAreUsed {
+            get {
+                return ResourceManager.GetString("registerView_EmailAndPhoneAreUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is used.
+        /// </summary>
+        public static string registerView_EmailIsUsed {
+            get {
+                return ResourceManager.GetString("registerView_EmailIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firstname:.
+        /// </summary>
+        public static string registerView_Firstname {
+            get {
+                return ResourceManager.GetString("registerView_Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lastname:.
+        /// </summary>
+        public static string registerView_Lastname {
+            get {
+                return ResourceManager.GetString("registerView_Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        public static string registerView_Password {
+            get {
+                return ResourceManager.GetString("registerView_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone:.
+        /// </summary>
+        public static string registerView_Phone {
+            get {
+                return ResourceManager.GetString("registerView_Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone is used.
+        /// </summary>
+        public static string registerView_PhoneIsUsed {
+            get {
+                return ResourceManager.GetString("registerView_PhoneIsUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string registerView_Register {
+            get {
+                return ResourceManager.GetString("registerView_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat:.
+        /// </summary>
+        public static string registerView_Repeat {
+            get {
+                return ResourceManager.GetString("registerView_Repeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string settingsView_English {
+            get {
+                return ResourceManager.GetString("settingsView_English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language:.
+        /// </summary>
+        public static string settingsView_Language {
+            get {
+                return ResourceManager.GetString("settingsView_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save and restart.
+        /// </summary>
+        public static string settingsView_SaveAndRestart {
+            get {
+                return ResourceManager.GetString("settingsView_SaveAndRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        public static string settingsView_Ukrainian {
+            get {
+                return ResourceManager.GetString("settingsView_Ukrainian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Admin.
+        /// </summary>
+        public static string userType_Admin {
+            get {
+                return ResourceManager.GetString("userType_Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderator.
+        /// </summary>
+        public static string userType_Moderator {
+            get {
+                return ResourceManager.GetString("userType_Moderator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string userType_User {
+            get {
+                return ResourceManager.GetString("userType_User", resourceCulture);
             }
         }
     }

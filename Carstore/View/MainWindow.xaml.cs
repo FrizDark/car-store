@@ -17,6 +17,9 @@ using Carstore.Model;
 using System.Security.Cryptography;
 using System.Configuration;
 using Carstore.View.Login;
+using System.Diagnostics;
+using System.Threading;
+using System.Globalization;
 
 namespace Carstore
 {
@@ -37,13 +40,23 @@ namespace Carstore
         {
             InitializeComponent();
             MainGrid.Children.Clear();
-            
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
+            try
+            {
+                string value = config.AppSettings.Settings["Language"]?.Value;
+                if (value != null) Thread.CurrentThread.CurrentUICulture = new CultureInfo(value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             _loginView = new LoginView();
             _loginView.ExitButton.Click += LoginViewExitClick;
             _loginView.LoginButton.Click += LoginViewLoginClick;
             _loginView.RegisterButton.Click += LoginViewRegisterClick;
-
-            Configuration config = ConfigurationManager.OpenExeConfiguration(GetAppPath());
+            
             try
             {
                 string value = config.AppSettings.Settings["UserId"]?.Value;
@@ -112,17 +125,17 @@ namespace Carstore
                 await Task.Run(() => isUsedPhone = db.User.FirstOrDefault(user => user.Phone == phone) != null);
                 if (isUsedEmail && isUsedPhone)
                 {
-                    _registerView.MessageBlock.Text = "Email and phone are used";
+                    _registerView.MessageBlock.Text = Properties.Resources.registerView_EmailAndPhoneAreUsed;
                     return;
                 } 
                 else if (isUsedEmail)
                 {
-                    _registerView.MessageBlock.Text = "Email is used";
+                    _registerView.MessageBlock.Text = Properties.Resources.registerView_EmailIsUsed;
                     return;
                 } 
                 else if (isUsedPhone)
                 {
-                    _registerView.MessageBlock.Text = "Phone is used";
+                    _registerView.MessageBlock.Text = Properties.Resources.registerView_PhoneIsUsed;
                     return;
                 }
                 db.User.Add(new User
@@ -132,7 +145,7 @@ namespace Carstore
                     Email = _registerView.EmailBox.Text,
                     Phone = phone,
                     Password = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(_registerView.PasswordBox.Password)),
-                    TypeId = db.UserType.First(type => type.Name == "User").Id
+                    TypeId = db.UserType.First(type => type.Name == "userType_User").Id
                 });
                 await db.SaveChangesAsync();
                 RegisterViewBackClick(sender, e);
@@ -185,7 +198,7 @@ namespace Carstore
                         return;
                     }
                 }
-                _loginView.MessageBlock.Text = "Wrong email or password";
+                _loginView.MessageBlock.Text = Properties.Resources.loginView_WrongEmailOrPassword;
             }
         }
 
@@ -203,10 +216,16 @@ namespace Carstore
             config.Save(ConfigurationSaveMode.Modified);
         }
 
-        private string GetAppPath()
+        public static string GetAppPath()
         {
             System.Reflection.Module[] modules = System.Reflection.Assembly.GetExecutingAssembly().GetModules();
             return modules[0].FullyQualifiedName;
+        }
+
+        public static void Restart()
+        {
+            Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
     }

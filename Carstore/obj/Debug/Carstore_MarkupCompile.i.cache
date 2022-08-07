@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\dmitr\Desktop\Project\Carstore\Carstore\App.xaml
-141457423015
+151161737694
 21620480149
-461248161245
+49-281119355
 20799357595
-View\CarScreens\AddCarView.xaml;View\DetailScreens\AddDetailView.xaml;View\Profile\AdminUserEditToolView.xaml;View\AppView.xaml;View\CarScreens\CarInfoView.xaml;View\CarScreens\CarsDataGridView.xaml;View\DetailScreens\DetailInfoView.xaml;View\DetailScreens\DetailsDataGridView.xaml;View\Login\LoginView.xaml;View\MainWindow.xaml;View\NotificationsView.xaml;View\Components\NumericUpDown.xaml;View\Profile\ProfileView.xaml;View\Login\RegisterView.xaml;
+View\CarScreens\AddCarView.xaml;View\DetailScreens\AddDetailView.xaml;View\Profile\AdminUserEditToolView.xaml;View\AppView.xaml;View\CarScreens\CarInfoView.xaml;View\CarScreens\CarsDataGridView.xaml;View\DetailScreens\DetailInfoView.xaml;View\DetailScreens\DetailsDataGridView.xaml;View\Login\LoginView.xaml;View\MainWindow.xaml;View\NotificationsView.xaml;View\Components\NumericUpDown.xaml;View\Profile\ProfileView.xaml;View\Login\RegisterView.xaml;View\SettingsView.xaml;
 
-True
+False
 
