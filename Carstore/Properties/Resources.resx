@@ -528,6 +528,9 @@
   <data name="notificationsView_Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="notificationsView_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="notificationsView_From" xml:space="preserve">
     <value>From</value>
   </data>
@@ -536,6 +539,9 @@
   </data>
   <data name="notificationsView_New" xml:space="preserve">
     <value>New</value>
+  </data>
+  <data name="notificationsView_Phone" xml:space="preserve">
+    <value>Phone</value>
   </data>
   <data name="notificationsView_Reload" xml:space="preserve">
     <value>Reload</value>

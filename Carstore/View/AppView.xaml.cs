@@ -121,11 +121,6 @@ namespace Carstore.View
             AddPopup.IsOpen = !AddPopup.IsOpen;
         }
 
-        private void AddPopup_MouseLeave(object sender, MouseEventArgs e)
-        {
-            AddPopup.IsOpen = false;
-        }
-
         private void AddCarButton_Click(object sender, RoutedEventArgs e)
         {
             AddPopup.IsOpen = false;

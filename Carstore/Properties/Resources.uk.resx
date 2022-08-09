@@ -528,6 +528,9 @@
   <data name="notificationsView_Description" xml:space="preserve">
     <value>Опис</value>
   </data>
+  <data name="notificationsView_Email" xml:space="preserve">
+    <value>Е-пошта</value>
+  </data>
   <data name="notificationsView_From" xml:space="preserve">
     <value>Від</value>
   </data>
@@ -536,6 +539,9 @@
   </data>
   <data name="notificationsView_New" xml:space="preserve">
     <value>Нове</value>
+  </data>
+  <data name="notificationsView_Phone" xml:space="preserve">
+    <value>Телефон</value>
   </data>
   <data name="notificationsView_Reload" xml:space="preserve">
     <value>Оновити</value>

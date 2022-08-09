@@ -1294,6 +1294,15 @@ namespace Carstore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string notificationsView_Email {
+            get {
+                return ResourceManager.GetString("notificationsView_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From.
         /// </summary>
         public static string notificationsView_From {
@@ -1317,6 +1326,15 @@ namespace Carstore.Properties {
         public static string notificationsView_New {
             get {
                 return ResourceManager.GetString("notificationsView_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string notificationsView_Phone {
+            get {
+                return ResourceManager.GetString("notificationsView_Phone", resourceCulture);
             }
         }
         

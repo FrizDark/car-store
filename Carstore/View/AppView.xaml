@@ -95,7 +95,7 @@
                     <Image Source="../Images/Plus.png" Width="20" Height="20" Stretch="Fill"/>
                 </Button>
                 <Popup Name="AddPopup" Placement="Bottom" MaxWidth="100" AllowsTransparency="True"
-                       MouseLeave="AddPopup_MouseLeave">
+                       StaysOpen="False">
                     <Grid>
 
                         <Grid.RowDefinitions>
