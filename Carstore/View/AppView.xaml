@@ -91,7 +91,8 @@
             <StackPanel>
                 <Button Name="AddButton" Width="30" Height="30" Margin="5"
                         Click="AddButton_Click"
-                        Style="{DynamicResource CircleButton}">
+                        Style="{DynamicResource CircleButton}"
+                        ToolTip="{x:Static p:Resources.appView_Create}">
                     <Image Source="../Images/Plus.png" Width="20" Height="20" Stretch="Fill"/>
                 </Button>
                 <Popup Name="AddPopup" Placement="Bottom" MaxWidth="100" AllowsTransparency="True"
@@ -129,7 +130,8 @@
             <Grid>
                 <Button Name="NotuficationButton" Width="30" Height="30" Margin="5"
                         Click="NotificationButton_Click"
-                        Style="{DynamicResource CircleButton}">
+                        Style="{DynamicResource CircleButton}"
+                        ToolTip="{x:Static p:Resources.appView_Notifications}">
                     <Image Source="../Images/Notification.png" Width="23" Height="23" Stretch="Fill"/>
                 </Button>
                 <Grid Width="15" Height="15" 
@@ -144,24 +146,26 @@
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                FontSize="8"
-                               Name="NotificationsNumberBox">
-                        0
-                    </TextBlock>
+                               Name="NotificationsNumberBox"
+                               Text="0"/>
                 </Grid>
             </Grid>
             <Button Name="HomeButton" Width="30" Height="30" Margin="5"
-                        Click="HomeButton_Click"
-                        Style="{DynamicResource CircleButton}">
+                    Click="HomeButton_Click"
+                    Style="{DynamicResource CircleButton}"
+                    ToolTip="{x:Static p:Resources.appView_Home}">
                 <Image Source="../Images/Home.png" Width="20" Height="20" Stretch="Fill"/>
             </Button>
             <Button Name="SettingsButton" Width="30" Height="30" Margin="5"
-                        Click="SettingsButton_Click"
-                        Style="{DynamicResource CircleButton}">
+                    Click="SettingsButton_Click"
+                    Style="{DynamicResource CircleButton}"
+                    ToolTip="{x:Static p:Resources.appView_Settings}">
                 <Image Source="../Images/Gear.png" Width="20" Height="20" Stretch="Fill"/>
             </Button>
             <Button Name="ProfileButton" Width="30" Height="30" Margin="5"
-                        Click="ProfileButton_Click"
-                        Style="{DynamicResource CircleButton}">
+                    Click="ProfileButton_Click"
+                    Style="{DynamicResource CircleButton}"
+                    ToolTip="{x:Static p:Resources.appView_Profile}">
                 <Border Width="30" Height="30" CornerRadius="15">
                     <Border.Background>
                         <ImageBrush x:Name="ProfileAvatar" ImageSource="../Images/Profile.png" Stretch="Fill"/>

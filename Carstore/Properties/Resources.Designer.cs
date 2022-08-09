@@ -403,6 +403,15 @@ namespace Carstore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a proposition.
+        /// </summary>
+        public static string appView_Create {
+            get {
+                return ResourceManager.GetString("appView_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Detail.
         /// </summary>
         public static string appView_Detail {
@@ -417,6 +426,42 @@ namespace Carstore.Properties {
         public static string appView_Details {
             get {
                 return ResourceManager.GetString("appView_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string appView_Home {
+            get {
+                return ResourceManager.GetString("appView_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notifications.
+        /// </summary>
+        public static string appView_Notifications {
+            get {
+                return ResourceManager.GetString("appView_Notifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile information.
+        /// </summary>
+        public static string appView_Profile {
+            get {
+                return ResourceManager.GetString("appView_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string appView_Settings {
+            get {
+                return ResourceManager.GetString("appView_Settings", resourceCulture);
             }
         }
         
@@ -642,6 +687,42 @@ namespace Carstore.Properties {
         public static string carsDataGridView_MarkHeader {
             get {
                 return ResourceManager.GetString("carsDataGridView_MarkHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum power.
+        /// </summary>
+        public static string carsDataGridView_MaxPower {
+            get {
+                return ResourceManager.GetString("carsDataGridView_MaxPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum price.
+        /// </summary>
+        public static string carsDataGridView_MaxPrice {
+            get {
+                return ResourceManager.GetString("carsDataGridView_MaxPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum power.
+        /// </summary>
+        public static string carsDataGridView_MinPower {
+            get {
+                return ResourceManager.GetString("carsDataGridView_MinPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum price.
+        /// </summary>
+        public static string carsDataGridView_MinPrice {
+            get {
+                return ResourceManager.GetString("carsDataGridView_MinPrice", resourceCulture);
             }
         }
         
@@ -889,6 +970,105 @@ namespace Carstore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Black.
+        /// </summary>
+        public static string color_Black {
+            get {
+                return ResourceManager.GetString("color_Black", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        public static string color_Blue {
+            get {
+                return ResourceManager.GetString("color_Blue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brown.
+        /// </summary>
+        public static string color_Brown {
+            get {
+                return ResourceManager.GetString("color_Brown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gray.
+        /// </summary>
+        public static string color_Gray {
+            get {
+                return ResourceManager.GetString("color_Gray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green.
+        /// </summary>
+        public static string color_Green {
+            get {
+                return ResourceManager.GetString("color_Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orange.
+        /// </summary>
+        public static string color_Orange {
+            get {
+                return ResourceManager.GetString("color_Orange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pink.
+        /// </summary>
+        public static string color_Pink {
+            get {
+                return ResourceManager.GetString("color_Pink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purple.
+        /// </summary>
+        public static string color_Purple {
+            get {
+                return ResourceManager.GetString("color_Purple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red.
+        /// </summary>
+        public static string color_Red {
+            get {
+                return ResourceManager.GetString("color_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White.
+        /// </summary>
+        public static string color_White {
+            get {
+                return ResourceManager.GetString("color_White", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow.
+        /// </summary>
+        public static string color_Yellow {
+            get {
+                return ResourceManager.GetString("color_Yellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         public static string detailInfoView_Back {
@@ -993,6 +1173,24 @@ namespace Carstore.Properties {
         public static string detailsDataGridView_BrandHeader {
             get {
                 return ResourceManager.GetString("detailsDataGridView_BrandHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum price.
+        /// </summary>
+        public static string detailsDataGridView_MaxPrice {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_MaxPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum price.
+        /// </summary>
+        public static string detailsDataGridView_MinPrice {
+            get {
+                return ResourceManager.GetString("detailsDataGridView_MinPrice", resourceCulture);
             }
         }
         

@@ -130,11 +130,13 @@
                     Background="Gray">
                     <StackPanel Orientation="Horizontal">
                         <components:NumericUpDown x:Name="PriceMinBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0"
-                                             Width="100"
-                                             Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.carsDataGridView_MinPrice}"
+                                                  Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
                         <components:NumericUpDown x:Name="PriceMaxBox" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0 0 0"
-                                             Width="100"
-                                             Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.carsDataGridView_MaxPrice}"
+                                                  Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
                     </StackPanel>
                 </Border>
 
@@ -150,11 +152,13 @@
                     Background="Gray">
                     <StackPanel Orientation="Horizontal">
                         <components:NumericUpDown x:Name="PowerMinBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0"
-                                             Width="100"
-                                             Maximum="{Binding ElementName=PowerMaxBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.carsDataGridView_MinPower}"
+                                                  Maximum="{Binding ElementName=PowerMaxBox, Path=Value}"/>
                         <components:NumericUpDown x:Name="PowerMaxBox" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0 0 0"
-                                             Width="100"
-                                             Minimum="{Binding ElementName=PowerMinBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.carsDataGridView_MaxPrice}"
+                                                  Minimum="{Binding ElementName=PowerMinBox, Path=Value}"/>
                     </StackPanel>
                 </Border>
 
@@ -216,7 +220,7 @@
                             </Border>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Path=Power}" Width="50">
+                    <DataGridTextColumn Binding="{Binding Path=Power}" Width="100">
                         <DataGridTextColumn.Header>
                             <Border Background="{StaticResource Gray}" Padding="5 3" Margin="2" CornerRadius="5">
                                 <TextBlock FontWeight="Bold" Text="{x:Static p:Resources.carsDataGridView_PowerHeader}"/>

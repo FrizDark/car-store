@@ -231,11 +231,26 @@
   <data name="appView_Cars" xml:space="preserve">
     <value>Cars</value>
   </data>
+  <data name="appView_Create" xml:space="preserve">
+    <value>Create a proposition</value>
+  </data>
   <data name="appView_Detail" xml:space="preserve">
     <value>Detail</value>
   </data>
   <data name="appView_Details" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="appView_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="appView_Notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="appView_Profile" xml:space="preserve">
+    <value>Profile information</value>
+  </data>
+  <data name="appView_Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="carInfoView_Back" xml:space="preserve">
     <value>Back</value>
@@ -311,6 +326,18 @@
   </data>
   <data name="carsDataGridView_MarkHeader" xml:space="preserve">
     <value>Mark</value>
+  </data>
+  <data name="carsDataGridView_MaxPower" xml:space="preserve">
+    <value>Maximum power</value>
+  </data>
+  <data name="carsDataGridView_MaxPrice" xml:space="preserve">
+    <value>Maximum price</value>
+  </data>
+  <data name="carsDataGridView_MinPower" xml:space="preserve">
+    <value>Minimum power</value>
+  </data>
+  <data name="carsDataGridView_MinPrice" xml:space="preserve">
+    <value>Minimum price</value>
   </data>
   <data name="carsDataGridView_Model" xml:space="preserve">
     <value>Model:</value>
@@ -393,6 +420,39 @@
   <data name="carType_Van" xml:space="preserve">
     <value>Van</value>
   </data>
+  <data name="color_Black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="color_Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="color_Brown" xml:space="preserve">
+    <value>Brown</value>
+  </data>
+  <data name="color_Gray" xml:space="preserve">
+    <value>Gray</value>
+  </data>
+  <data name="color_Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="color_Orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="color_Pink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="color_Purple" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="color_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="color_White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="color_Yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
   <data name="detailInfoView_Back" xml:space="preserve">
     <value>Back</value>
   </data>
@@ -428,6 +488,12 @@
   </data>
   <data name="detailsDataGridView_BrandHeader" xml:space="preserve">
     <value>Brand</value>
+  </data>
+  <data name="detailsDataGridView_MaxPrice" xml:space="preserve">
+    <value>Maximum price</value>
+  </data>
+  <data name="detailsDataGridView_MinPrice" xml:space="preserve">
+    <value>Minimum price</value>
   </data>
   <data name="detailsDataGridView_Name" xml:space="preserve">
     <value>Name:</value>

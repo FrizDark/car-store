@@ -154,7 +154,7 @@
     <value>Модель:</value>
   </data>
   <data name="addCarView_Power" xml:space="preserve">
-    <value>Сила:</value>
+    <value>Потужність:</value>
   </data>
   <data name="addCarView_Price" xml:space="preserve">
     <value>Ціна:</value>
@@ -231,11 +231,26 @@
   <data name="appView_Cars" xml:space="preserve">
     <value>Авто</value>
   </data>
+  <data name="appView_Create" xml:space="preserve">
+    <value>Створити пропозицію</value>
+  </data>
   <data name="appView_Detail" xml:space="preserve">
     <value>Запчастина</value>
   </data>
   <data name="appView_Details" xml:space="preserve">
     <value>Запчастини</value>
+  </data>
+  <data name="appView_Home" xml:space="preserve">
+    <value>Дім</value>
+  </data>
+  <data name="appView_Notifications" xml:space="preserve">
+    <value>Повідомлення</value>
+  </data>
+  <data name="appView_Profile" xml:space="preserve">
+    <value>Інформація профілю</value>
+  </data>
+  <data name="appView_Settings" xml:space="preserve">
+    <value>Налаштування</value>
   </data>
   <data name="carInfoView_Back" xml:space="preserve">
     <value>Назад</value>
@@ -268,7 +283,7 @@
     <value>Довжина</value>
   </data>
   <data name="carInfoView_Power" xml:space="preserve">
-    <value>Сила:</value>
+    <value>Потужність:</value>
   </data>
   <data name="carInfoView_PowerUnits" xml:space="preserve">
     <value>кс</value>
@@ -312,6 +327,18 @@
   <data name="carsDataGridView_MarkHeader" xml:space="preserve">
     <value>Марка</value>
   </data>
+  <data name="carsDataGridView_MaxPower" xml:space="preserve">
+    <value>Максимальна потужність</value>
+  </data>
+  <data name="carsDataGridView_MaxPrice" xml:space="preserve">
+    <value>Максимальна ціна</value>
+  </data>
+  <data name="carsDataGridView_MinPower" xml:space="preserve">
+    <value>Мінімальна потужність</value>
+  </data>
+  <data name="carsDataGridView_MinPrice" xml:space="preserve">
+    <value>Мінімальна ціна</value>
+  </data>
   <data name="carsDataGridView_Model" xml:space="preserve">
     <value>Модель:</value>
   </data>
@@ -322,10 +349,10 @@
     <value>Фото</value>
   </data>
   <data name="carsDataGridView_Power" xml:space="preserve">
-    <value>Сила:</value>
+    <value>Потужність:</value>
   </data>
   <data name="carsDataGridView_PowerHeader" xml:space="preserve">
-    <value>Сила</value>
+    <value>Потужність</value>
   </data>
   <data name="carsDataGridView_Price" xml:space="preserve">
     <value>Ціна:</value>
@@ -393,6 +420,39 @@
   <data name="carType_Van" xml:space="preserve">
     <value>Фургон</value>
   </data>
+  <data name="color_Black" xml:space="preserve">
+    <value>Чорний</value>
+  </data>
+  <data name="color_Blue" xml:space="preserve">
+    <value>Блакитний</value>
+  </data>
+  <data name="color_Brown" xml:space="preserve">
+    <value>Коричневий</value>
+  </data>
+  <data name="color_Gray" xml:space="preserve">
+    <value>Сірий</value>
+  </data>
+  <data name="color_Green" xml:space="preserve">
+    <value>Зелений</value>
+  </data>
+  <data name="color_Orange" xml:space="preserve">
+    <value>Помаранчевий</value>
+  </data>
+  <data name="color_Pink" xml:space="preserve">
+    <value>Рожевий</value>
+  </data>
+  <data name="color_Purple" xml:space="preserve">
+    <value>Фіолетовий</value>
+  </data>
+  <data name="color_Red" xml:space="preserve">
+    <value>Червоний</value>
+  </data>
+  <data name="color_White" xml:space="preserve">
+    <value>Білий</value>
+  </data>
+  <data name="color_Yellow" xml:space="preserve">
+    <value>Жовтий</value>
+  </data>
   <data name="detailInfoView_Back" xml:space="preserve">
     <value>Назад</value>
   </data>
@@ -428,6 +488,12 @@
   </data>
   <data name="detailsDataGridView_BrandHeader" xml:space="preserve">
     <value>Бренд</value>
+  </data>
+  <data name="detailsDataGridView_MaxPrice" xml:space="preserve">
+    <value>Максимальна ціна</value>
+  </data>
+  <data name="detailsDataGridView_MinPrice" xml:space="preserve">
+    <value>Мінімальна ціна</value>
   </data>
   <data name="detailsDataGridView_Name" xml:space="preserve">
     <value>Назва:</value>

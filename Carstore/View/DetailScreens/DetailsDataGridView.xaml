@@ -112,11 +112,13 @@
                     Background="Gray">
                     <StackPanel Orientation="Horizontal">
                         <components:NumericUpDown x:Name="PriceMinBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 3 0"
-                                             Width="100"
-                                             Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.detailsDataGridView_MinPrice}"
+                                                  Maximum="{Binding ElementName=PriceMaxBox, Path=Value}"/>
                         <components:NumericUpDown x:Name="PriceMaxBox" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0 0 0"
-                                             Width="100"
-                                             Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
+                                                  Width="100"
+                                                  ToolTip="{x:Static p:Resources.detailsDataGridView_MaxPrice}"
+                                                  Minimum="{Binding ElementName=PriceMinBox, Path=Value}"/>
                     </StackPanel>
                 </Border>
 

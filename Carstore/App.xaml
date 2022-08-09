@@ -31,6 +31,17 @@
         </Style>
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+        <!-- Tooltips -->
+        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+        <Style TargetType="ToolTip">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <!-- Buttons -->
         <!-- - - - - - - - - - - - - - - - - - - - - - - -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
