@@ -1,0 +1,6 @@
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\bin\Debug\ImageLib.dll
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\bin\Debug\ImageLib.pdb
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\obj\Debug\ImageLib.csproj.AssemblyReference.cache
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\obj\Debug\ImageLib.csproj.CoreCompileInputs.cache
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\obj\Debug\ImageLib.dll
+C:\Users\dmitr\Desktop\Project\DBGenerator\ImageLib\obj\Debug\ImageLib.pdb
