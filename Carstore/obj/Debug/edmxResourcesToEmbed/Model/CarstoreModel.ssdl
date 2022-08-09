@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CarstoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="CarstoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Car">
     <Key>
       <PropertyRef Name="Id" />
@@ -8,7 +8,7 @@
     <Property Name="TypeId" Type="int" Nullable="false" />
     <Property Name="ModelId" Type="int" Nullable="false" />
     <Property Name="Price" Type="int" Nullable="false" />
-    <Property Name="Color" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ColorId" Type="int" Nullable="false" />
     <Property Name="IsElectrical" Type="bit" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Length" Type="int" Nullable="false" />
@@ -52,6 +52,13 @@
     <Property Name="CreationDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="CarType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Color">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -126,6 +133,18 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
+  <Association Name="FK__Car__ColorId__45AB4562">
+    <End Role="Color" Type="Self.Color" Multiplicity="1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Car__ModelId__73BA3083">
     <End Role="CarModel" Type="Self.CarModel" Multiplicity="1" />
     <End Role="Car" Type="Self.Car" Multiplicity="*" />
@@ -330,13 +349,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CarstoreDBModelStoreContainer">
+  <EntityContainer Name="CarstoreModelStoreContainer">
     <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarMark" EntityType="Self.CarMark" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarModel" EntityType="Self.CarModel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarPhoto" EntityType="Self.CarPhoto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarProposition" EntityType="Self.CarProposition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarType" EntityType="Self.CarType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DetailProposition" EntityType="Self.DetailProposition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DetailType" EntityType="Self.DetailType" Schema="dbo" store:Type="Tables" />
@@ -344,6 +364,10 @@
     <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Car__ColorId__45AB4562" Association="Self.FK__Car__ColorId__45AB4562">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
     <AssociationSet Name="FK__Car__ModelId__73BA3083" Association="Self.FK__Car__ModelId__73BA3083">
       <End Role="CarModel" EntitySet="CarModel" />
       <End Role="Car" EntitySet="Car" />

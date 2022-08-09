@@ -136,7 +136,7 @@ namespace Carstore.View.DetailScreens
                     Detail detail = new Detail
                     {
                         Name = new TextRange(NameBox.Document.ContentStart, NameBox.Document.ContentEnd).Text,
-                        DetailType = type,
+                        TypeId = type.Id,
                         Brand = BrandBox.Text,
                         Photo = _photo,
                         Price = PriceBox.Value,

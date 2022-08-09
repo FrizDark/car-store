@@ -343,12 +343,30 @@
                                FontWeight="Bold"
                                Margin="5"
                                Text="{x:Static p:Resources.addCarView_Color}"/>
-                    <TextBox Name="ColorBox" 
-                             Width="100"
-                             Height="25"
-                             Margin="2 0"
-                             Padding="0 3"
-                             Style="{StaticResource RoundedTextBoxStyle}"/>
+                    <Grid>
+                        <ComboBox Name="ColorBox"
+                                  Width="100"
+                                  Height="25"
+                                  Margin="2 0"
+                                  PreviewTextInput="ColorBox_PreviewTextInput"
+                                  Style="{StaticResource RoundedComboBoxStyle}"
+                                  SelectedValuePath="Name">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name, Converter={StaticResource LocalizeConverter}}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Border Background="{StaticResource DarkGray}"
+                                CornerRadius="3"
+                                Margin="8 8 25 8"
+                                Visibility="{Binding ElementName=ColorBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <TextBlock Name="ColorSearchBox"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       Background="Transparent"/>
+                        </Border>
+                    </Grid>
                 </StackPanel>
             </Border>
         </StackPanel>

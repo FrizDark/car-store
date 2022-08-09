@@ -53,7 +53,7 @@ namespace Carstore.View.CarScreens
                     ? Properties.Resources.carInfoView_BatteryUnits
                     : Properties.Resources.carInfoView_TankUnits;
                 SeatsBlock.Text = _proposition.Car.Seats.ToString();
-                ColorBlock.Text = _proposition.Car.Color;
+                ColorBlock.Text = Properties.Resources.ResourceManager.GetString(_proposition.Car.Color.Name);
                 TypeBlock.Text = Properties.Resources.ResourceManager.GetString(_proposition.Car.CarType.Name);
                 if (_proposition.User.Photo != null)
                 {

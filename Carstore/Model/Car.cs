@@ -26,7 +26,7 @@ namespace Carstore.Model
         public int TypeId { get; set; }
         public int ModelId { get; set; }
         public int Price { get; set; }
-        public string Color { get; set; }
+        public int ColorId { get; set; }
         public bool IsElectrical { get; set; }
         public string Description { get; set; }
         public int Length { get; set; }
@@ -37,6 +37,7 @@ namespace Carstore.Model
         public int TankSize { get; set; }
         public int Seats { get; set; }
     
+        public virtual Color Color { get; set; }
         public virtual CarModel CarModel { get; set; }
         public virtual CarType CarType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

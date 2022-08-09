@@ -105,8 +105,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarstoreModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\DGModels\CarTableModel.cs" />
     <Compile Include="Model\CarType.cs">
+      <DependentUpon>CarstoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Color.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Detail.cs">
@@ -115,28 +117,29 @@
     <Compile Include="Model\DetailProposition.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DGModels\DetailTableModel.cs" />
     <Compile Include="Model\DetailType.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DGModels\CarTableModel.cs" />
+    <Compile Include="Model\DGModels\DetailTableModel.cs" />
+    <Compile Include="Model\DGModels\NotificationTableModel.cs" />
+    <Compile Include="Model\DGModels\UserRoleModel.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\EmailConverter.cs" />
+    <Compile Include="Converters\EmptyEnumerableConverter.cs" />
+    <Compile Include="Converters\PhoneConverter.cs" />
     <Compile Include="Model\Notification.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DGModels\NotificationTableModel.cs" />
     <Compile Include="Model\Photo.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\DGModels\UserRoleModel.cs" />
     <Compile Include="Model\UserType.cs">
       <DependentUpon>CarstoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
-    <Compile Include="Converters\EmailConverter.cs" />
-    <Compile Include="Converters\EmptyEnumerableConverter.cs" />
-    <Compile Include="Converters\PhoneConverter.cs" />
     <Compile Include="Properties\Resources.uk.Designer.cs">
       <DependentUpon>Resources.uk.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -324,7 +327,6 @@
       <LastGenOutput>CarstoreModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -26,10 +26,12 @@ namespace Carstore.View.CarScreens
         private string _markSearch = "";
         private string _modelSearch = "";
         private string _typeSearch = "";
+        private string _colorSearch = "";
 
         private List<CarMark> _marks;
         private List<CarModel> _models;
         private List<CarType> _types;
+        private List<Model.Color> _colors;
 
         private List<Photo> _photos = new List<Photo>();
 
@@ -45,9 +47,11 @@ namespace Carstore.View.CarScreens
             {
                 _marks = db.CarMark.OrderBy(m => m.Name).ToList();
                 _types = db.CarType.OrderBy(t => t.Name).ToList();
+                _colors = db.Color.OrderBy(t => t.Name).ToList();
             }
             MarkBox.ItemsSource = _marks.ToList();
             TypeBox.ItemsSource = _types.ToList();
+            ColorBox.ItemsSource = _colors.ToList();
 
             ResetButton_Click(null, null);
 
@@ -83,17 +87,19 @@ namespace Carstore.View.CarScreens
             _markSearch = "";
             _modelSearch = "";
             _typeSearch = "";
+            _colorSearch = "";
             MarkSearchBox.Text = "";
             ModelSearchBox.Text = "";
             TypeSearchBox.Text = "";
+            ColorSearchBox.Text = "";
             _photos.Clear();
             GalleryList.ItemsSource = null;
             MarkBox.SelectedItem = null;
             ModelBox.SelectedItem = null;
             ModelBox.IsEnabled = false;
             TypeBox.SelectedItem = null;
+            ColorBox.SelectedItem = null;
             PriceBox.Value = PriceBox.Minimum;
-            ColorBox.Text = "";
             PowerBox.Value = PowerBox.Minimum;
             WeightBox.Value = WeightBox.Minimum;
             SeatsBox.Value = SeatsBox.Minimum;
@@ -116,14 +122,15 @@ namespace Carstore.View.CarScreens
 
                     CarType type = db.CarType.Find(((CarType)TypeBox.SelectedItem).Id);
                     CarModel model = db.CarModel.Find(((CarModel)ModelBox.SelectedItem).Id);
-                    if (type == null || model == null) return;
+                    Model.Color color = db.Color.Find(((Model.Color)ColorBox.SelectedItem).Id);
+                    if (type == null || model == null || color == null) return;
 
                     Car car = new Car
                     {
-                        CarType = type,
-                        CarModel = model,
+                        TypeId = type.Id,
+                        ModelId = model.Id,
                         Price = PriceBox.Value,
-                        Color = ColorBox.Text,
+                        ColorId = color.Id,
                         IsElectrical = IsElectricalBox.IsChecked == true,
                         Description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text,
                         Length = LengthBox.Value,
@@ -230,6 +237,11 @@ namespace Carstore.View.CarScreens
         private void IsElectricalBox_Unchecked(object sender, RoutedEventArgs e)
         {
             TankSizeBlock.Text = Properties.Resources.addCarView_TankSize;
+        }
+
+        private void ColorBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
 
     }

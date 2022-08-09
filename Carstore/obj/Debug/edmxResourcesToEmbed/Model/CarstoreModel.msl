@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CarstoreDBModelStoreContainer" CdmEntityContainer="CarstoreDBEntities">
+  <EntityContainerMapping StorageEntityContainer="CarstoreModelStoreContainer" CdmEntityContainer="CarstoreDBEntities">
     <EntitySetMapping Name="Car">
-      <EntityTypeMapping TypeName="CarstoreDBModel.Car">
+      <EntityTypeMapping TypeName="CarstoreModel.Car">
         <MappingFragment StoreEntitySet="Car">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="ModelId" ColumnName="ModelId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
           <ScalarProperty Name="IsElectrical" ColumnName="IsElectrical" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Length" ColumnName="Length" />
@@ -22,7 +22,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarMark">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarMark">
+      <EntityTypeMapping TypeName="CarstoreModel.CarMark">
         <MappingFragment StoreEntitySet="CarMark">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarModel">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarModel">
+      <EntityTypeMapping TypeName="CarstoreModel.CarModel">
         <MappingFragment StoreEntitySet="CarModel">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarPhoto">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarPhoto">
+      <EntityTypeMapping TypeName="CarstoreModel.CarPhoto">
         <MappingFragment StoreEntitySet="CarPhoto">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />
@@ -48,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarProposition">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarProposition">
+      <EntityTypeMapping TypeName="CarstoreModel.CarProposition">
         <MappingFragment StoreEntitySet="CarProposition">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -58,15 +58,23 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarType">
-      <EntityTypeMapping TypeName="CarstoreDBModel.CarType">
+      <EntityTypeMapping TypeName="CarstoreModel.CarType">
         <MappingFragment StoreEntitySet="CarType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="CarstoreModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Detail">
-      <EntityTypeMapping TypeName="CarstoreDBModel.Detail">
+      <EntityTypeMapping TypeName="CarstoreModel.Detail">
         <MappingFragment StoreEntitySet="Detail">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -79,7 +87,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DetailProposition">
-      <EntityTypeMapping TypeName="CarstoreDBModel.DetailProposition">
+      <EntityTypeMapping TypeName="CarstoreModel.DetailProposition">
         <MappingFragment StoreEntitySet="DetailProposition">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -89,7 +97,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DetailType">
-      <EntityTypeMapping TypeName="CarstoreDBModel.DetailType">
+      <EntityTypeMapping TypeName="CarstoreModel.DetailType">
         <MappingFragment StoreEntitySet="DetailType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -97,7 +105,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Notification">
-      <EntityTypeMapping TypeName="CarstoreDBModel.Notification">
+      <EntityTypeMapping TypeName="CarstoreModel.Notification">
         <MappingFragment StoreEntitySet="Notification">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserFromId" ColumnName="UserFromId" />
@@ -111,7 +119,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Photo">
-      <EntityTypeMapping TypeName="CarstoreDBModel.Photo">
+      <EntityTypeMapping TypeName="CarstoreModel.Photo">
         <MappingFragment StoreEntitySet="Photo">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Data" ColumnName="Data" />
@@ -119,7 +127,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="CarstoreDBModel.User">
+      <EntityTypeMapping TypeName="CarstoreModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />
@@ -133,7 +141,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserType">
-      <EntityTypeMapping TypeName="CarstoreDBModel.UserType">
+      <EntityTypeMapping TypeName="CarstoreModel.UserType">
         <MappingFragment StoreEntitySet="UserType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />

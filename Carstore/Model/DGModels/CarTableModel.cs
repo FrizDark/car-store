@@ -48,7 +48,7 @@ namespace Carstore.Model
             Photo = proposition.Car.CarPhoto.First().Photo.Data;
             Mark = proposition.Car.CarModel.CarMark.Name;
             Model = proposition.Car.CarModel.Name;
-            Color = proposition.Car.Color;
+            Color = Properties.Resources.ResourceManager.GetString(proposition.Car.Color.Name);
             Price = proposition.Car.Price;
             Power = proposition.Car.Power;
             Seller = $"{proposition.User.Firstname} {proposition.User.Lastname}";
