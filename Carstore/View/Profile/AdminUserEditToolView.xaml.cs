@@ -51,15 +51,12 @@ namespace Carstore.View.Profile
                     u.Id,
                     u.Firstname,
                     u.Lastname,
-                    Role = u.UserType.Name
+                    Role = u.UserType.Name,
+                    u.Email
                 }).ToList();
             dg.ItemsSource = new Collection<UserRoleModel>(users
-                .Select(u => new UserRoleModel
-                {
-                    Id = u.Id,
-                    Name = $"{u.Firstname} {u.Lastname}",
-                    Role = u.Role
-                }).ToList());
+                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.Role, u.Email))
+                .ToList());
         }
 
         private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
