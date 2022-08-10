@@ -24,6 +24,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -56,6 +57,17 @@
                     </Button>
                 </StackPanel>
             </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBlock Foreground="White"
+                       Margin="10 5 5 5"
+                       Text="{x:Static p:Resources.adminUserEditToolView_Name}"/>
+            <TextBox Name="NameBox"
+                     Style="{StaticResource RoundedTextBoxStyle}"
+                     Margin="5"
+                     Width="150"
+                     TextChanged="NameBox_TextChanged"/>
         </StackPanel>
 
         <DataGrid Grid.Row="2" Name="dg" Margin="5" Padding="5"

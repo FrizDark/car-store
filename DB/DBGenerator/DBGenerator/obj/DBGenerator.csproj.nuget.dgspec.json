@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\DBGenerator.csproj": {}
+    "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\DBGenerator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\DBGenerator.csproj": {
+    "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\DBGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
+        "projectUniqueName": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
         "projectName": "DBGenerator",
-        "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
+        "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
         "packagesPath": "C:\\Users\\dmitr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\obj\\",
+        "outputPath": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dmitr\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\ImageLib\\ImageLib.csproj": {
-                "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\ImageLib\\ImageLib.csproj"
+              "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\ImageLib\\ImageLib.csproj": {
+                "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\ImageLib\\ImageLib.csproj"
               }
             }
           }
@@ -78,11 +78,11 @@
         }
       }
     },
-    "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\ImageLib\\ImageLib.csproj": {
+    "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\ImageLib\\ImageLib.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\ImageLib\\ImageLib.csproj",
+        "projectUniqueName": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\ImageLib\\ImageLib.csproj",
         "projectName": "ImageLib",
-        "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\ImageLib\\ImageLib.csproj",
+        "projectPath": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\ImageLib\\ImageLib.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {}

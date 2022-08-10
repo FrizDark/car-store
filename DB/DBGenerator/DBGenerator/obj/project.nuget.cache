@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EVcGdb7uGMd77lFgw7lwXb+oburl3LwMVF5A5dSEOfmx5QTHGtBGt4DOgrF1Vaq6vMEbzi7szlPOLGEeGx8jyA==",
+  "dgSpecHash": "ei4myUnMRqvho3Nnv1NFKzcHkc/Rpdh+xROY06lBOye9YqYxW8FBGnAudKHMAs94Q4tWcwP7UG/Ip89XMuVlhA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dmitr\\Desktop\\Project\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
+  "projectFilePath": "C:\\Users\\dmitr\\Desktop\\Project\\Carstore\\DB\\DBGenerator\\DBGenerator\\DBGenerator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dmitr\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dmitr\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

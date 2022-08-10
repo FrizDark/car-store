@@ -500,21 +500,24 @@
                     <Setter Property="HorizontalAlignment" Value="Center"/>
                 </Style>
                 <Style TargetType="DataGridCell">
-                    <Setter Property="Margin" Value="2"/>
-                    <Setter Property="Padding" Value="5 3"/>
-                    <Setter Property="Background" Value="Gray"/>
-                    <Setter Property="Foreground" Value="White"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Style.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="3"/>
-                        </Style>
-                    </Style.Resources>
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{StaticResource Gray}"/>
-                        </Trigger>
-                    </Style.Triggers>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridCell">
+                                <Border Name="Border" 
+                                        CornerRadius="3"
+                                        Background="Gray"
+                                        Padding="3"
+                                        Margin="2">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource Gray}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="Transparent"/>

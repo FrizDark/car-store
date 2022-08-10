@@ -27,6 +27,7 @@ namespace Carstore.View.Profile
 
         private CarstoreDBEntities _db;
         private DbContextTransaction _tran;
+        private List<User> _users;
 
         public AdminUserEditToolView()
         {
@@ -44,18 +45,11 @@ namespace Carstore.View.Profile
 
         private void ShowUsers()
         {
-            var users = _db.User
+            _users = _db.User
                 .Where(u => u.UserType.Name != "userType_Admin")
-                .Select(u => new
-                {
-                    u.Id,
-                    u.Firstname,
-                    u.Lastname,
-                    Role = u.UserType.Name,
-                    u.Email
-                }).ToList();
-            dg.ItemsSource = new Collection<UserRoleModel>(users
-                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.Role, u.Email))
+                .ToList();
+            dg.ItemsSource = new Collection<UserRoleModel>(_users
+                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.UserType.Name, u.Email))
                 .ToList());
         }
 
@@ -135,5 +129,12 @@ namespace Carstore.View.Profile
             SaveButton.IsEnabled = false;
         }
 
+        private void NameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dg.ItemsSource = new Collection<UserRoleModel>(_users
+                .Where(x => string.IsNullOrWhiteSpace(NameBox.Text) || $"{x.Firstname} {x.Lastname}".Contains(NameBox.Text))
+                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.UserType.Name, u.Email))
+                .ToList());
+        }
     }
 }
