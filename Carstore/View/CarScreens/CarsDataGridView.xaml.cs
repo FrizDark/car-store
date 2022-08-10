@@ -119,48 +119,63 @@ namespace Carstore.View.CarScreens
         private void TypeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             TypeBox.ItemsSource = _types.SearchInComboBox(ref _typeSearch, e.Text[0],
-                b => string.IsNullOrWhiteSpace(_typeSearch) || b.Name.Contains(_typeSearch));
+                b => string.IsNullOrWhiteSpace(_typeSearch) || Properties.Resources.ResourceManager.GetString(b.Name).Contains(_typeSearch));
             TypeSearchBox.Text = _typeSearch;
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                List<CarProposition> filteredPurposes = db.CarProposition
-                    .Include("Car")
-                    .Include("Car.CarModel")
-                    .Include("Car.CarModel.CarMark")
-                    .Include("Car.CarPhoto")
-                    .Include("Car.CarPhoto.Photo")
-                    .Include("User")
-                    .ToList();
-                if (ShowMineBox.IsChecked == true)
+                try
                 {
-                    filteredPurposes = filteredPurposes.Where(c => c.UserId == MainWindow.SelectedUserId).ToList();
-                }
-                if (MarkBox.SelectedItem is CarMark mark && mark != null)
-                {
-                    filteredPurposes = filteredPurposes.Where(c => c.Car.CarModel.MarkId == mark.Id).ToList();
-                }
-                if (ModelBox.SelectedItem is CarModel model && model != null)
-                {
-                    filteredPurposes = filteredPurposes.Where(c => c.Car.ModelId == model.Id).ToList();
-                }
-                if (TypeBox.SelectedItem is CarType type && type != null)
-                {
-                    filteredPurposes = filteredPurposes.Where(c => c.Car.TypeId == type.Id).ToList();
-                }
-                int minPrice = PriceMinBox.Value;
-                int maxPrice = PriceMaxBox.Value;
-                int minPower = PowerMinBox.Value;
-                int maxPower = PowerMaxBox.Value;
-                filteredPurposes = filteredPurposes.Where(
-                    c => c.Car.Price >= minPrice && c.Car.Price <= maxPrice && c.Car.Power >= minPower && c.Car.Power <= maxPower
-                    ).ToList();
-                dg.ItemsSource = filteredPurposes
-                        .Select(c => new CarTableModel(c))
+                    bool isMine = ShowMineBox.IsChecked == true;
+                    CarMark mark = MarkBox.SelectedItem as CarMark;
+                    CarModel model = ModelBox.SelectedItem as CarModel;
+                    CarType type = TypeBox.SelectedItem as CarType;
+                    int minPrice = PriceMinBox.Value;
+                    int maxPrice = PriceMaxBox.Value;
+                    int minPower = PowerMinBox.Value;
+                    int maxPower = PowerMaxBox.Value;
+                    List<CarProposition> filteredPurposes = db.CarProposition
+                        .Include("Car")
+                        .Include("Car.CarModel")
+                        .Include("Car.CarModel.CarMark")
+                        .Include("Car.CarPhoto")
+                        .Include("Car.CarPhoto.Photo")
+                        .Include("User")
                         .ToList();
+                    await Task.Run(() =>
+                    {
+                        if (isMine)
+                        {
+                            filteredPurposes = filteredPurposes.Where(c => c.UserId == MainWindow.SelectedUserId).ToList();
+                        }
+                        if (mark != null)
+                        {
+                            filteredPurposes = filteredPurposes.Where(c => c.Car.CarModel.MarkId == mark.Id).ToList();
+                        }
+                        if (model != null)
+                        {
+                            filteredPurposes = filteredPurposes.Where(c => c.Car.ModelId == model.Id).ToList();
+                        }
+                        if (type != null)
+                        {
+                            filteredPurposes = filteredPurposes.Where(c => c.Car.TypeId == type.Id).ToList();
+                        }
+                        filteredPurposes = filteredPurposes.Where(
+                            c => c.Car.Price >= minPrice && c.Car.Price <= maxPrice && c.Car.Power >= minPower && c.Car.Power <= maxPower
+                            ).ToList();
+                    });
+                    dg.ItemsSource = filteredPurposes
+                            .Select(c => new CarTableModel(c))
+                            .ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return;
+                }
             }
         }
 

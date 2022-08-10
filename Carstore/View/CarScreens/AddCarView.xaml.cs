@@ -1,4 +1,5 @@
-﻿using Carstore.Model;
+﻿using Carstore.Extensions;
+using Carstore.Model;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,8 @@ namespace Carstore.View.CarScreens
             }
             GalleryList.SelectedItem = null;
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e) => _backAction();
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
@@ -182,37 +185,30 @@ namespace Carstore.View.CarScreens
 
         private void MarkBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            MarkBox.ItemsSource = Search(_marks, ref _markSearch, e.Text[0],
+            MarkBox.ItemsSource = _marks.SearchInComboBox(ref _markSearch, e.Text[0],
                 b => string.IsNullOrWhiteSpace(_markSearch) || b.Name.Contains(_markSearch));
             MarkSearchBox.Text = _markSearch;
         }
 
         private void ModelBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            ModelBox.ItemsSource = Search(_models, ref _modelSearch, e.Text[0],
+            ModelBox.ItemsSource = _models.SearchInComboBox(ref _modelSearch, e.Text[0],
                 b => string.IsNullOrWhiteSpace(_modelSearch) || b.Name.Contains(_modelSearch));
             ModelSearchBox.Text = _modelSearch;
         }
 
         private void TypeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            TypeBox.ItemsSource = Search(_types, ref _typeSearch, e.Text[0],
-                b => string.IsNullOrWhiteSpace(_typeSearch) || b.Name.Contains(_typeSearch));
+            TypeBox.ItemsSource = _types.SearchInComboBox(ref _typeSearch, e.Text[0],
+                b => string.IsNullOrWhiteSpace(_typeSearch) || Properties.Resources.ResourceManager.GetString(b.Name).Contains(_typeSearch));
             TypeSearchBox.Text = _typeSearch;
         }
 
-        private List<T> Search<T>(List<T> items, ref string search, char c, Func<T, bool> searchAction)
+        private void ColorBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (c == 8)
-            {
-                if (search.Length > 0)
-                    search = search.Remove(search.Length - 1);
-            }
-            else
-            {
-                search += c;
-            }
-            return items.Where(searchAction).ToList();
+            ColorBox.ItemsSource = _colors.SearchInComboBox(ref _colorSearch, e.Text[0],
+                b => string.IsNullOrWhiteSpace(_colorSearch) || Properties.Resources.ResourceManager.GetString(b.Name).Contains(_colorSearch));
+            ColorSearchBox.Text = _colorSearch;
         }
 
         private void DescriptionBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -238,11 +234,5 @@ namespace Carstore.View.CarScreens
         {
             TankSizeBlock.Text = Properties.Resources.addCarView_TankSize;
         }
-
-        private void ColorBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-
-        }
-
     }
 }

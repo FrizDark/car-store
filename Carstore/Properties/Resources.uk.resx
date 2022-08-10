@@ -123,6 +123,9 @@
   <data name="addCarView_BatteryCapacity" xml:space="preserve">
     <value>Місткість акумулятора:</value>
   </data>
+  <data name="addCarView_Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
   <data name="addCarView_CarInformation" xml:space="preserve">
     <value>Інформація об авто</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="addDetailView_Brand" xml:space="preserve">
     <value>Бренд:</value>
+  </data>
+  <data name="addDetailView_Cancel" xml:space="preserve">
+    <value>Скасувати</value>
   </data>
   <data name="addDetailView_CreateADetail" xml:space="preserve">
     <value>Створити запчастину</value>

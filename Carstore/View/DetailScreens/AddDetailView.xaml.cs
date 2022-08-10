@@ -1,4 +1,5 @@
-﻿using Carstore.Model;
+﻿using Carstore.Extensions;
+using Carstore.Model;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -75,23 +76,9 @@ namespace Carstore.View.DetailScreens
 
         private void TypeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            TypeBox.ItemsSource = Search(_types, ref _typeSearch, e.Text[0],
-                b => string.IsNullOrWhiteSpace(_typeSearch) || b.Name.Contains(_typeSearch));
+            TypeBox.ItemsSource = _types.SearchInComboBox(ref _typeSearch, e.Text[0],
+                b => string.IsNullOrWhiteSpace(_typeSearch) || Properties.Resources.ResourceManager.GetString(b.Name).Contains(_typeSearch));
             TypeSearchBox.Text = _typeSearch;
-        }
-
-        private List<T> Search<T>(List<T> items, ref string search, char c, Func<T, bool> searchAction)
-        {
-            if (c == 8)
-            {
-                if (search.Length > 0)
-                    search = search.Remove(search.Length - 1);
-            }
-            else
-            {
-                search += c;
-            }
-            return items.Where(searchAction).ToList();
         }
 
         private void DescriptionBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -107,6 +94,8 @@ namespace Carstore.View.DetailScreens
                 }
             }
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e) => _backAction();
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
@@ -161,6 +150,5 @@ namespace Carstore.View.DetailScreens
             _backAction();
 
         }
-
     }
 }

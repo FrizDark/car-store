@@ -307,6 +307,15 @@
                     HorizontalAlignment="Right">
 
             <Button Style="{StaticResource DeleteButtonStyle}"
+                    Name="CancelButton"
+                    Height="30"
+                    Margin="5"
+                    Padding="5"
+                    VerticalAlignment="Center"
+                    Click="CancelButton_Click">
+                <TextBlock Text="{x:Static p:Resources.addDetailView_Cancel}"/>
+            </Button>
+            <Button Style="{StaticResource RoundedButtonStyle5}"
                     Name="ResetButton"
                     Height="30"
                     Margin="5"

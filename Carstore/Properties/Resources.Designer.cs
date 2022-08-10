@@ -79,6 +79,15 @@ namespace Carstore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string addCarView_Cancel {
+            get {
+                return ResourceManager.GetString("addCarView_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Car information.
         /// </summary>
         public static string addCarView_CarInformation {
@@ -255,6 +264,15 @@ namespace Carstore.Properties {
         public static string addDetailView_Brand {
             get {
                 return ResourceManager.GetString("addDetailView_Brand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string addDetailView_Cancel {
+            get {
+                return ResourceManager.GetString("addDetailView_Cancel", resourceCulture);
             }
         }
         

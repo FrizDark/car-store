@@ -96,43 +96,57 @@ namespace Carstore.View.DetailScreens
         private void TypeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             TypeBox.ItemsSource = _types.SearchInComboBox(ref _typeSearch, e.Text[0],
-                b => string.IsNullOrWhiteSpace(_typeSearch) || b.Name.Contains(_typeSearch));
+                b => string.IsNullOrWhiteSpace(_typeSearch) || Properties.Resources.ResourceManager.GetString(b.Name).Contains(_typeSearch));
             TypeSearchBox.Text = _typeSearch;
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             using (CarstoreDBEntities db = new CarstoreDBEntities())
             {
-                List<DetailProposition> filteredPurposes = db.DetailProposition
-                    .Include("Detail")
-                    .Include("Detail.Photo")
-                    .Include("Detail.DetailType")
-                    .Include("User")
-                    .ToList();
-                if (ShowMineBox.IsChecked == true)
+                try
                 {
-                    filteredPurposes = filteredPurposes.Where(d => d.UserId == MainWindow.SelectedUserId).ToList();
-                }
-                filteredPurposes = filteredPurposes.Where(
-                    d => string.IsNullOrWhiteSpace(NameBox.Text) || d.Detail.Name.Contains(NameBox.Text))
-                    .ToList();
-                if (BrandBox.SelectedItem is string brand && brand != null)
-                {
-                    filteredPurposes = filteredPurposes.Where(d => d.Detail.Brand == brand).ToList();
-                }
-                if (TypeBox.SelectedItem is DetailType type && type != null)
-                {
-                    filteredPurposes = filteredPurposes.Where(d => d.Detail.TypeId == type.Id).ToList();
-                }
-                int minPrice = PriceMinBox.Value;
-                int maxPrice = PriceMaxBox.Value;
-                filteredPurposes = filteredPurposes.Where(
-                    d => d.Detail.Price >= minPrice && d.Detail.Price <= maxPrice
-                    ).ToList();
-                dg.ItemsSource = filteredPurposes
-                        .Select(d => new DetailTableModel(d))
+                    bool isMine = ShowMineBox.IsChecked == true;
+                    string name = NameBox.Text;
+                    string brand = BrandBox.SelectedItem as string;
+                    DetailType type = TypeBox.SelectedItem as DetailType;
+                    int minPrice = PriceMinBox.Value;
+                    int maxPrice = PriceMaxBox.Value;
+                    List<DetailProposition> filteredPurposes = db.DetailProposition
+                        .Include("Detail")
+                        .Include("Detail.Photo")
+                        .Include("Detail.DetailType")
+                        .Include("User")
                         .ToList();
+                    await Task.Run(() =>
+                    {
+                        if (isMine)
+                        {
+                            filteredPurposes = filteredPurposes.Where(d => d.UserId == MainWindow.SelectedUserId).ToList();
+                        }
+                        filteredPurposes = filteredPurposes.Where(
+                            d => string.IsNullOrWhiteSpace(name) || d.Detail.Name.Contains(name))
+                            .ToList();
+                        if (brand != null)
+                        {
+                            filteredPurposes = filteredPurposes.Where(d => d.Detail.Brand == brand).ToList();
+                        }
+                        if (type != null)
+                        {
+                            filteredPurposes = filteredPurposes.Where(d => d.Detail.TypeId == type.Id).ToList();
+                        }
+                        filteredPurposes = filteredPurposes.Where(
+                            d => d.Detail.Price >= minPrice && d.Detail.Price <= maxPrice
+                            ).ToList();
+                    });
+                    dg.ItemsSource = filteredPurposes
+                            .Select(d => new DetailTableModel(d))
+                            .ToList();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
