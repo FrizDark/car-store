@@ -21,6 +21,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Avatars\a1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Avatars\a2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Avatars\a3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Avatars\a4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Avatars\a5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="cars.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

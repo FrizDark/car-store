@@ -140,3 +140,8 @@ C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\obj\Debug\net
 C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\obj\Debug\net6.0\DBGenerator.pdb
 C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\obj\Debug\net6.0\DBGenerator.genruntimeconfig.cache
 C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\obj\Debug\net6.0\ref\DBGenerator.dll
+C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\bin\Debug\net6.0\Avatars\a1.png
+C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\bin\Debug\net6.0\Avatars\a2.png
+C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\bin\Debug\net6.0\Avatars\a3.png
+C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\bin\Debug\net6.0\Avatars\a4.png
+C:\Users\dmitr\Desktop\Project\Carstore\DB\DBGenerator\DBGenerator\bin\Debug\net6.0\Avatars\a5.png

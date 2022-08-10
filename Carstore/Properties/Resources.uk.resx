@@ -628,7 +628,7 @@
     <value>хоче купити</value>
   </data>
   <data name="profileView_Cancel" xml:space="preserve">
-    <value>Відмінити</value>
+    <value>Скасувати</value>
   </data>
   <data name="profileView_ChangePassword" xml:space="preserve">
     <value>Змінити пароль</value>

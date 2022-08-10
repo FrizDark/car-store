@@ -56,8 +56,12 @@
         <StackPanel Grid.Row="0" Margin="85 0 0 10" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical">
                 <TextBlock Margin="5" Text="{x:Static p:Resources.profileView_Photo}"/>
-                <Border Width="70" Height="70" Background="White" CornerRadius="10">
-                    <Image Name="ProfilePhoto" MaxWidth="70" MaxHeight="70"/>
+                <Border Width="70" Height="70" Background="Black" CornerRadius="10">
+                    <Border CornerRadius="10">
+                        <Border.Background>
+                            <ImageBrush x:Name="ProfilePhoto"/>
+                        </Border.Background>
+                    </Border>
                 </Border>
             </StackPanel>
             <StackPanel Name="ProfilePhotoButtonsBlock" Orientation="Vertical" VerticalAlignment="Center" Visibility="Hidden">
@@ -85,8 +89,8 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
                 <TextBlock Margin="10 0 0 0" Text="{x:Static p:Resources.profileView_Firstname}"/>
                 <Grid>
-                    <Border Name="FirstnameText" Margin="5" Padding="3" MinWidth="130" Height="20" Background="White" CornerRadius="2">
-                        <TextBlock Name="FirstnameBlock" Foreground="Black"></TextBlock>
+                    <Border Name="FirstnameText" Margin="5" Padding="3 2" MinWidth="130" Height="20" Background="Black" CornerRadius="2">
+                        <TextBlock Name="FirstnameBlock" Foreground="White"></TextBlock>
                     </Border>
                     <TextBox Visibility="Hidden" Name="FirstnameBox" MinWidth="130" Height="23">
                         <TextBox.Style>
@@ -104,8 +108,8 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
                 <TextBlock Margin="10 0 0 0" Text="{x:Static p:Resources.profileView_Lastname}"/>
                 <Grid>
-                    <Border Name="LastnameText" Margin="5" Padding="3" MinWidth="130" Background="White" CornerRadius="2">
-                        <TextBlock Name="LastnameBlock" Foreground="Black"></TextBlock>
+                    <Border Name="LastnameText" Margin="5" Padding="3 2" MinWidth="130" Background="Black" CornerRadius="2">
+                        <TextBlock Name="LastnameBlock" Foreground="White"></TextBlock>
                     </Border>
                     <TextBox Visibility="Hidden" Name="LastnameBox" MinWidth="130" Height="23">
                         <TextBox.Style>
@@ -126,8 +130,8 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
                 <TextBlock Margin="10 0 0 0" Text="{x:Static p:Resources.profileView_Email}"/>
                 <Grid>
-                    <Border Name="EmailText" Margin="5" Padding="3" MinWidth="130" Background="White" CornerRadius="2">
-                        <TextBlock Name="EmailBlock" Foreground="Black"></TextBlock>
+                    <Border Name="EmailText" Margin="5" Padding="3 2" MinWidth="130" Background="Black" CornerRadius="2">
+                        <TextBlock Name="EmailBlock" Foreground="White"></TextBlock>
                     </Border>
                     <TextBox Visibility="Hidden" Name="EmailBox" MinWidth="130" Height="23">
                         <TextBox.Style>
@@ -145,8 +149,8 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
                 <TextBlock Margin="10 0 0 0" Text="{x:Static p:Resources.profileView_Phone}"/>
                 <Grid>
-                    <Border Name="PhoneText" Margin="5" Padding="3" MinWidth="130" Background="White" CornerRadius="2">
-                        <TextBlock Name="PhoneBlock" Foreground="Black"></TextBlock>
+                    <Border Name="PhoneText" Margin="5" Padding="3 2" MinWidth="130" Background="Black" CornerRadius="2">
+                        <TextBlock Name="PhoneBlock" Foreground="White"></TextBlock>
                     </Border>
                     <TextBox Visibility="Hidden" Name="PhoneBox" MinWidth="130" Height="23"
                              PreviewTextInput="PhoneBox_PreviewTextInput">

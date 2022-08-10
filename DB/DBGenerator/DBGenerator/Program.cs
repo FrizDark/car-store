@@ -265,16 +265,21 @@ using (CarstoreDBContext db = new CarstoreDBContext())
 Console.WriteLine("Adding users");
 using (CarstoreDBContext db = new CarstoreDBContext())
 {
-    byte[] vasya = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Vasya"));
-    byte[] danya = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Petya"));
-    byte[] anna = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Anna"));
+    Photo vasyaAvatar =     new Photo { Data = GetBytes(@"Avatars\a1.png") };
+    Photo danyaAvatar =     new Photo { Data = GetBytes(@"Avatars\a2.png") };
+    Photo annaAvatar =      new Photo { Data = GetBytes(@"Avatars\a3.png") };
+    Photo andreyAvatar =    new Photo { Data = GetBytes(@"Avatars\a4.png") };
+    Photo igorAvatar =      new Photo { Data = GetBytes(@"Avatars\a5.png") };
+    byte[] vasya =  MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Vasya"));
+    byte[] danya =  MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Petya"));
+    byte[] anna =   MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Anna"));
     byte[] andrey = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Andrey"));
-    byte[] igor = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Igor"));
-    db.Users.Add(new User { Firstname = "Василій", Lastname = "Пупкін",     Email = "vasya@mail.com",   Phone = "(000)000-00-00", Password = vasya, TypeId = 1 });
-    db.Users.Add(new User { Firstname = "Даниїл", Lastname = "Сідоров",     Email = "danya@mail.com",   Phone = "(111)111-11-11", Password = danya, TypeId = 1 });
-    db.Users.Add(new User { Firstname = "Анна", Lastname = "Огурцова",      Email = "anna@mail.com",    Phone = "(222)222-22-22", Password = anna, TypeId = 2 });
-    db.Users.Add(new User { Firstname = "Андрей", Lastname = "Кавунов",     Email = "andrey@mail.com",  Phone = "(333)333-33-33", Password = andrey, TypeId = 3 });
-    db.Users.Add(new User { Firstname = "Ігор", Lastname = "Терабайтов",    Email = "igor@mail.com",    Phone = "(444)444-44-44", Password = igor, TypeId = 2 });
+    byte[] igor =   MD5.Create().ComputeHash(Encoding.UTF8.GetBytes("Igor"));
+    db.Users.Add(new User { Firstname = "Василій", Lastname = "Пупкін",     Email = "vasya@mail.com",   Phone = "(000)000-00-00", Password = vasya, TypeId = 1,     Avatar = vasyaAvatar });
+    db.Users.Add(new User { Firstname = "Даниїл", Lastname = "Сідоров",     Email = "danya@mail.com",   Phone = "(111)111-11-11", Password = danya, TypeId = 1,     Avatar = danyaAvatar });
+    db.Users.Add(new User { Firstname = "Анна", Lastname = "Огурцова",      Email = "anna@mail.com",    Phone = "(222)222-22-22", Password = anna, TypeId = 2,      Avatar = annaAvatar });
+    db.Users.Add(new User { Firstname = "Андрей", Lastname = "Кавунов",     Email = "andrey@mail.com",  Phone = "(333)333-33-33", Password = andrey, TypeId = 3,    Avatar = andreyAvatar });
+    db.Users.Add(new User { Firstname = "Ігор", Lastname = "Терабайтов",    Email = "igor@mail.com",    Phone = "(444)444-44-44", Password = igor, TypeId = 2,      Avatar = igorAvatar });
 
     db.SaveChanges();
 }

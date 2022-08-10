@@ -51,10 +51,10 @@ namespace Carstore.View.Profile
                 User user = db.User.First(usr => usr.Id == MainWindow.SelectedUserId);
                 if (user.Photo != null)
                 {
-                    ProfilePhoto.Source = ByteImage.GetImage(user.Photo.Data);
+                    ProfilePhoto.ImageSource = ByteImage.GetImage(user.Photo.Data);
                 } else
                 {
-                    ProfilePhoto.Source = null;
+                    ProfilePhoto.ImageSource = null;
                 }
                 FirstnameBlock.Text = user.Firstname;
                 LastnameBlock.Text = user.Lastname;
@@ -181,14 +181,14 @@ namespace Carstore.View.Profile
             if (f.ShowDialog() == true)
             {
                 _profilePhotoPath = f.FileName;
-                ProfilePhoto.Source = ByteImage.GetImage(ByteImage.GetBytes(_profilePhotoPath));
+                ProfilePhoto.ImageSource = ByteImage.GetImage(ByteImage.GetBytes(_profilePhotoPath));
             }
         }
 
         private void ClearProfilePhotoButton_Click(object sender, RoutedEventArgs e)
         {
             _profilePhotoPath = null;
-            ProfilePhoto.Source = null;
+            ProfilePhoto.ImageSource = null;
         }
 
         private async void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
