@@ -36,6 +36,8 @@ namespace Carstore.View
         public AppView(RoutedEventHandler logoutClick)
         {
             InitializeComponent();
+            ResetAllButtons();
+            HomeButton.Background = Brushes.LightGray;
             CarsTab.Content = new CarsDataGridView(UpdateNotifications);
             DetailsTab.Content = new DetailsDataGridView(UpdateNotifications);
             _tabControl = StoreTabs;
@@ -55,14 +57,27 @@ namespace Carstore.View
             });
         }
 
+        private void ResetAllButtons()
+        {
+            AddButton.Background = Brushes.White;
+            NotificationButton.Background = Brushes.White;
+            HomeButton.Background = Brushes.White;
+            SettingsButton.Background = Brushes.White;
+            ProfileButton.Background = Brushes.White;
+        }
+
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            SettingsButton.Background = Brushes.LightGray;
             PageField.Children.Clear();
             PageField.Children.Add(new SettingsView());
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            ProfileButton.Background = Brushes.LightGray;
             _profileView = new ProfileView(() =>
             {
                 using (CarstoreDBEntities db = new CarstoreDBEntities())
@@ -89,6 +104,8 @@ namespace Carstore.View
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            HomeButton.Background = Brushes.LightGray;
             PageField.Children.Clear();
             PageField.Children.Add(_tabControl);
             (CarsTab.Content as CarsDataGridView).UpdateList();
@@ -97,6 +114,8 @@ namespace Carstore.View
 
         private void NotificationButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            NotificationButton.Background = Brushes.LightGray;
             _notificationsView = new NotificationsView(UpdateNotifications);
             PageField.Children.Clear();
             PageField.Children.Add(_notificationsView);
@@ -123,21 +142,29 @@ namespace Carstore.View
 
         private void AddCarButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            AddButton.Background = Brushes.LightGray;
             AddPopup.IsOpen = false;
             PageField.Children.Clear();
             PageField.Children.Add(new AddCarView(() =>
             {
                 HomeButton_Click(null, null);
+                ResetAllButtons();
+                HomeButton.Background = Brushes.LightGray;
             }));
         }
 
         private void AddDetailButton_Click(object sender, RoutedEventArgs e)
         {
+            ResetAllButtons();
+            AddButton.Background = Brushes.LightGray;
             AddPopup.IsOpen = false;
             PageField.Children.Clear();
             PageField.Children.Add(new AddDetailView(() =>
             {
                 HomeButton_Click(null, null);
+                ResetAllButtons();
+                HomeButton.Background = Brushes.LightGray;
             }));
         }
 

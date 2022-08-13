@@ -22,6 +22,8 @@ namespace Carstore.View.Components
     public partial class NumericUpDown : UserControl
     {
 
+        private string _oldValue;
+
         public readonly static DependencyProperty MaximumProperty;
         public readonly static DependencyProperty MinimumProperty;
         public readonly static DependencyProperty ValueProperty;
@@ -87,10 +89,26 @@ namespace Carstore.View.Components
 
         private void Field_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!Field.Text.All(c => char.IsDigit(c)))
+                Field.Text = _oldValue;
             if (int.TryParse(Field.Text, out int value))
                 Value = value;
-            else
+            _oldValue = Field.Text;
+        }
+
+        private void Field_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Value < Minimum)
+            {
+                Field.Text = Minimum.ToString();
+            } else if (Value > Maximum)
+            {
+                Field.Text = Maximum.ToString();
+            } else
+            {
                 Field.Text = Value.ToString();
+            }
+            _oldValue = Field.Text;
         }
 
     }

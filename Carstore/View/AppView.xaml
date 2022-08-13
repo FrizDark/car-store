@@ -128,7 +128,7 @@
                 </Popup>
             </StackPanel>
             <Grid>
-                <Button Name="NotuficationButton" Width="30" Height="30" Margin="5"
+                <Button Name="NotificationButton" Width="30" Height="30" Margin="5"
                         Click="NotificationButton_Click"
                         Style="{DynamicResource CircleButton}"
                         ToolTip="{x:Static p:Resources.appView_Notifications}">
