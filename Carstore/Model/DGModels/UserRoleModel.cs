@@ -13,8 +13,9 @@ namespace Carstore.Model
         public string Name { get; set; }
         public string Role { get; set; }
         public string Email { get; set; }
+        public byte[] Photo { get; set; }
 
-        public UserRoleModel(int id, string name, string role, string email)
+        public UserRoleModel(int id, string name, string role, string email, byte[] photo)
         {
             Id = id;
             Name = name;
@@ -30,13 +31,14 @@ namespace Carstore.Model
             {
                 Email = $"{emailName.Substring(0, 2)}...{emailName.Last()}@{splittedEmail[1]}";
             }
+            Photo = photo;
         }
 
         public UserRoleModel(User user)
         {
             Id = user.Id;
             Name = $"{user.Firstname} {user.Lastname}";
-            Role = Properties.Resources.ResourceManager.GetString(user.UserType.Name);
+            Role = user.UserType.Name;
             string[] splittedEmail = user.Email.Split('@');
             if (splittedEmail.Length != 2) throw new ArgumentException();
             string emailName = splittedEmail[0];
@@ -47,6 +49,7 @@ namespace Carstore.Model
             {
                 Email = $"{emailName.Substring(0, 2)}...{emailName.Last()}";
             }
+            Photo = user.Photo.Data;
         }
 
     }

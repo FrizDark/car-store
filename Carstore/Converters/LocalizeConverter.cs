@@ -18,7 +18,7 @@ namespace Carstore.Converters
             {
                 return Properties.Resources.ResourceManager.GetString(key);
             }
-            return null;
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

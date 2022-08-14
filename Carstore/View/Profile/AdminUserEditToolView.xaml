@@ -89,8 +89,18 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}"
-                                       ToolTip="{Binding Email}"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Ellipse Name="SellerPhotoField" Width="20" Height="20"
+                                         Margin="0 0 5 0"
+                                         VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding Photo}" Stretch="Fill"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock Text="{Binding Name}"
+                                           VerticalAlignment="Center"
+                                           ToolTip="{Binding Email}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

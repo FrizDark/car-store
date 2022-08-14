@@ -49,7 +49,7 @@ namespace Carstore.View.Profile
                 .Where(u => u.UserType.Name != "userType_Admin")
                 .ToList();
             dg.ItemsSource = new Collection<UserRoleModel>(_users
-                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.UserType.Name, u.Email))
+                .Select(u => new UserRoleModel(u))
                 .ToList());
         }
 
@@ -133,7 +133,7 @@ namespace Carstore.View.Profile
         {
             dg.ItemsSource = new Collection<UserRoleModel>(_users
                 .Where(x => string.IsNullOrWhiteSpace(NameBox.Text) || $"{x.Firstname} {x.Lastname}".Contains(NameBox.Text))
-                .Select(u => new UserRoleModel(u.Id, $"{u.Firstname} {u.Lastname}", u.UserType.Name, u.Email))
+                .Select(u => new UserRoleModel(u))
                 .ToList());
         }
     }

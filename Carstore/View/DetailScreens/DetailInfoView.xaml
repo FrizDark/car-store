@@ -164,20 +164,28 @@
                 Height="30"
                 Margin="5"
                 Background="{StaticResource Gray}">
-                <TextBlock VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontWeight="Bold"
-                       Margin="5">
-                <Run Text="{x:Static p:Resources.detailInfoView_Seller}"/>
-                <Ellipse Name="SellerPhotoField" Width="10" Height="10"
-                         Visibility="Collapsed">
-                    <Ellipse.Fill>
-                        <ImageBrush x:Name="SellerPhoto" Stretch="Fill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <Run Name="SellerName">Some Name</Run>
-                </TextBlock>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5"
+                               Text="{x:Static p:Resources.carInfoView_Seller}"/>
+                    <Ellipse Name="SellerPhotoField" Width="20" Height="20"
+                             VerticalAlignment="Center"
+                             Visibility="Collapsed">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="SellerPhoto" Stretch="Fill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <TextBlock VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Margin="5"
+                               Name="SellerName"
+                               Text="Some Name"/>
+                </StackPanel>
             </Border>
         </StackPanel>
 
