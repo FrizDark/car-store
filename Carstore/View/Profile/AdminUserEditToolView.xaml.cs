@@ -116,6 +116,8 @@ namespace Carstore.View.Profile
         {
             _tran.Rollback();
             _tran.Dispose();
+            _db.Dispose();
+            _db = new CarstoreDBEntities();
             _tran = _db.Database.BeginTransaction();
             SaveButton.IsEnabled = false;
             ShowUsers();
