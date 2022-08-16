@@ -84,7 +84,6 @@ namespace Carstore.View.DetailScreens
         private void DescriptionBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string text = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text.Trim();
-            DescriptionBorder.BorderBrush = text.Length == 0 ? Brushes.Red : Brushes.LightGreen;
             if (text.Length > 1000)
             {
                 int gap = 0;
@@ -122,6 +121,8 @@ namespace Carstore.View.DetailScreens
                     DetailType type = db.DetailType.Find(((DetailType)TypeBox.SelectedItem).Id);
                     if (type == null) return;
 
+                    string description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text.Trim();
+
                     Detail detail = new Detail
                     {
                         Name = new TextRange(NameBox.Document.ContentStart, NameBox.Document.ContentEnd).Text,
@@ -129,7 +130,7 @@ namespace Carstore.View.DetailScreens
                         Brand = BrandBox.Text,
                         Photo = _photo,
                         Price = PriceBox.Value,
-                        Description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text
+                        Description = string.IsNullOrWhiteSpace(description) ? null : description,
                     };
 
                     DetailProposition proposition = new DetailProposition
